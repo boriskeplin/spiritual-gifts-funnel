@@ -73,6 +73,6 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   <button class="skip-btn" onclick="skip()">No thanks, skip this</button>
 </div>
 <script>
-async function add(){const b=document.querySelector('.cta-btn');b.textContent='Adding...';b.style.opacity='.7';setTimeout(()=>{window.location.href='upsell7.html'},1200)}
+async function add(){const b=document.querySelector('.cta-btn');b.textContent='Opening checkout...';b.style.opacity='.7';window.open('https://boriskep.gumroad.com/l/rpzdvi','_blank');setTimeout(()=>{window.location.href='upsell7.html';},1500);},1200)}
 function skip(){window.location.href='downsell6.html'}
 </script></body></html>
