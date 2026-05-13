@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Plan Is Being Prepared — Gifted</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--text:#160E05;--muted:#7A6240;--border:rgba(255,255,255,.1)}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 0 120px}
+
+/* Header */
+.header{width:100%;max-width:420px;display:flex;align-items:center;justify-content:space-between;padding:20px 20px 0}
+.logo{font-size:20px;font-weight:700;color:var(--accent);letter-spacing:-.5px}
+.header-menu{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer}
+
+.content{width:100%;max-width:420px;padding:24px 20px 0}
+
+/* Hero text */
+.hero-title{font-size:22px;font-weight:800;text-align:center;line-height:1.3;margin-bottom:6px}
+.hero-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:4px}
+.hero-note{font-size:11px;color:rgba(201,151,76,.7);text-align:center;margin-bottom:22px}
+
+/* Spiritual Mentor card */
+.spiritual mentor-card{background:var(--card);border-radius:18px;padding:18px;display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
+.spiritual mentor-avatar{width:56px;height:56px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(201,151,76,.3)}
+.spiritual mentor-avatar img{width:100%;height:100%;object-fit:cover}
+.spiritual mentor-info{flex:1}
+.spiritual mentor-name{font-size:15px;font-weight:700;margin-bottom:2px}
+.spiritual mentor-role{font-size:11px;color:var(--accent);margin-bottom:4px;font-weight:500}
+.spiritual mentor-stars{font-size:11px;color:#FBBF24;margin-bottom:6px}
+.spiritual mentor-bio{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* Countdown */
+.countdown-wrap{background:var(--card);border-radius:18px;padding:22px;text-align:center;margin-bottom:22px}
+.countdown-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.countdown-timer{font-size:52px;font-weight:800;letter-spacing:2px;color:var(--text);font-variant-numeric:tabular-nums;line-height:1}
+.countdown-sub{font-size:12px;color:var(--muted);margin-top:10px}
+.countdown-dots{display:flex;gap:4px;justify-content:center;margin-top:12px}
+.cdot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15)}
+.cdot.active{background:var(--accent)}
+
+/* In Progress modules */
+.section-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px}
+.module-card{background:var(--card);border-radius:14px;padding:16px;margin-bottom:10px}
+.module-status-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.module-status-title{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.module-status-badge{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);font-weight:500}
+.spinner{width:12px;height:12px;border:2px solid rgba(201,151,76,.3);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.module-progress-bar{height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;margin-bottom:8px}
+.module-progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),rgba(201,151,76,.5));border-radius:2px;animation:progress-pulse 2s ease-in-out infinite}
+@keyframes progress-pulse{0%,100%{opacity:.6}50%{opacity:1}}
+.module-name{font-size:14px;font-weight:600;margin-bottom:2px}
+.module-unlock{font-size:11px;color:var(--muted)}
+.module-unlock span{color:var(--accent);font-weight:600}
+
+/* Locked extras */
+.locked-card{background:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:border .2s;border:1.5px solid var(--border)}
+.locked-card:hover{border-color:rgba(201,151,76,.4)}
+.lock-icon{font-size:18px;flex-shrink:0}
+.locked-text{flex:1}
+.locked-name{font-size:13px;font-weight:600}
+.locked-desc{font-size:11px;color:var(--muted)}
+.locked-price{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+.locked-arrow{font-size:14px;color:var(--muted);margin-left:4px}
+
+/* Sticky CTA */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;padding:14px 20px 28px;background:linear-gradient(transparent,var(--bg) 30%);display:flex;justify-content:center;z-index:50}
+.expedite-btn{width:100%;max-width:380px;background:var(--accent);color:#FFFFFF;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:12px;padding:16px;cursor:pointer;transition:opacity .2s}
+.expedite-btn:hover{opacity:.9}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">✦ gifted</div>
+  <div class="header-menu">☰</div>
+</div>
+
+<div class="content">
+
+  <!-- Hero -->
+  <div class="hero-title">Your healing spiritual mentor<br>is starting now...</div>
+  <div class="hero-sub">Your plan will be ready within 48 hours.</div>
+  <div class="hero-note">May be sooner — check back anytime</div>
+
+  <!-- Spiritual Mentor -->
+  <div class="spiritual mentor-card">
+    <div class="spiritual mentor-avatar">
+      <img src="assets/graph_page_expert_jessica_reynolds.e199c244.webp" alt="Jessica">
+    </div>
+    <div class="spiritual mentor-info">
+      <div class="spiritual mentor-name">Jessica Reynolds</div>
+      <div class="spiritual mentor-role">Spiritual Growth Healing Spiritual Mentor · Clinical Psychologist</div>
+      <div class="spiritual mentor-stars">★★★★★ 4.9 · 8,200+ plans completed</div>
+      <div class="spiritual mentor-bio">Jessica specializes in spiritual gifts recovery and attachment healing. Her plans are built around each person's specific wound patterns — no two are ever the same.</div>
+    </div>
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown-wrap">
+    <div class="countdown-label">Your plan will be ready in</div>
+    <div class="countdown-timer" id="countdown">47:59:59</div>
+    <div class="countdown-sub">Jessica is building your personal healing roadmap</div>
+    <div class="countdown-dots">
+      <div class="cdot active" id="d0"></div>
+      <div class="cdot" id="d1"></div>
+      <div class="cdot" id="d2"></div>
+    </div>
+  </div>
+
+  <!-- In Progress modules -->
+  <div class="section-label">Your modules — in progress</div>
+
+  <div class="module-card">
+    <div class="module-status-row">
+      <div class="module-status-title">Spiritual Growth Pattern Analysis — In Progress</div>
+      <div class="module-status-badge"><div class="spinner"></div> Building</div>
+    </div>
+    <div class="module-progress-bar"><div class="module-progress-fill" style="width:35%"></div></div>
+    <div class="module-name">Spiritual Gifts Profile</div>
+    <div class="module-unlock">Unlocks in <span id="unlock1">47:59:59</span></div>
+  </div>
+
+  <div class="module-card">
+    <div class="module-status-row">
+      <div class="module-status-title">Healing Roadmap — In Progress</div>
+      <div class="module-status-badge"><div class="spinner"></div> Writing</div>
+    </div>
+    <div class="module-progress-bar"><div class="module-progress-fill" style="width:18%"></div></div>
+    <div class="module-name">Your Personalized Gift Activation Plan</div>
+    <div class="module-unlock">Unlocks in <span id="unlock2">47:59:59</span></div>
+  </div>
+
+  <!-- Locked extras -->
+  <div class="section-label" style="margin-top:22px">Add to your plan</div>
+
+  <div class="locked-card" onclick="goUnlockAll()">
+    <div class="lock-icon">🔒</div>
+    <div class="locked-text">
+      <div class="locked-name">Inner Child Wound Report</div>
+      <div class="locked-desc">Identify your specific childhood wound type</div>
+    </div>
+    <div class="locked-price">£4 <span class="locked-arrow">→</span></div>
+  </div>
+
+  <div class="locked-card" onclick="goUnlockAll()">
+    <div class="lock-icon">🔒</div>
+    <div class="locked-text">
+      <div class="locked-name">Relationship Pattern Analysis</div>
+      <div class="locked-desc">How your spiritual growth shapes who you choose & how you love</div>
+    </div>
+    <div class="locked-price">£4 <span class="locked-arrow">→</span></div>
+  </div>
+
+  <div class="locked-card" onclick="goUnlockAll()">
+    <div class="lock-icon">🔒</div>
+    <div class="locked-text">
+      <div class="locked-name">Self-Worth Recovery Plan</div>
+      <div class="locked-desc">Rebuild confidence from the inside out</div>
+    </div>
+    <div class="locked-price">£4 <span class="locked-arrow">→</span></div>
+  </div>
+
+  <div class="locked-card" onclick="goUnlockAll()">
+    <div class="lock-icon">🔒</div>
+    <div class="locked-text">
+      <div class="locked-name">Anxiety Management Kit</div>
+      <div class="locked-desc">Tools for nervous system regulation & triggers</div>
+    </div>
+    <div class="locked-price">£4 <span class="locked-arrow">→</span></div>
+  </div>
+
+  <div class="locked-card" onclick="goUnlockAll()">
+    <div class="lock-icon">🔒</div>
+    <div class="locked-text">
+      <div class="locked-name">Childhood Memory Processing Guide</div>
+      <div class="locked-desc">Safe techniques to process difficult memories</div>
+    </div>
+    <div class="locked-price">£4 <span class="locked-arrow">→</span></div>
+  </div>
+
+</div>
+
+<!-- Sticky expedite CTA -->
+<div class="sticky-cta">
+  <button class="expedite-btn" onclick="goUnlockAll()">⚡ Expedite My Plan to 24 Hours</button>
+</div>
+
+<script>
+// ── 48hr countdown — persists in localStorage so refresh doesn't reset ──
+const KEY = '✦ gifted_plan_end';
+let planEnd = parseInt(localStorage.getItem(KEY));
+if (!planEnd || isNaN(planEnd)) {
+  planEnd = Date.now() + 48 * 60 * 60 * 1000;
+  localStorage.setItem(KEY, planEnd);
+}
+
+function fmt(ms) {
+  const total = Math.max(0, ms);
+  const h = Math.floor(total / 3600000);
+  const m = Math.floor((total % 3600000) / 60000);
+  const s = Math.floor((total % 60000) / 1000);
+  return h + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+}
+
+function tick() {
+  const left = planEnd - Date.now();
+  const t = fmt(left);
+  document.getElementById('countdown').textContent = t;
+  document.getElementById('unlock1').textContent = t;
+  document.getElementById('unlock2').textContent = t;
+  if (left > 0) setTimeout(tick, 1000);
+}
+tick();
+
+// Animate dots
+let dotIdx = 0;
+setInterval(() => {
+  for(let i=0;i<3;i++) document.getElementById('d'+i).classList.remove('active');
+  dotIdx = (dotIdx+1)%3;
+  document.getElementById('d'+dotIdx).classList.add('active');
+}, 800);
+
+function goUnlockAll() {
+  window.location.href = 'unlock-all.html';
+}
+</script>
+</body>
+</html>

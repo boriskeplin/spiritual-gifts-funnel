@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wait — Special Offer — Discover Your Gift</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--red:#8B1A1A;--gold:#B8870B;--text:#160E05;--muted:#7A6240;--btn:#F5E9C8;--btn-h:#EDD99E;--shadow:0 2px 18px rgba(180,140,60,.18)}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding-bottom:100px}
+.wrap{width:100%;max-width:420px;padding:20px 20px 0;display:flex;flex-direction:column;align-items:center;gap:10px}
+.logo{font-size:16px;font-weight:800;color:var(--accent)}
+.prog-label{font-size:12px;color:var(--muted)}
+.prog-dots{display:flex;gap:6px}
+.dot{width:28px;height:6px;border-radius:3px}
+.dot.active{background:var(--accent)}.dot.done{background:rgba(27,75,138,.35)}.dot.future{background:#D4C498}
+.content{width:100%;max-width:420px;padding:20px}
+.art-img{width:100%;border-radius:16px;box-shadow:var(--shadow);margin-bottom:20px;max-height:240px;object-fit:cover;object-position:center top}
+.offer-title{font-size:22px;font-weight:800;line-height:1.25;margin-bottom:8px}
+.scripture-pull{background:var(--card);border-left:3px solid var(--red);border-radius:0 10px 10px 0;padding:12px 14px;margin-bottom:16px}
+.scripture-text{font-family:'Lora',serif;font-style:italic;font-size:14px;line-height:1.6;color:var(--text)}
+.scripture-ref{font-size:11px;font-weight:700;color:var(--red);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+.offer-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.what-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.bullet{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5}
+.b-cross{color:var(--red);font-size:14px;flex-shrink:0;margin-top:1px}
+.cta-wrap{position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:1px solid #E5D89A;padding:16px 20px 28px;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:50}
+.cta-btn{width:100%;max-width:380px;background:var(--accent);color:#fff;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:opacity .2s;box-shadow:0 4px 14px rgba(27,75,138,.3)}
+.cta-btn:hover{opacity:.9}
+.cta-charge{font-size:11px;color:var(--muted);text-align:center;max-width:340px}
+.skip-btn{font-size:13px;color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;font-family:'Poppins',sans-serif}
+/* Downsell-specific */
+.top-banner{width:100%;background:var(--red);color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-weight:600}
+.page-content{width:100%;max-width:420px;padding:24px 20px 0}
+.wait-badge{display:inline-block;background:rgba(139,26,26,.1);color:var(--red);font-size:11px;font-weight:700;padding:5px 12px;border-radius:10px;margin-bottom:12px}
+.ds-title{font-size:22px;font-weight:800;line-height:1.3;margin-bottom:10px}
+.ds-sub{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.price-compare{background:var(--card);border-radius:14px;padding:18px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:var(--shadow)}
+.price-was{text-align:center;flex:1}
+.price-was-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.price-was-val{font-size:20px;font-weight:700;text-decoration:line-through;color:var(--muted)}
+.price-arrow{font-size:18px;color:var(--accent)}
+.price-now{text-align:center;flex:1}
+.price-now-lbl{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;font-weight:700}
+.price-now-val{font-size:30px;font-weight:800;color:var(--accent)}
+.mini-card{background:var(--card);border-radius:14px;padding:16px;margin-bottom:20px;box-shadow:var(--shadow)}
+.mini-title{font-size:13px;font-weight:700;margin-bottom:10px}
+.mini-items{display:flex;flex-direction:column;gap:8px}
+.mini-item{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.5}
+.mi-yes{color:var(--red);font-size:13px;flex-shrink:0}
+.mi-no{color:#C4B99E;font-size:13px;flex-shrink:0}
+.mi-muted{color:var(--muted)}
+</style></head><body>
+<div class="top-banner">⚡ One-time offer — this will not appear again</div>
+<div class="page-content">
+  <div style="font-size:20px;font-weight:800;color:var(--accent);text-align:center;margin:20px 0 4px">✝ Discover Your Gift</div>
+  <div class="wait-badge">WAIT — SPECIAL OFFER</div>
+  <div class="ds-title">Get the 10 Identity Declarations for £2</div>
+  <div class="ds-sub">Not ready for the full workbook right now — that is fine. These 10 declarations are the core of the full workbook. Read them aloud daily for 30 days and watch what happens to how you see yourself. Taken directly from the New Testament.</div>
+  <div class="price-compare">
+    <div class="price-was"><div class="price-was-lbl">Full guide</div><div class="price-was-val">£4</div></div>
+    <div class="price-arrow">→</div>
+    <div class="price-now"><div class="price-now-lbl">Your price today</div><div class="price-now-val">£2</div></div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">10 Identity Declarations — what's included at £2:</div>
+    <div class="mini-items"><div class="mini-item"><span class="mi-yes">✝</span><span>10 Scripture-based declarations of who you are in Christ</span></div><div class="mini-item"><span class="mi-yes">✝</span><span>A short introduction to receiving your identity as a child of God</span></div><div class="mini-item"><span class="mi-no">✕</span><span class="mi-muted">40-declaration full workbook (full guide only)</span></div><div class="mini-item"><span class="mi-no">✕</span><span class="mi-muted">The shame audit and source-tracing exercise (full guide only)</span></div><div class="mini-item"><span class="mi-no">✕</span><span class="mi-muted">14-day embedding practice (full guide only)</span></div></div>
+  </div>
+</div>
+<div class="cta-wrap">
+  <button class="cta-btn" onclick="take()">Yes — Add for £2</button>
+  <div class="cta-charge">One-time offering of £2. No subscription.</div>
+  <button class="skip-btn" onclick="skip()">No thanks, continue</button>
+</div>
+<script>
+async function take(){const b=document.querySelector('.cta-btn');b.textContent='Adding...';b.style.opacity='.7';setTimeout(()=>{window.location.href='upsell6.html'},1200)}
+function skip(){window.location.href='upsell6.html'}
+</script></body></html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>30-Day Healing Challenge — Gifted</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--text:#160E05;--muted:#7A6240;--border:rgba(255,255,255,.1)}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 0 120px}
+
+.logo{font-size:20px;font-weight:700;color:var(--accent);margin-bottom:20px;letter-spacing:-.5px}
+.content{width:100%;max-width:420px;padding:0 20px}
+
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(251,191,36,.12);color:#FBBF24;font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;margin-bottom:16px}
+.title{font-size:26px;font-weight:800;line-height:1.2;margin-bottom:10px}
+.sub{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:24px}
+
+/* Trajectory */
+.graph-wrap{background:var(--card);border-radius:18px;padding:18px;margin-bottom:20px}
+.graph-title{font-size:14px;font-weight:700;margin-bottom:4px}
+.graph-sub{font-size:11px;color:var(--muted);margin-bottom:12px}
+.graph-img{width:100%;border-radius:10px}
+.graph-labels{display:flex;gap:14px;margin-top:10px}
+.g-label{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
+.g-line{width:16px;height:3px;border-radius:2px}
+
+/* Week breakdown */
+.weeks{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.week{background:var(--card);border-radius:14px;padding:16px;display:flex;gap:14px;align-items:flex-start}
+.week-num{width:36px;height:36px;border-radius:50%;background:rgba(201,151,76,.12);color:var(--accent);font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.week-info{flex:1}
+.week-title{font-size:14px;font-weight:700;margin-bottom:3px}
+.week-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.week-img{width:44px;height:44px;border-radius:10px;overflow:hidden;flex-shrink:0}
+.week-img img{width:100%;height:100%;object-fit:cover}
+
+/* Social proof */
+.proof{background:var(--card);border-radius:16px;padding:18px;margin-bottom:20px}
+.proof-stat{text-align:center;margin-bottom:14px}
+.proof-num{font-size:36px;font-weight:800;color:var(--accent)}
+.proof-desc{font-size:12px;color:var(--muted);margin-top:2px}
+.proof-divider{height:1px;background:var(--border);margin-bottom:14px}
+.reviews{display:flex;flex-direction:column;gap:10px}
+.review{font-size:12px;line-height:1.6;color:#E5E7EB;font-style:italic;padding-left:10px;border-left:2px solid rgba(201,151,76,.3)}
+.review-name{font-size:11px;color:var(--muted);margin-top:4px;font-style:normal;font-weight:600}
+
+/* Price */
+.price-box{background:linear-gradient(135deg,rgba(251,191,36,.1),rgba(251,191,36,.03));border:1.5px solid rgba(251,191,36,.3);border-radius:20px;padding:22px;text-align:center;margin-bottom:20px}
+.price-orig{font-size:14px;color:var(--muted);text-decoration:line-through;margin-bottom:2px}
+.price-now{font-size:42px;font-weight:800;color:#FBBF24}
+.price-desc{font-size:12px;color:var(--muted);margin-top:6px;margin-bottom:16px}
+.price-btn{display:block;width:100%;background:#FBBF24;color:#FFFFFF;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:opacity .2s}
+.price-btn:hover{opacity:.9}
+.price-note{font-size:11px;color:var(--muted);margin-top:10px}
+
+/* Skip */
+.sticky-skip{position:fixed;bottom:0;left:0;right:0;padding:14px 20px 28px;background:linear-gradient(transparent,var(--bg) 30%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:50}
+.main-btn{width:100%;max-width:380px;background:#FBBF24;color:#FFFFFF;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:opacity .2s}
+.main-btn:hover{opacity:.9}
+.skip-link{font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;font-family:'Poppins',sans-serif}
+</style>
+</head>
+<body>
+<div class="logo">✦ gifted</div>
+<div class="content">
+
+  <div class="badge">🔥 LIMITED OFFER</div>
+  <div class="title">Add the 30-Day Healing Challenge</div>
+  <div class="sub">Most people start a faith journey but lose momentum after week one. The 30-Day Challenge gives you a structured daily practice — one focused module per day — so you stay consistent long enough for real change to happen.</div>
+
+  <!-- Trajectory graph -->
+  <div class="graph-wrap">
+    <div class="graph-title">What 30 days of consistency looks like</div>
+    <div class="graph-sub">Based on participants who completed the full challenge</div>
+    <img class="graph-img" src="assets/plan_graph_image.e6cde15b.webp" alt="Progress over 30 days">
+    <div class="graph-labels">
+      <div class="g-label"><div class="g-line" style="background:#F87171"></div>Without structure</div>
+      <div class="g-label"><div class="g-line" style="background:#C9974C"></div>With 30-Day Challenge</div>
+    </div>
+  </div>
+
+  <!-- Week breakdown -->
+  <div class="weeks">
+    <div class="week">
+      <div class="week-num">W1</div>
+      <div class="week-info">
+        <div class="week-title">Awareness & Foundation</div>
+        <div class="week-desc">Understand your spiritual growth type, identify your main triggers, and establish your daily healing rhythm.</div>
+      </div>
+      <div class="week-img"><img src="assets/plan_page_healing_plan_img_1.19b153b7.webp" alt=""></div>
+    </div>
+    <div class="week">
+      <div class="week-num">W2</div>
+      <div class="week-info">
+        <div class="week-title">Emotional Processing</div>
+        <div class="week-desc">Work through stored emotions using guided journaling, somatic practices, and breath work.</div>
+      </div>
+      <div class="week-img"><img src="assets/plan_page_healing_plan_img_2.e0009bd9.webp" alt=""></div>
+    </div>
+    <div class="week">
+      <div class="week-num">W3</div>
+      <div class="week-info">
+        <div class="week-title">Rewiring Patterns</div>
+        <div class="week-desc">Start replacing old coping mechanisms with new responses. Build your emotional regulation toolkit.</div>
+      </div>
+      <div class="week-img"><img src="assets/plan_page_healing_plan_img_3.2f185b71.webp" alt=""></div>
+    </div>
+    <div class="week">
+      <div class="week-num">W4</div>
+      <div class="week-info">
+        <div class="week-title">Integration & Growth</div>
+        <div class="week-desc">Lock in your new patterns, celebrate progress, and build the habits that sustain healing long-term.</div>
+      </div>
+      <div class="week-img"><img src="assets/plan_page_heart_green_img.1902b0ba.webp" alt=""></div>
+    </div>
+  </div>
+
+  <!-- Social proof -->
+  <div class="proof">
+    <div class="proof-stat">
+      <div class="proof-num">87%</div>
+      <div class="proof-desc">of participants reported meaningful improvement by day 14</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="reviews">
+      <div class="review">"By week two I was sleeping through the night for the first time in years. Something shifted that I can't fully explain."<div class="review-name">— Maya T., 31 ★★★★★</div></div>
+      <div class="review">"I didn't think 10 minutes a day could do anything. I was wrong. The structure is everything."<div class="review-name">— Daniel R., 26 ★★★★★</div></div>
+    </div>
+  </div>
+
+  <!-- Price box -->
+  <div class="price-box">
+    <div class="price-orig">Regular price: £47</div>
+    <div class="price-now">£27</div>
+    <div class="price-desc">30 daily modules · Guided journal prompts · Audio sessions · Progress tracking</div>
+    <button class="price-btn" onclick="buyChallenge()">Add the 30-Day Challenge — £27</button>
+    <div class="price-note">🔒 One-time payment · Instant access · No subscription</div>
+  </div>
+
+</div>
+
+<!-- Sticky -->
+<div class="sticky-skip">
+  <button class="main-btn" onclick="buyChallenge()">Add the 30-Day Challenge — £27</button>
+  <button class="skip-link" onclick="skipChallenge()">No thanks, go to the app</button>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// STRIPE MID-TICKET — TODO:
+// Server endpoint /api/challenge-charge: amount=2700, currency='gbp'
+// Uses saved PaymentMethod — one click, no card re-entry
+// ═══════════════════════════════════════════════════════════════
+async function buyChallenge() {
+  const btns = document.querySelectorAll('.price-btn, .main-btn');
+  btns.forEach(b => { b.textContent = 'Adding...'; b.style.opacity = '.7'; });
+  // TODO: await fetch('/api/challenge-charge', { method:'POST', body: JSON.stringify({ amount:2700, currency:'gbp' }) })
+  setTimeout(() => { window.location.href = 'app.html'; }, 1400);
+}
+function skipChallenge() { window.location.href = 'app.html'; }
+</script>
+</body>
+</html>

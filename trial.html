@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Feel the Difference — Gifted</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--text:#160E05;--muted:#7A6240;--border:rgba(255,255,255,.1)}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 48px}
+.logo{font-size:22px;font-weight:700;color:var(--accent);margin-bottom:32px;letter-spacing:-.5px}
+.wrap{max-width:420px;width:100%}
+.badge{display:inline-block;background:rgba(201,151,76,.15);color:var(--accent);font-size:12px;font-weight:600;padding:6px 14px;border-radius:20px;margin-bottom:16px;letter-spacing:.3px}
+.title{font-size:26px;font-weight:800;line-height:1.25;margin-bottom:10px}
+.sub{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:28px}
+.flowers{display:flex;gap:12px;margin-bottom:28px}
+.flower-card{flex:1;background:var(--card);border-radius:20px;overflow:hidden;text-align:center}
+.flower-label{padding:12px 12px 4px;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+.flower-img{width:100%;aspect-ratio:1;object-fit:cover}
+.flower-caption{padding:8px 12px 14px;font-size:13px;font-weight:600}
+.flower-caption.before{color:#F87171}
+.flower-caption.after{color:var(--accent)}
+.stat-row{display:flex;gap:12px;margin-bottom:28px}
+.stat-card{flex:1;background:var(--card);border-radius:16px;padding:18px 14px;text-align:center}
+.stat-num{font-size:28px;font-weight:800;color:var(--accent)}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+.features{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.feat{display:flex;align-items:flex-start;gap:14px;background:var(--card);border-radius:14px;padding:16px}
+.feat-icon{width:38px;height:38px;border-radius:10px;background:rgba(201,151,76,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.feat-title{font-size:14px;font-weight:600;margin-bottom:3px}
+.feat-sub{font-size:12px;color:var(--muted);line-height:1.5}
+.cta-btn{display:block;width:100%;background:var(--accent);color:#FFFFFF;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:14px;padding:18px;cursor:pointer;transition:opacity .2s,transform .2s;text-align:center;text-decoration:none}
+.cta-btn:hover{opacity:.9;transform:translateY(-1px)}
+.cta-note{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="logo">✦ gifted</div>
+<div class="wrap">
+  <div class="badge">YOUR 7-DAY PLAN</div>
+  <div class="title">Feel the difference in just 7 days</div>
+  <div class="sub">Gifted is designed to create real, lasting change — not temporary relief. Here's what's possible.</div>
+
+  <div class="flowers">
+    <div class="flower-card">
+      <div class="flower-label">Before</div>
+      <img class="flower-img" src="assets/trial_flower_1_img.1db0d46f.webp" alt="Before healing">
+      <div class="flower-caption before">Weighed down</div>
+    </div>
+    <div class="flower-card">
+      <div class="flower-label">After</div>
+      <img class="flower-img" src="assets/trial_flower_2_img.2413920a.webp" alt="After healing">
+      <div class="flower-caption after">Thriving</div>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-num">92%</div>
+      <div class="stat-lbl">feel better within 7 days</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">10k+</div>
+      <div class="stat-lbl">people healed with Gifted</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4.8★</div>
+      <div class="stat-lbl">average user rating</div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="feat">
+      <div class="feat-icon">🧠</div>
+      <div>
+        <div class="feat-title">Daily spiritual growth processing exercises</div>
+        <div class="feat-sub">Evidence-based micro-sessions built around your results — under 10 minutes a day.</div>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">💬</div>
+      <div>
+        <div class="feat-title">Guided audio sessions</div>
+        <div class="feat-sub">Calming, expert-led audio for anxiety, triggers, and emotional regulation.</div>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">📈</div>
+      <div>
+        <div class="feat-title">Track your healing progress</div>
+        <div class="feat-sub">Weekly check-ins so you can see exactly how far you've come.</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="cta-btn" href="plan.html">See My Personalized Plan →</a>
+  <div class="cta-note">Free to start · No commitment required</div>
+</div>
+</body>
+</html>

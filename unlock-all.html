@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Complete Healing Collection — Gifted</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--text:#160E05;--muted:#7A6240;--border:rgba(255,255,255,.1)}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 0 120px}
+.logo{font-size:20px;font-weight:700;color:var(--accent);margin-bottom:6px;letter-spacing:-.5px}
+.page-title{font-size:22px;font-weight:800;text-align:center;margin-bottom:4px}
+.page-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:24px}
+.content{width:100%;max-width:420px;padding:0 20px}
+
+/* Module list */
+.module-row{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:10px;border:1.5px solid var(--border);transition:border-color .2s}
+.module-row.included{border-color:rgba(201,151,76,.25);background:rgba(201,151,76,.04)}
+.module-row:not(.included){cursor:pointer}
+.module-row:not(.included):hover{border-color:rgba(201,151,76,.4)}
+.module-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.module-icon.green{background:rgba(201,151,76,.12)}
+.module-icon.gray{background:rgba(255,255,255,.06)}
+.module-text{flex:1}
+.module-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.module-desc{font-size:11px;color:var(--muted)}
+.module-price{font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0}
+.module-price.free{color:var(--accent)}
+.module-price.locked{color:var(--muted)}
+.module-arrow{font-size:12px;color:var(--muted);margin-left:3px}
+
+/* Bundle card */
+.bundle-card{background:linear-gradient(135deg,rgba(201,151,76,.15),rgba(201,151,76,.05));border:1.5px solid rgba(201,151,76,.4);border-radius:20px;padding:22px;text-align:center;margin:20px 0}
+.bundle-orig{font-size:14px;color:var(--muted);text-decoration:line-through;margin-bottom:2px}
+.bundle-save{display:inline-block;background:rgba(201,151,76,.2);color:var(--accent);font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;margin-bottom:6px}
+.bundle-price{font-size:40px;font-weight:800;color:var(--text);line-height:1}
+.bundle-desc{font-size:12px;color:var(--muted);margin-top:6px;margin-bottom:18px}
+.bundle-btn{display:block;width:100%;background:var(--accent);color:#FFFFFF;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:opacity .2s}
+.bundle-btn:hover{opacity:.9}
+.bundle-note{font-size:11px;color:var(--muted);margin-top:10px}
+
+/* Individual section */
+.or-divider{text-align:center;font-size:12px;color:var(--muted);margin:20px 0 16px;position:relative}
+.or-divider::before,.or-divider::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--border)}
+.or-divider::before{left:0}
+.or-divider::after{right:0}
+.individual-label{font-size:12px;color:var(--muted);text-align:center;margin-bottom:14px}
+
+/* Sticky CTA (bundle) */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;padding:14px 20px 28px;background:linear-gradient(transparent,var(--bg) 30%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:50}
+.sticky-btn{width:100%;max-width:380px;background:var(--accent);color:#FFFFFF;font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;border:none;border-radius:12px;padding:16px;cursor:pointer;transition:opacity .2s}
+.sticky-btn:hover{opacity:.9}
+.sticky-note{font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="logo">✦ gifted</div>
+<div class="page-title">Your Complete Healing Collection</div>
+<div class="page-sub">Complete your healing profile</div>
+
+<div class="content">
+
+  <!-- Included modules (from £1 purchase) -->
+  <div class="module-row included">
+    <div class="module-icon green">🧠</div>
+    <div class="module-text">
+      <div class="module-name">Spiritual Gifts Profile</div>
+      <div class="module-desc">Your full spiritual growth pattern analysis</div>
+    </div>
+    <div class="module-price free">Included</div>
+  </div>
+  <div class="module-row included">
+    <div class="module-icon green">🗺️</div>
+    <div class="module-text">
+      <div class="module-name">Your Personalized Gift Activation Plan</div>
+      <div class="module-desc">Daily roadmap built around your results</div>
+    </div>
+    <div class="module-price free">Included</div>
+  </div>
+
+  <!-- Bundle -->
+  <div class="bundle-card">
+    <div class="bundle-orig">£20</div>
+    <div class="bundle-save">Save 10%</div>
+    <div class="bundle-price">£17.97</div>
+    <div class="bundle-desc">Unlock all 5 additional modules — keep forever</div>
+    <button class="bundle-btn" onclick="buyBundle()">Get Your Complete Collection</button>
+    <div class="bundle-note">🔒 One-time charge · No subscription · Instant access</div>
+  </div>
+
+  <!-- What's in the bundle -->
+  <div class="module-row" onclick="buyBundle()">
+    <div class="module-icon gray">🔒</div>
+    <div class="module-text">
+      <div class="module-name">Inner Child Wound Report</div>
+      <div class="module-desc">Identify your specific childhood wound type</div>
+    </div>
+    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+  </div>
+
+  <div class="module-row" onclick="buyBundle()">
+    <div class="module-icon gray">🔒</div>
+    <div class="module-text">
+      <div class="module-name">Relationship Pattern Analysis</div>
+      <div class="module-desc">How your spiritual growth shapes who & how you love</div>
+    </div>
+    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+  </div>
+
+  <div class="module-row" onclick="buyBundle()">
+    <div class="module-icon gray">🔒</div>
+    <div class="module-text">
+      <div class="module-name">Self-Worth Recovery Plan</div>
+      <div class="module-desc">Rebuild confidence from the inside out</div>
+    </div>
+    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+  </div>
+
+  <div class="module-row" onclick="buyBundle()">
+    <div class="module-icon gray">🔒</div>
+    <div class="module-text">
+      <div class="module-name">Anxiety Management Kit</div>
+      <div class="module-desc">Nervous system regulation & trigger tools</div>
+    </div>
+    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+  </div>
+
+  <div class="module-row" onclick="buyBundle()">
+    <div class="module-icon gray">🔒</div>
+    <div class="module-text">
+      <div class="module-name">Childhood Memory Processing Guide</div>
+      <div class="module-desc">Safe techniques to process difficult memories</div>
+    </div>
+    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+  </div>
+
+  <div class="or-divider">or unlock individually</div>
+  <div class="individual-label">Tap any module above to unlock it for £4</div>
+
+</div>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta">
+  <button class="sticky-btn" onclick="buyBundle()">Get Your Complete Collection — £17.97</button>
+  <div class="sticky-note">5 modules · One-time payment · No recurring charges</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// STRIPE BUNDLE CHARGE — TODO:
+// Use the saved PaymentMethod from the original £1 charge.
+// Server endpoint /api/bundle-charge:
+//   - Creates PaymentIntent: amount=1797, currency='gbp'
+//   - Uses stored PaymentMethod (off_session: true)
+// ═══════════════════════════════════════════════════════════════
+async function buyBundle() {
+  // TODO: await fetch('/api/bundle-charge', { method: 'POST' })
+  window.location.href = 'challenge.html';
+}
+</script>
+</body>
+</html>
