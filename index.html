@@ -559,7 +559,7 @@ function rGender(){
   <div class="pre-title">God gave every believer a spiritual gift.<br>Let\'s find yours.</div>
   <div class="pre-sub">This biblical assessment takes about 2 minutes. Answer honestly — the Holy Spirit already knows your heart.</div>
   <div class="pre-title" style="font-size:18px;margin-top:8px">What\'s your gender?</div>
-  <div class="g-grid">${['Female','Male','Non-binary','Other'].map(g=>
+  <div class="g-grid">${['Female','Male'].map(g=>
     `<button class="g-btn${S.gender===g?' sel':''}" onclick="pickGender('${g}')">${g}</button>`).join('')}
   </div>
   <div class="scripture">
