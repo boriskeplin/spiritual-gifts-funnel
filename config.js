@@ -48,7 +48,7 @@ const GIFTED_CONFIG = {
 
   // ── DOMAIN ────────────────────────────────────────────────────
   // Your Vercel URL or custom domain (no trailing slash)
-  domain: 'https://spiritual-gifts-funnel.vercel.app',
+  domain: 'https://gifted.church',
 
 };
 
