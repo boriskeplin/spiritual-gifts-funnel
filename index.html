@@ -529,6 +529,7 @@ function primaryGift(cats){return cats.reduce((a,b)=>b.pct>a.pct?b:a,cats[0])}
 function startMusic(){
   if(S.musicStarted)return;
   S.musicStarted=true;
+  localStorage.setItem('gifted_music_on','1');
   const m=document.getElementById('bg-music');
   m.volume=0.12;
   m.play().catch(()=>{});
@@ -788,7 +789,7 @@ function rResults(){
 
   <div class="cta-sec">
     <div class="cta-cap">Your gift activation plan is ready</div>
-    <a class="cta-btn" href="country.html">Unlock My Full Plan →</a>
+    <a class="cta-btn" href="paywall.html">Unlock My Full Plan →</a>
     <div class="cta-note">Scripture-based · Christ-centred · Private</div>
   </div>
   </div>`;

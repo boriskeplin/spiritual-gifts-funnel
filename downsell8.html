@@ -99,4 +99,28 @@ async function take(){
   setTimeout(()=>{window.location.href='dashboard.html'},500);
 }
 function skip(){window.location.href='dashboard.html'}
-</script></body></html>
+</script>
+<!-- Persistent ambient music -->
+<audio id="bg-music" src="/assets/background_audio.mp3" loop preload="auto"></audio>
+<script>
+(function(){
+  if(!localStorage.getItem('gifted_music_on')) return;
+  var m = document.getElementById('bg-music');
+  if(!m) return;
+  m.volume = 0;
+  var p = m.play();
+  if(p !== undefined){
+    p.then(function(){
+      // Fade in over 1.5s so it doesn't jar
+      var steps = 30, target = 0.12, step = target / steps, i = 0;
+      var t = setInterval(function(){
+        i++;
+        m.volume = Math.min(target, m.volume + step);
+        if(i >= steps) clearInterval(t);
+      }, 50);
+    }).catch(function(){});
+  }
+})();
+</script>
+
+</body></html>
