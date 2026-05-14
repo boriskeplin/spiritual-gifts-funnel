@@ -11,8 +11,8 @@
 :root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--red:#8B1A1A;--gold:#B8870B;--text:#160E05;--muted:#7A6240;--shadow:0 2px 18px rgba(139,115,88,.13)}
 body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
 
-/* Scarcity banner */
-.top-banner{width:100%;background:var(--red);color:#fff;text-align:center;padding:10px 16px;font-size:12px;font-weight:600;position:sticky;top:0;z-index:100}
+/* Top banner */
+.top-banner{width:100%;background:var(--accent);color:#fff;text-align:center;padding:10px 16px;font-size:12px;font-weight:600;position:sticky;top:0;z-index:100}
 .top-banner strong{display:block;font-size:13px}
 
 /* Hero */
@@ -137,18 +137,6 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   <div class="sheet-sub">Choose the amount God places on your heart. The minimum offering is $33 — a dollar for every year Jesus lived for you.</div>
 
   
-  <!-- Monthly giving toggle -->
-  <div style="display:flex;background:#F5E9C8;border-radius:12px;padding:4px;margin-bottom:18px;gap:4px">
-    <button id="tab-once" onclick="setGivingMode('once')"
-      style="flex:1;padding:10px;border:none;border-radius:9px;font-family:Poppins,sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:var(--accent);color:#fff;transition:all .2s">
-      Give Once
-    </button>
-    <button id="tab-monthly" onclick="setGivingMode('monthly')"
-      style="flex:1;padding:10px;border:none;border-radius:9px;font-family:Poppins,sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:transparent;color:var(--muted);transition:all .2s">
-      Give Monthly
-    </button>
-  </div>
-  <div id="section-once">
 <div class="donation-label">Your ministry offering</div>
   <div class="donation-grid">
     <div class="donation-opt selected" onclick="selectDonation(this,33)" id="opt-33">
@@ -197,27 +185,15 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
     <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-top:4px">🔒 256-bit SSL · Secured by Stripe · Your offering is safe</div>
   </div>
 
-  </div><!-- end section-once -->
-  <div id="section-monthly" style="display:none">
-    <div style="background:linear-gradient(135deg,rgba(27,75,138,.08),rgba(27,75,138,.02));border:1.5px solid rgba(27,75,138,.25);border-radius:18px;padding:20px;text-align:center;margin-bottom:18px">
-      <div style="font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px">Monthly Ministry Partner</div>
-      <div style="font-size:42px;font-weight:800;color:var(--accent);line-height:1">$11</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:4px;margin-bottom:14px">per month &middot; cancel anytime</div>
-      <div style="font-size:13px;color:var(--text);line-height:1.6;margin-bottom:16px">
-        <strong>Why $11?</strong> One dollar for every one of the Apostles — the twelve who gave everything, minus the one who walked away. Your partnership keeps this ministry running and extends access to believers worldwide.
-      </div>
-      <div style="display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:16px">
-        <div style="display:flex;gap:8px;font-size:12px"><span style="color:var(--accent)">✝</span><span>Access to your full Gift Plan and all future resources</span></div>
-        <div style="display:flex;gap:8px;font-size:12px"><span style="color:var(--accent)">✝</span><span>New devotional content added monthly</span></div>
-        <div style="display:flex;gap:8px;font-size:12px"><span style="color:var(--accent)">✝</span><span>Your giving provides free access to believers who cannot afford it</span></div>
-        <div style="display:flex;gap:8px;font-size:12px"><span style="color:var(--accent)">✝</span><span>Receive a monthly prayer from the Gifted team for you specifically</span></div>
-      </div>
-      <button onclick="submitMonthly()" style="display:block;width:100%;background:var(--accent);color:#fff;font-family:Poppins,sans-serif;font-size:16px;font-weight:700;border:none;border-radius:12px;padding:16px;cursor:pointer">
-        Become a Monthly Partner &mdash; $11/mo &rarr;
-      </button>
-      <div style="font-size:11px;color:var(--muted);margin-top:8px">Cancel anytime &middot; Billed monthly via Gumroad &middot; Secured by Stripe</div>
-    </div>
-  </div><!-- end section-monthly -->
+  <!-- Pre-checked MRR — small, subtle, below trust row -->
+  <label id="mrr-label" style="display:flex;align-items:flex-start;gap:8px;margin-top:16px;cursor:pointer;padding:10px 12px;border-radius:10px;background:rgba(27,75,138,.04);border:1px solid rgba(27,75,138,.12)">
+    <input type="checkbox" id="mrr-check" checked
+      style="margin-top:2px;accent-color:var(--accent);width:13px;height:13px;flex-shrink:0;cursor:pointer">
+    <span style="font-size:10.5px;color:var(--muted);line-height:1.55">
+      <em style="font-style:normal;color:var(--accent);font-weight:600">"He who sows generously will also reap generously."</em> &mdash; 2 Cor 9:6 &nbsp;&middot;&nbsp;
+      Continue as a monthly ministry partner after today &mdash; sustaining free access for believers who cannot afford it. Uncheck to give once only.
+    </span>
+  </label>
 
 
 <script>
@@ -236,10 +212,18 @@ async function submitPayment() {
   btn.textContent = 'Redirecting to secure payment...';
   if(window._fbq) _fbq('track','InitiateCheckout',{currency:'USD',value:selectedAmount});
   if(window._gtag) _gtag('event','begin_checkout',{currency:'USD',value:selectedAmount});
+  var mrr = getMrrChecked();
   setTimeout(function(){
-    var link = window.GIFTED_CONFIG && !GIFTED_CONFIG.stripePaymentLink.includes('PASTE')
-      ? GIFTED_CONFIG.stripePaymentLink : 'upsell.html';
-    window.location.href = link;
+    var cfg = window.GIFTED_CONFIG;
+    var url;
+    if(mrr && cfg && cfg.gumroadMonthlyUrl && !cfg.gumroadMonthlyUrl.includes('PASTE')) {
+      url = cfg.gumroadMonthlyUrl;  // Gumroad subscription product
+    } else if(cfg && !cfg.stripePaymentLink.includes('PASTE')) {
+      url = cfg.stripePaymentLink;  // one-time Stripe/Gumroad
+    } else {
+      url = 'upsell.html';
+    }
+    window.location.href = url;
   }, 600);
 }
 </script>
@@ -269,21 +253,9 @@ async function submitPayment() {
 
 
 <script>
-var givingMode = 'once';
-function setGivingMode(mode) {
-  givingMode = mode;
-  document.getElementById('section-once').style.display = mode==='once' ? 'block' : 'none';
-  document.getElementById('section-monthly').style.display = mode==='monthly' ? 'block' : 'none';
-  document.getElementById('tab-once').style.background = mode==='once' ? 'var(--accent)' : 'transparent';
-  document.getElementById('tab-once').style.color = mode==='once' ? '#fff' : 'var(--muted)';
-  document.getElementById('tab-monthly').style.background = mode==='monthly' ? 'var(--accent)' : 'transparent';
-  document.getElementById('tab-monthly').style.color = mode==='monthly' ? '#fff' : 'var(--muted)';
-}
-function submitMonthly() {
-  if(window._fbq) _fbq('track','InitiateCheckout',{currency:'USD',value:11});
-  var url = window.GIFTED_CONFIG && GIFTED_CONFIG.gumroadMonthlyUrl && !GIFTED_CONFIG.gumroadMonthlyUrl.includes('PASTE')
-    ? GIFTED_CONFIG.gumroadMonthlyUrl : 'upsell.html';
-  window.location.href = url;
+// MRR checkbox — checked = monthly recurring, unchecked = one-time
+function getMrrChecked() {
+  return document.getElementById('mrr-check').checked;
 }
 </script>
 </body>

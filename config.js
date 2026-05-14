@@ -9,7 +9,8 @@ const GIFTED_CONFIG = {
   // Create a Payment Link in stripe.com → Payment Links → Create new
   // Amount: £1 · Label: "Spiritual Gifts Profile — Ministry Offering"
   // After payment redirect URL: https://YOUR-DOMAIN/thankyou.html
-  stripePaymentLink: 'https://buy.stripe.com/PASTE_YOUR_LINK_HERE',
+  stripePaymentLink:  'https://buy.stripe.com/PASTE_YOUR_LINK_HERE',
+  gumroadMonthlyUrl:  'https://YOURNAME.gumroad.com/l/PASTE_MONTHLY_SUBSCRIPTION',  // $33/mo recurring
 
   // ── MAILCHIMP ──────────────────────────────────────────────────
   // 1. Log in to mailchimp.com
