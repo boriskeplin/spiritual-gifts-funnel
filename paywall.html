@@ -127,6 +127,29 @@ body{background-color:var(--bg);color:var(--text);font-family:'Poppins',sans-ser
   font-size:10px;color:var(--muted);font-weight:600}
 .trust-lock{font-size:11px;color:var(--muted);width:100%;text-align:center;margin-top:4px}
 </style>
+<script src="/config.js"></script>
+<script>
+/* GA4 */
+(function(){
+  if(!window.GIFTED_CONFIG||GIFTED_CONFIG.ga4Id.includes('PASTE'))return;
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id='+GIFTED_CONFIG.ga4Id;
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config',GIFTED_CONFIG.ga4Id);window._gtag=gtag;
+})();
+/* Facebook Pixel */
+(function(){
+  if(!window.GIFTED_CONFIG||GIFTED_CONFIG.fbPixelId.includes('PASTE'))return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',GIFTED_CONFIG.fbPixelId);fbq('track','PageView');window._fbq=fbq;
+})();
+</script>
 </head>
 <body>
 
@@ -290,20 +313,22 @@ function updateCTA() {
 async function submitPayment() {
   const btn = document.getElementById('submit-btn');
   btn.classList.add('loading');
-  btn.textContent = 'Processing your offering...';
+  btn.textContent = 'Redirecting to secure payment...';
 
-  // TODO: Real Stripe call here
-  // const res = await fetch('/api/create-payment-intent', {
-  //   method: 'POST',
-  //   body: JSON.stringify({ amount: selectedAmount, bump: bumpSelected })
-  // });
-  // const { clientSecret } = await res.json();
-  // const { error } = await stripe.confirmCardPayment(clientSecret, {
-  //   payment_method: { card: cardElement }
-  // });
-  // if (error) { ... handle error ... return; }
+  // Track InitiateCheckout
+  if(window._fbq) _fbq('track','InitiateCheckout',{currency:'GBP',value:1});
+  if(window._gtag) _gtag('event','begin_checkout',{currency:'GBP',value:1});
 
-  setTimeout(() => { window.location.href = 'upsell.html'; }, 1500);
+  // ── STRIPE PAYMENT LINK (beta) ────────────────────────────────
+  // Reads the link from config.js — no server needed.
+  // Stripe will redirect back to /upsell.html after successful payment
+  // (set your success URL in Stripe dashboard: Payment Links → After payment)
+  setTimeout(() => {
+    const link = window.GIFTED_CONFIG && !GIFTED_CONFIG.stripePaymentLink.includes('PASTE')
+      ? GIFTED_CONFIG.stripePaymentLink
+      : 'upsell.html'; // fallback until Stripe is connected
+    window.location.href = link;
+  }, 600);
 }
 
 // Countdown (8 min offer)

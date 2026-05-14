@@ -3,163 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Your Complete Healing Collection — Gifted</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>The Complete Gifted Collection — All 8 Guides + MP3s</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--text:#160E05;--muted:#7A6240;--border:rgba(255,255,255,.1)}
-body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 0 120px}
-.logo{font-size:20px;font-weight:700;color:var(--accent);margin-bottom:6px;letter-spacing:-.5px}
-.page-title{font-size:22px;font-weight:800;text-align:center;margin-bottom:4px}
-.page-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:24px}
+:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--red:#8B1A1A;--gold:#B8870B;--text:#160E05;--muted:#7A6240;--shadow:0 2px 18px rgba(180,140,60,.18)}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:76px 0 120px}
+/* Scarcity banner */
+.scarcity-bar{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--red);color:#fff;text-align:center;padding:9px 12px}
+.scarcity-bar strong{font-size:12px;font-weight:700;display:block;line-height:1.3}
+.scarcity-bar span{font-size:11px;opacity:.85}
+.scarcity-cd{display:inline-flex;gap:6px;align-items:center;margin-left:8px;font-weight:700;font-size:13px}
+.scarcity-cd b{background:rgba(255,255,255,.18);border-radius:4px;padding:1px 5px}
+/* Layout */
+.logo{font-size:16px;font-weight:800;color:var(--accent);margin-bottom:8px}
+.page-title{font-size:22px;font-weight:800;text-align:center;margin-bottom:4px;padding:0 20px}
+.page-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:20px;padding:0 20px}
 .content{width:100%;max-width:420px;padding:0 20px}
-
-/* Module list */
-.module-row{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:10px;border:1.5px solid var(--border);transition:border-color .2s}
-.module-row.included{border-color:rgba(201,151,76,.25);background:rgba(201,151,76,.04)}
-.module-row:not(.included){cursor:pointer}
-.module-row:not(.included):hover{border-color:rgba(201,151,76,.4)}
-.module-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.module-icon.green{background:rgba(201,151,76,.12)}
-.module-icon.gray{background:rgba(255,255,255,.06)}
-.module-text{flex:1}
-.module-name{font-size:13px;font-weight:600;margin-bottom:2px}
-.module-desc{font-size:11px;color:var(--muted)}
-.module-price{font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0}
-.module-price.free{color:var(--accent)}
-.module-price.locked{color:var(--muted)}
-.module-arrow{font-size:12px;color:var(--muted);margin-left:3px}
-
 /* Bundle card */
-.bundle-card{background:linear-gradient(135deg,rgba(201,151,76,.15),rgba(201,151,76,.05));border:1.5px solid rgba(201,151,76,.4);border-radius:20px;padding:22px;text-align:center;margin:20px 0}
+.bundle-card{background:linear-gradient(135deg,rgba(27,75,138,.08),rgba(27,75,138,.03));border:2px solid rgba(27,75,138,.3);border-radius:20px;padding:22px;text-align:center;margin-bottom:20px}
+.bundle-badge{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;margin-bottom:10px}
 .bundle-orig{font-size:14px;color:var(--muted);text-decoration:line-through;margin-bottom:2px}
-.bundle-save{display:inline-block;background:rgba(201,151,76,.2);color:var(--accent);font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;margin-bottom:6px}
-.bundle-price{font-size:40px;font-weight:800;color:var(--text);line-height:1}
-.bundle-desc{font-size:12px;color:var(--muted);margin-top:6px;margin-bottom:18px}
-.bundle-btn{display:block;width:100%;background:var(--accent);color:#FFFFFF;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:opacity .2s}
+.bundle-price{font-size:46px;font-weight:800;color:var(--accent);line-height:1}
+.bundle-saving{font-size:12px;color:var(--red);font-weight:700;margin-top:4px;margin-bottom:16px}
+.bundle-btn{display:block;width:100%;background:var(--accent);color:#fff;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:opacity .2s}
 .bundle-btn:hover{opacity:.9}
 .bundle-note{font-size:11px;color:var(--muted);margin-top:10px}
-
-/* Individual section */
-.or-divider{text-align:center;font-size:12px;color:var(--muted);margin:20px 0 16px;position:relative}
-.or-divider::before,.or-divider::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--border)}
-.or-divider::before{left:0}
-.or-divider::after{right:0}
-.individual-label{font-size:12px;color:var(--muted);text-align:center;margin-bottom:14px}
-
-/* Sticky CTA (bundle) */
-.sticky-cta{position:fixed;bottom:0;left:0;right:0;padding:14px 20px 28px;background:linear-gradient(transparent,var(--bg) 30%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:50}
-.sticky-btn{width:100%;max-width:380px;background:var(--accent);color:#FFFFFF;font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;border:none;border-radius:12px;padding:16px;cursor:pointer;transition:opacity .2s}
+/* What's included */
+.section-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin:20px 0 12px}
+.item-row{display:flex;align-items:flex-start;gap:12px;background:var(--card);border-radius:12px;padding:13px 14px;margin-bottom:8px;border:1px solid rgba(184,135,11,.2)}
+.item-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.item-text{flex:1}
+.item-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.item-sub{font-size:11px;color:var(--muted);line-height:1.4}
+.item-val{font-size:12px;font-weight:700;color:var(--muted);text-decoration:line-through;flex-shrink:0;margin-top:2px}
+/* Bonus card */
+.bonus-card{background:linear-gradient(135deg,rgba(184,135,11,.1),rgba(184,135,11,.03));border:1.5px solid rgba(184,135,11,.35);border-radius:14px;padding:14px 16px;margin-bottom:8px}
+.bonus-label{font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.bonus-item{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.5;margin-bottom:4px}
+/* Sticky CTA */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;padding:14px 20px 28px;background:linear-gradient(transparent,var(--bg) 25%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:50}
+.sticky-btn{width:100%;max-width:380px;background:var(--accent);color:#fff;font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;border:none;border-radius:12px;padding:16px;cursor:pointer;transition:opacity .2s}
 .sticky-btn:hover{opacity:.9}
 .sticky-note{font-size:11px;color:var(--muted)}
+.skip-btn{font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;font-family:'Poppins',sans-serif}
 </style>
+<script src="/config.js"></script>
+<script>
+/* GA4 */
+(function(){
+  if(!window.GIFTED_CONFIG||GIFTED_CONFIG.ga4Id.includes('PASTE'))return;
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id='+GIFTED_CONFIG.ga4Id;
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config',GIFTED_CONFIG.ga4Id);window._gtag=gtag;
+})();
+/* Facebook Pixel */
+(function(){
+  if(!window.GIFTED_CONFIG||GIFTED_CONFIG.fbPixelId.includes('PASTE'))return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',GIFTED_CONFIG.fbPixelId);fbq('track','PageView');window._fbq=fbq;
+})();
+</script>
 </head>
 <body>
 
-<div class="logo">✦ gifted</div>
-<div class="page-title">Your Complete Healing Collection</div>
-<div class="page-sub">Complete your healing profile</div>
+<div class="scarcity-bar" id="sBar">
+  <strong>🕊 Pentecost Launch Offer &mdash; 80% off bundle &nbsp;<span class="scarcity-cd" id="cd"></span></strong>
+  <span>In the 10 days between Ascension &amp; Pentecost, we're releasing the full collection at 80% off</span>
+</div>
+
+<div class="logo">✝ Discover Your Gift</div>
+<div class="page-title">The Complete Gifted Collection</div>
+<div class="page-sub">Every guide. Every audio. One sacred season discount.</div>
 
 <div class="content">
 
-  <!-- Included modules (from £1 purchase) -->
-  <div class="module-row included">
-    <div class="module-icon green">🧠</div>
-    <div class="module-text">
-      <div class="module-name">Spiritual Gifts Profile</div>
-      <div class="module-desc">Your full spiritual growth pattern analysis</div>
-    </div>
-    <div class="module-price free">Included</div>
-  </div>
-  <div class="module-row included">
-    <div class="module-icon green">🗺️</div>
-    <div class="module-text">
-      <div class="module-name">Your Personalized Gift Activation Plan</div>
-      <div class="module-desc">Daily roadmap built around your results</div>
-    </div>
-    <div class="module-price free">Included</div>
-  </div>
-
-  <!-- Bundle -->
+  <!-- Bundle price card -->
   <div class="bundle-card">
-    <div class="bundle-orig">£20</div>
-    <div class="bundle-save">Save 10%</div>
-    <div class="bundle-price">£17.97</div>
-    <div class="bundle-desc">Unlock all 5 additional modules — keep forever</div>
-    <button class="bundle-btn" onclick="buyBundle()">Get Your Complete Collection</button>
-    <div class="bundle-note">🔒 One-time charge · No subscription · Instant access</div>
+    <div class="bundle-badge">🕊 Pentecost Offer — Ends May 24</div>
+    <div class="bundle-orig">Full value: $320</div>
+    <div class="bundle-price">$35</div>
+    <div class="bundle-saving">You save $285 &mdash; 89% off</div>
+    <button class="bundle-btn" onclick="buyBundle()">Get the Full Collection &mdash; $35</button>
+    <div class="bundle-note">🔒 One-time payment &middot; No subscription &middot; Instant download</div>
   </div>
 
-  <!-- What's in the bundle -->
-  <div class="module-row" onclick="buyBundle()">
-    <div class="module-icon gray">🔒</div>
-    <div class="module-text">
-      <div class="module-name">Inner Child Wound Report</div>
-      <div class="module-desc">Identify your specific childhood wound type</div>
+  <!-- 8 Guides + MP3s -->
+  <div class="section-label">What&rsquo;s included — 8 Guides + 8 MP3 Audio Activations</div>
+
+  <div class="item-row">
+    <div class="item-icon">📖</div>
+    <div class="item-text">
+      <div class="item-name">The Intercessor's Prayer Guide + Audio</div>
+      <div class="item-sub">21-day prayer plan &middot; Warfare prayers &middot; 15-min guided prayer MP3</div>
     </div>
-    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+    <div class="item-val">$40</div>
   </div>
 
-  <div class="module-row" onclick="buyBundle()">
-    <div class="module-icon gray">🔒</div>
-    <div class="module-text">
-      <div class="module-name">Relationship Pattern Analysis</div>
-      <div class="module-desc">How your spiritual growth shapes who & how you love</div>
+  <div class="item-row">
+    <div class="item-icon">📖</div>
+    <div class="item-text">
+      <div class="item-name">Marriage &amp; Family Covenant Guide + Audio</div>
+      <div class="item-sub">Biblical marriage principles &middot; Covenant prayer MP3</div>
     </div>
-    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+    <div class="item-val">$40</div>
   </div>
 
-  <div class="module-row" onclick="buyBundle()">
-    <div class="module-icon gray">🔒</div>
-    <div class="module-text">
-      <div class="module-name">Self-Worth Recovery Plan</div>
-      <div class="module-desc">Rebuild confidence from the inside out</div>
+  <div class="item-row">
+    <div class="item-icon">📖</div>
+    <div class="item-text">
+      <div class="item-name">Scripture Memory System + Audio</div>
+      <div class="item-sub">52 key verses &middot; Lectio Divina meditation MP3</div>
     </div>
-    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+    <div class="item-val">$40</div>
   </div>
 
-  <div class="module-row" onclick="buyBundle()">
-    <div class="module-icon gray">🔒</div>
-    <div class="module-text">
-      <div class="module-name">Anxiety Management Kit</div>
-      <div class="module-desc">Nervous system regulation & trigger tools</div>
+  <div class="item-row">
+    <div class="item-icon">📖</div>
+    <div class="item-text">
+      <div class="item-name">Spiritual Warfare Handbook + Audio</div>
+      <div class="item-sub">Armour of God &middot; Breaking strongholds &middot; Declaration MP3</div>
     </div>
-    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+    <div class="item-val">$40</div>
   </div>
 
-  <div class="module-row" onclick="buyBundle()">
-    <div class="module-icon gray">🔒</div>
-    <div class="module-text">
-      <div class="module-name">Childhood Memory Processing Guide</div>
-      <div class="module-desc">Safe techniques to process difficult memories</div>
+  <div class="item-row">
+    <div class="item-icon">📖</div>
+    <div class="item-text">
+      <div class="item-name">Identity in Christ Workbook + Audio</div>
+      <div class="item-sub">31-day declarations &middot; Identity affirmation MP3</div>
     </div>
-    <div class="module-price locked">£4 <span class="module-arrow">→</span></div>
+    <div class="item-val">$40</div>
   </div>
 
-  <div class="or-divider">or unlock individually</div>
-  <div class="individual-label">Tap any module above to unlock it for £4</div>
+  <div class="item-row">
+    <div class="item-icon">📖</div>
+    <div class="item-text">
+      <div class="item-name">Great Commission Blueprint + Audio</div>
+      <div class="item-sub">Share your faith &middot; Evangelism empowerment MP3</div>
+    </div>
+    <div class="item-val">$40</div>
+  </div>
+
+  <div class="item-row">
+    <div class="item-icon">📖</div>
+    <div class="item-text">
+      <div class="item-name">Prophetic Activation Guide + Audio</div>
+      <div class="item-sub">Listening prayer exercises &middot; Prophetic activation MP3</div>
+    </div>
+    <div class="item-val">$40</div>
+  </div>
+
+  <div class="item-row">
+    <div class="item-icon">📖</div>
+    <div class="item-text">
+      <div class="item-name">Healing &amp; Miracles Guide + Audio</div>
+      <div class="item-sub">Pray for the sick &middot; Healing prayer activation MP3</div>
+    </div>
+    <div class="item-val">$40</div>
+  </div>
+
+  <!-- Exclusive bundle bonuses -->
+  <div class="section-label">Bundle-only bonuses</div>
+
+  <div class="bonus-card">
+    <div class="bonus-label">✦ Exclusive — not sold separately</div>
+    <div class="bonus-item"><span>🎁</span><span><strong>31-Day Gift Activation Journal</strong> — daily guided prompts to grow in your specific gift over a month</span></div>
+    <div class="bonus-item"><span>🎁</span><span><strong>Spiritual Gifts Quick-Reference Card</strong> — printable one-pager: all 9 gifts, their signs, and their role in the body</span></div>
+    <div class="bonus-item"><span>🎁</span><span><strong>Gift Combinations Guide</strong> — what happens when your primary and secondary gifts work together, and how to steward both</span></div>
+  </div>
 
 </div>
 
 <!-- Sticky CTA -->
 <div class="sticky-cta">
-  <button class="sticky-btn" onclick="buyBundle()">Get Your Complete Collection — £17.97</button>
-  <div class="sticky-note">5 modules · One-time payment · No recurring charges</div>
+  <button class="sticky-btn" onclick="buyBundle()">Get the Full Collection &mdash; $35</button>
+  <div class="sticky-note">8 guides + 8 MP3s + 3 bonuses &middot; One-time &middot; No subscription</div>
+  <button class="skip-btn" onclick="skipBundle()">No thanks, continue without the bundle</button>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════
-// STRIPE BUNDLE CHARGE — TODO:
-// Use the saved PaymentMethod from the original £1 charge.
-// Server endpoint /api/bundle-charge:
-//   - Creates PaymentIntent: amount=1797, currency='gbp'
-//   - Uses stored PaymentMethod (off_session: true)
-// ═══════════════════════════════════════════════════════════════
-async function buyBundle() {
-  // TODO: await fetch('/api/bundle-charge', { method: 'POST' })
-  window.location.href = 'challenge.html';
+function buyBundle(){
+  var b=document.querySelector('.bundle-btn');
+  b.textContent='Redirecting...';b.style.opacity='.7';
+  if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:35,content_name:'bundle'});
+  if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:35});
+  var url=window.GIFTED_CONFIG&&!GIFTED_CONFIG.gumroad.bundle.includes('PASTE')
+    ?GIFTED_CONFIG.gumroad.bundle:'challenge.html';
+  setTimeout(()=>{window.location.href=url},500);
 }
+function skipBundle(){window.location.href='challenge.html';}
 </script>
+
+<script>
+(function(){
+  var end=new Date('2026-05-25T00:00:00Z').getTime();
+  function tick(){
+    var diff=end-Date.now();
+    if(diff<=0){document.getElementById('sBar').style.display='none';return;}
+    var d=Math.floor(diff/864e5);
+    var h=Math.floor((diff%864e5)/36e5);
+    var m=Math.floor((diff%36e5)/6e4);
+    var s=Math.floor((diff%6e4)/1e3);
+    var el=document.getElementById('cd');
+    if(el)el.innerHTML=(d?'<b>'+d+'d</b>':'')+' <b>'+h+'h</b> <b>'+m+'m</b> <b>'+s+'s</b>';
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+
 </body>
 </html>

@@ -66,6 +66,29 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 .cta-btn:hover{opacity:.9;transform:translateY(-1px)}
 .cta-note{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
 </style>
+<script src="/config.js"></script>
+<script>
+/* GA4 */
+(function(){
+  if(!window.GIFTED_CONFIG||GIFTED_CONFIG.ga4Id.includes('PASTE'))return;
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id='+GIFTED_CONFIG.ga4Id;
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config',GIFTED_CONFIG.ga4Id);window._gtag=gtag;
+})();
+/* Facebook Pixel */
+(function(){
+  if(!window.GIFTED_CONFIG||GIFTED_CONFIG.fbPixelId.includes('PASTE'))return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init',GIFTED_CONFIG.fbPixelId);fbq('track','PageView');window._fbq=fbq;
+})();
+</script>
 </head>
 <body>
 <div class="logo">✦ gifted</div>
