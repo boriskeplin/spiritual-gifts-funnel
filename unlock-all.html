@@ -74,11 +74,6 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 </head>
 <body>
 
-<div class="scarcity-bar" id="sBar">
-  <strong>🕊 Pentecost Launch Offer &mdash; 80% off bundle &nbsp;<span class="scarcity-cd" id="cd"></span></strong>
-  <span>In the 10 days between Ascension &amp; Pentecost, we're releasing the full collection at 80% off</span>
-</div>
-
 <div class="logo">✝ Discover Your Gift</div>
 <div class="page-title">The Complete Gifted Collection</div>
 <div class="page-sub">8 guides. 8 audio activations. 3 bonuses. Everything built for your calling — in one offering.</div>
@@ -87,7 +82,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
   <!-- Bundle price card -->
   <div class="bundle-card">
-    <div class="bundle-badge">🕊 Pentecost Offer — Ends May 24</div>
+    <div class="bundle-badge"></div>
     <div class="bundle-orig">Full value: $341</div>
     <div class="bundle-price">$280</div>
     <div class="bundle-saving">You save $61 &mdash; everything in one offering</div>
@@ -202,20 +197,27 @@ function buyBundle(){
 function skipBundle(){window.location.href='challenge.html';}
 </script>
 
+
+
+
+<!-- Persistent ambient music -->
+<audio id="bg-music" src="/assets/background_audio.mp3" loop preload="auto"></audio>
 <script>
 (function(){
-  var end=new Date('2026-05-25T00:00:00Z').getTime();
-  function tick(){
-    var diff=end-Date.now();
-    if(diff<=0){document.getElementById('sBar').style.display='none';return;}
-    var d=Math.floor(diff/864e5);
-    var h=Math.floor((diff%864e5)/36e5);
-    var m=Math.floor((diff%36e5)/6e4);
-    var s=Math.floor((diff%6e4)/1e3);
-    var el=document.getElementById('cd');
-    if(el)el.innerHTML=(d?'<b>'+d+'d</b>':'')+' <b>'+h+'h</b> <b>'+m+'m</b> <b>'+s+'s</b>';
+  if(!localStorage.getItem('gifted_music_on')) return;
+  var m = document.getElementById('bg-music');
+  if(!m) return;
+  m.volume = 0;
+  var p = m.play();
+  if(p !== undefined){
+    p.then(function(){
+      var steps=30,target=0.12,step=target/steps,i=0;
+      var t=setInterval(function(){
+        i++; m.volume=Math.min(target,m.volume+step);
+        if(i>=steps)clearInterval(t);
+      },50);
+    }).catch(function(){});
   }
-  tick();setInterval(tick,1000);
 })();
 </script>
 

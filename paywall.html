@@ -18,7 +18,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 /* Hero */
 .hero{width:100%;max-width:420px;padding:28px 20px 0}
 .hero-img{width:100%;border-radius:16px;box-shadow:0 6px 28px rgba(139,26,26,.3);margin-bottom:20px;max-height:280px;object-fit:cover;object-position:center top}
-.years-badge{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:800;padding:5px 14px;border-radius:12px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:14px}
+.years-badge{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:800;padding:5px 14px;border-radius:12px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:14px}
 .hero-title{font-size:24px;font-weight:800;line-height:1.3;color:var(--text);margin-bottom:12px}
 .hero-body{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px}
 .hero-body strong{color:var(--text);font-weight:700}
@@ -29,8 +29,8 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 .verse-ref{font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px}
 
 /* The 33 section */
-.thirty-three{background:linear-gradient(135deg,rgba(139,26,26,.07),rgba(139,26,26,.02));border:1.5px solid rgba(139,26,26,.2);border-radius:18px;padding:22px 20px;margin-bottom:24px;text-align:center}
-.tt-number{font-size:72px;font-weight:800;color:var(--red);line-height:1;margin-bottom:6px}
+.thirty-three{background:linear-gradient(135deg,rgba(27,75,138,.07),rgba(27,75,138,.02));border:1.5px solid rgba(27,75,138,.2);border-radius:18px;padding:22px 20px;margin-bottom:24px;text-align:center}
+.tt-number{font-size:72px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:6px}
 .tt-label{font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px}
 .tt-body{font-size:13px;color:var(--muted);line-height:1.75}
 .tt-body strong{color:var(--text)}
@@ -44,11 +44,11 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 .donation-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
 .donation-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
 .donation-opt{background:#F5E9C8;border:2px solid #C4B99E;border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
-.donation-opt:hover{border-color:var(--red)}
-.donation-opt.selected{border-color:var(--red);background:rgba(139,26,26,.06)}
+.donation-opt:hover{border-color:var(--accent)}
+.donation-opt.selected{border-color:var(--accent);background:rgba(27,75,138,.06)}
 .donation-amount{font-size:28px;font-weight:800;color:var(--text)}
 .donation-desc{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.3}
-.donation-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;white-space:nowrap}
+.donation-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;white-space:nowrap}
 
 /* What's included */
 .bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
@@ -61,7 +61,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 .charity-text{font-size:12px;color:var(--muted);line-height:1.7}
 
 /* CTA */
-.cta-btn{display:block;width:100%;background:var(--red);color:#fff;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:14px;padding:18px;cursor:pointer;transition:opacity .2s;margin-bottom:10px;box-shadow:0 6px 20px rgba(139,26,26,.35)}
+.cta-btn{display:block;width:100%;background:var(--accent);color:#fff;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:14px;padding:18px;cursor:pointer;transition:opacity .2s;margin-bottom:10px;box-shadow:0 6px 20px rgba(27,75,138,.35)}
 .cta-btn:hover{opacity:.9}
 .cta-note{font-size:11px;color:var(--muted);text-align:center;line-height:1.5}
 .trust{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;flex-wrap:wrap}
@@ -95,7 +95,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 <body>
 
 <div class="top-banner">
-  <strong>🕊 Pentecost Launch Offer &mdash; ends May 24, 2026</strong>
+  <strong></strong>
   Your gift plan is ready. Make your offering to unlock it.
 </div>
 
@@ -136,7 +136,20 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   <div class="sheet-title">Make your offering</div>
   <div class="sheet-sub">Choose the amount God places on your heart. The minimum offering is $33 — a dollar for every year Jesus lived for you.</div>
 
-  <div class="donation-label">Your ministry offering</div>
+  
+  <!-- Monthly giving toggle -->
+  <div style="display:flex;background:#F5E9C8;border-radius:12px;padding:4px;margin-bottom:18px;gap:4px">
+    <button id="tab-once" onclick="setGivingMode('once')"
+      style="flex:1;padding:10px;border:none;border-radius:9px;font-family:Poppins,sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:var(--accent);color:#fff;transition:all .2s">
+      Give Once
+    </button>
+    <button id="tab-monthly" onclick="setGivingMode('monthly')"
+      style="flex:1;padding:10px;border:none;border-radius:9px;font-family:Poppins,sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:transparent;color:var(--muted);transition:all .2s">
+      Give Monthly
+    </button>
+  </div>
+  <div id="section-once">
+<div class="donation-label">Your ministry offering</div>
   <div class="donation-grid">
     <div class="donation-opt selected" onclick="selectDonation(this,33)" id="opt-33">
       <div class="donation-badge">MINIMUM</div>
@@ -183,7 +196,29 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
     <span class="trust-badge">Mastercard</span>
     <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-top:4px">🔒 256-bit SSL · Secured by Stripe · Your offering is safe</div>
   </div>
-</div>
+
+  </div><!-- end section-once -->
+  <div id="section-monthly" style="display:none">
+    <div style="background:linear-gradient(135deg,rgba(27,75,138,.08),rgba(27,75,138,.02));border:1.5px solid rgba(27,75,138,.25);border-radius:18px;padding:20px;text-align:center;margin-bottom:18px">
+      <div style="font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px">Monthly Ministry Partner</div>
+      <div style="font-size:42px;font-weight:800;color:var(--accent);line-height:1">$11</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px;margin-bottom:14px">per month &middot; cancel anytime</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.6;margin-bottom:16px">
+        <strong>Why $11?</strong> One dollar for every one of the Apostles — the twelve who gave everything, minus the one who walked away. Your partnership keeps this ministry running and extends access to believers worldwide.
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:16px">
+        <div style="display:flex;gap:8px;font-size:12px"><span style="color:var(--accent)">✝</span><span>Access to your full Gift Plan and all future resources</span></div>
+        <div style="display:flex;gap:8px;font-size:12px"><span style="color:var(--accent)">✝</span><span>New devotional content added monthly</span></div>
+        <div style="display:flex;gap:8px;font-size:12px"><span style="color:var(--accent)">✝</span><span>Your giving provides free access to believers who cannot afford it</span></div>
+        <div style="display:flex;gap:8px;font-size:12px"><span style="color:var(--accent)">✝</span><span>Receive a monthly prayer from the Gifted team for you specifically</span></div>
+      </div>
+      <button onclick="submitMonthly()" style="display:block;width:100%;background:var(--accent);color:#fff;font-family:Poppins,sans-serif;font-size:16px;font-weight:700;border:none;border-radius:12px;padding:16px;cursor:pointer">
+        Become a Monthly Partner &mdash; $11/mo &rarr;
+      </button>
+      <div style="font-size:11px;color:var(--muted);margin-top:8px">Cancel anytime &middot; Billed monthly via Gumroad &middot; Secured by Stripe</div>
+    </div>
+  </div><!-- end section-monthly -->
+
 
 <script>
 let selectedAmount = 33;
@@ -232,5 +267,24 @@ async function submitPayment() {
 })();
 </script>
 
+
+<script>
+var givingMode = 'once';
+function setGivingMode(mode) {
+  givingMode = mode;
+  document.getElementById('section-once').style.display = mode==='once' ? 'block' : 'none';
+  document.getElementById('section-monthly').style.display = mode==='monthly' ? 'block' : 'none';
+  document.getElementById('tab-once').style.background = mode==='once' ? 'var(--accent)' : 'transparent';
+  document.getElementById('tab-once').style.color = mode==='once' ? '#fff' : 'var(--muted)';
+  document.getElementById('tab-monthly').style.background = mode==='monthly' ? 'var(--accent)' : 'transparent';
+  document.getElementById('tab-monthly').style.color = mode==='monthly' ? '#fff' : 'var(--muted)';
+}
+function submitMonthly() {
+  if(window._fbq) _fbq('track','InitiateCheckout',{currency:'USD',value:11});
+  var url = window.GIFTED_CONFIG && GIFTED_CONFIG.gumroadMonthlyUrl && !GIFTED_CONFIG.gumroadMonthlyUrl.includes('PASTE')
+    ? GIFTED_CONFIG.gumroadMonthlyUrl : 'upsell.html';
+  window.location.href = url;
+}
+</script>
 </body>
 </html>
