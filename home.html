@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gifted — Discover Your Spiritual Gift</title>
+<meta name="description" content="God gave every believer a specific spiritual gift. Discover yours in 3 minutes with the Gifted Assessment.">
+<meta property="og:title" content="Gifted — Discover Your Spiritual Gift">
+<meta property="og:description" content="God gave every believer a specific spiritual gift. Discover yours in 3 minutes.">
+<meta property="og:image" content="https://gifted.church/assets/crucifixion.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FEF8E4;--card:#FFFDF0;--blue:#1B4B8A;--gold:#B8870B;
+  --dark:#160E05;--muted:#7A6240;--white:#fff;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--dark);font-family:'Poppins',sans-serif;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(254,248,228,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,135,11,.15)}
+.nav-logo{font-size:18px;font-weight:800;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo span{font-size:20px}
+.nav-cta{background:var(--blue);color:#fff;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;border:none;border-radius:10px;padding:10px 20px;cursor:pointer;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.88}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden}
+
+/* Animated background particles */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 50%,rgba(27,75,138,.07) 0%,transparent 60%),
+             radial-gradient(ellipse at 80% 20%,rgba(184,135,11,.08) 0%,transparent 50%),
+             radial-gradient(ellipse at 60% 80%,rgba(27,75,138,.05) 0%,transparent 40%);
+  animation:bgPulse 8s ease-in-out infinite alternate;
+}
+@keyframes bgPulse{
+  0%{opacity:.6} 100%{opacity:1}
+}
+
+/* Floating cross */
+.floating-cross{
+  font-size:80px;color:var(--gold);display:block;margin-bottom:28px;
+  animation:float 4s ease-in-out infinite;
+  filter:drop-shadow(0 8px 24px rgba(184,135,11,.3));
+  position:relative;z-index:1;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-14px)}
+}
+
+.hero-eyebrow{
+  font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:2px;
+  margin-bottom:16px;position:relative;z-index:1;
+  animation:fadeUp .8s ease both;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.hero-title{
+  font-size:clamp(36px,8vw,68px);font-weight:900;line-height:1.1;
+  max-width:700px;margin:0 auto 20px;position:relative;z-index:1;
+  animation:fadeUp .8s .1s ease both;
+}
+.hero-title em{
+  font-style:normal;color:var(--blue);
+  background:linear-gradient(135deg,#1B4B8A,#2E6DB8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.hero-sub{
+  font-size:clamp(16px,2.5vw,20px);color:var(--muted);line-height:1.7;
+  max-width:480px;margin:0 auto 40px;position:relative;z-index:1;
+  animation:fadeUp .8s .2s ease both;
+}
+
+.hero-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;z-index:1;animation:fadeUp .8s .3s ease both}
+.hero-btn{
+  background:var(--blue);color:#fff;font-family:'Poppins',sans-serif;
+  font-size:18px;font-weight:800;border:none;border-radius:16px;
+  padding:20px 44px;cursor:pointer;text-decoration:none;display:inline-block;
+  box-shadow:0 8px 32px rgba(27,75,138,.35);
+  transition:transform .2s,box-shadow .2s;
+  position:relative;overflow:hidden;
+}
+.hero-btn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+  opacity:0;transition:opacity .2s;
+}
+.hero-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(27,75,138,.45)}
+.hero-btn:hover::after{opacity:1}
+.hero-note{font-size:13px;color:var(--muted)}
+
+.hero-verse{
+  margin-top:60px;max-width:440px;position:relative;z-index:1;
+  animation:fadeUp .8s .5s ease both;
+}
+.hero-verse blockquote{
+  font-family:'Lora',serif;font-style:italic;font-size:15px;
+  color:var(--muted);line-height:1.75;
+}
+.hero-verse cite{display:block;font-size:11px;font-weight:700;color:var(--blue);margin-top:8px;text-transform:uppercase;letter-spacing:.8px;font-style:normal}
+
+/* ── GIFT TYPES ── */
+.gifts-section{padding:100px 24px;text-align:center;max-width:900px;margin:0 auto}
+.section-label{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.section-title{font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.2;margin-bottom:16px}
+.section-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto 60px}
+
+.gifts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:600px;margin:0 auto}
+@media(min-width:640px){.gifts-grid{grid-template-columns:repeat(4,1fr)}}
+
+.gift-card{
+  background:var(--card);border-radius:18px;padding:28px 16px;
+  border:1.5px solid rgba(184,135,11,.2);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  cursor:default;
+}
+.gift-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(27,75,138,.15);border-color:rgba(27,75,138,.3)}
+.gift-icon{font-size:36px;margin-bottom:12px}
+.gift-name{font-size:14px;font-weight:800;color:var(--blue);margin-bottom:4px}
+.gift-sub{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* ── HOW IT WORKS ── */
+.how-section{background:var(--blue);padding:100px 24px;text-align:center;color:#fff}
+.how-section .section-label{color:rgba(255,255,255,.6)}
+.how-section .section-title{color:#fff}
+.how-section .section-sub{color:rgba(255,255,255,.7)}
+
+.steps-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:700px;margin:0 auto}
+@media(min-width:600px){.steps-grid{grid-template-columns:repeat(3,1fr)}}
+
+.step-card{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.12);border-radius:18px;padding:32px 20px;text-align:center}
+.step-num{width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;margin:0 auto 16px}
+.step-title{font-size:15px;font-weight:700;margin-bottom:8px;color:#fff}
+.step-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6}
+
+/* ── WHAT YOU GET ── */
+.collection-section{padding:100px 24px;max-width:800px;margin:0 auto}
+.collection-grid{display:flex;flex-direction:column;gap:14px;margin-top:48px}
+.collection-item{
+  display:flex;align-items:flex-start;gap:16px;
+  background:var(--card);border-radius:16px;padding:20px;
+  border:1px solid rgba(184,135,11,.2);
+  transition:border-color .2s;
+}
+.collection-item:hover{border-color:rgba(27,75,138,.3)}
+.ci-icon{font-size:24px;flex-shrink:0;width:44px;height:44px;background:rgba(27,75,138,.08);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.ci-text{}
+.ci-name{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:3px}
+.ci-desc{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* ── FINAL CTA ── */
+.final-cta{padding:120px 24px;text-align:center;position:relative;overflow:hidden}
+.final-cta::before{
+  content:'+';position:absolute;font-size:400px;font-weight:900;
+  color:rgba(27,75,138,.04);top:50%;left:50%;transform:translate(-50%,-50%);
+  line-height:1;pointer-events:none;
+  animation:rotateCross 30s linear infinite;
+}
+@keyframes rotateCross{
+  from{transform:translate(-50%,-50%) rotate(0deg)}
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+.final-badge{
+  display:inline-block;background:rgba(27,75,138,.1);color:var(--blue);
+  font-size:11px;font-weight:700;padding:6px 16px;border-radius:20px;
+  letter-spacing:.8px;text-transform:uppercase;margin-bottom:24px;
+}
+.final-title{font-size:clamp(32px,6vw,52px);font-weight:900;line-height:1.15;margin-bottom:16px;max-width:600px;margin-left:auto;margin-right:auto}
+.final-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:420px;margin:0 auto 48px}
+.final-btn{
+  background:var(--blue);color:#fff;font-family:'Poppins',sans-serif;
+  font-size:18px;font-weight:800;border:none;border-radius:16px;
+  padding:20px 44px;cursor:pointer;text-decoration:none;display:inline-block;
+  box-shadow:0 8px 32px rgba(27,75,138,.35);
+  transition:transform .2s,box-shadow .2s;
+}
+.final-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(27,75,138,.45)}
+
+/* ── FOOTER ── */
+footer{padding:40px 24px;border-top:1px solid rgba(184,135,11,.2);text-align:center}
+.footer-logo{font-size:16px;font-weight:800;color:var(--blue);margin-bottom:12px}
+.footer-links{display:flex;gap:24px;justify-content:center;margin-bottom:16px}
+.footer-links a{font-size:12px;color:var(--muted);text-decoration:none}
+.footer-links a:hover{color:var(--blue)}
+.footer-copy{font-size:11px;color:var(--muted)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/home.html"><span>✝</span> gifted</a>
+  <a class="nav-cta" href="/index.html">Take the Free Quiz →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="floating-cross">✝</span>
+  <div class="hero-eyebrow">Spiritual Gifts Assessment</div>
+  <h1 class="hero-title">God gave you a <em>specific gift</em>.<br>Find out what it is.</h1>
+  <p class="hero-sub">3 minutes. 15 questions. A complete profile of how God wired you to serve His Kingdom — free to start.</p>
+  <div class="hero-cta-wrap">
+    <a class="hero-btn" href="/index.html">Discover My Spiritual Gift →</a>
+    <span class="hero-note">Free to take &middot; 50,000+ believers assessed</span>
+  </div>
+  <div class="hero-verse">
+    <blockquote>"Now there are varieties of gifts, but the same Spirit; and there are varieties of service, but the same Lord."</blockquote>
+    <cite>1 Corinthians 12:4&ndash;5</cite>
+  </div>
+</section>
+
+<!-- GIFT TYPES -->
+<section class="gifts-section">
+  <div class="section-label reveal">What You Will Discover</div>
+  <h2 class="section-title reveal">Four gifts. One Spirit. One purpose.</h2>
+  <p class="section-sub reveal">The assessment identifies your dominant gift orientation — the grace God placed in you to serve others.</p>
+  <div class="gifts-grid reveal">
+    <div class="gift-card">
+      <div class="gift-icon">🔥</div>
+      <div class="gift-name">Faith</div>
+      <div class="gift-sub">Believes when others cannot yet see</div>
+    </div>
+    <div class="gift-card">
+      <div class="gift-icon">🕊️</div>
+      <div class="gift-name">Mercy</div>
+      <div class="gift-sub">Feels what others feel, brings presence</div>
+    </div>
+    <div class="gift-card">
+      <div class="gift-icon">📣</div>
+      <div class="gift-name">Prophecy</div>
+      <div class="gift-sub">Hears from Heaven, speaks what God says</div>
+    </div>
+    <div class="gift-card">
+      <div class="gift-icon">📖</div>
+      <div class="gift-name">Teaching</div>
+      <div class="gift-sub">Makes truth clear, forms disciples</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-label reveal">How It Works</div>
+  <h2 class="section-title reveal">Three minutes to clarity.</h2>
+  <p class="section-sub reveal">The assessment is short, honest, and free. No email required to start.</p>
+  <div class="steps-grid reveal">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-title">Take the Quiz</div>
+      <div class="step-desc">15 simple questions about how you naturally respond to the world around you.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-title">See Your Gift</div>
+      <div class="step-desc">Your dominant gift is identified — with the biblical foundation behind it.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-title">Activate It</div>
+      <div class="step-desc">Unlock your full 12-page profile and 28-day activation plan for $1.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection-section">
+  <div class="section-label reveal">The Complete Collection</div>
+  <h2 class="section-title reveal">Everything built for your calling.</h2>
+  <p class="section-sub reveal">After discovering your gift, go deeper with the resources built specifically for each gift type.</p>
+  <div class="collection-grid">
+    <div class="collection-item reveal">
+      <div class="ci-icon">📖</div>
+      <div class="ci-text">
+        <div class="ci-name">8 Ministry Guides</div>
+        <div class="ci-desc">Prayer, warfare, scripture, marriage, identity, commission, prophetic, healing — one for each major area of Kingdom life.</div>
+      </div>
+    </div>
+    <div class="collection-item reveal">
+      <div class="ci-icon">🎧</div>
+      <div class="ci-text">
+        <div class="ci-name">8 Guided Prayer MP3s</div>
+        <div class="ci-desc">10&ndash;15 minute prayer activations, one per gift type. Listen every morning and watch what shifts.</div>
+      </div>
+    </div>
+    <div class="collection-item reveal">
+      <div class="ci-icon">📓</div>
+      <div class="ci-text">
+        <div class="ci-name">31-Day Gift Activation Journal</div>
+        <div class="ci-desc">Daily scripture, activation exercise, and prayer prompt to grow in your calling over a month.</div>
+      </div>
+    </div>
+    <div class="collection-item reveal">
+      <div class="ci-icon">✦</div>
+      <div class="ci-text">
+        <div class="ci-name">Quick-Reference Card + Combinations Guide</div>
+        <div class="ci-desc">All 9 spiritual gifts mapped — and what happens when your primary and secondary gifts work together.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-badge reveal">Free to Start</div>
+  <h2 class="final-title reveal">Your gift is already in you.<br>It is time to name it.</h2>
+  <p class="final-sub reveal">Take the 3-minute assessment and discover how God specifically wired you to build His Kingdom.</p>
+  <a class="final-btn reveal" href="/index.html">Take the Free Quiz →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">✝ gifted</div>
+  <div class="footer-links">
+    <a href="/index.html">Take the Quiz</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Gifted Ministry &middot; gifted.church</div>
+</footer>
+
+<script>
+// Scroll reveal
+const els = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
