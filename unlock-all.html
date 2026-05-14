@@ -81,17 +81,17 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
 <div class="logo">✝ Discover Your Gift</div>
 <div class="page-title">The Complete Gifted Collection</div>
-<div class="page-sub">Every guide. Every audio. One sacred season discount.</div>
+<div class="page-sub">8 guides. 8 audio activations. 3 bonuses. Everything built for your calling — in one offering.</div>
 
 <div class="content">
 
   <!-- Bundle price card -->
   <div class="bundle-card">
     <div class="bundle-badge">🕊 Pentecost Offer — Ends May 24</div>
-    <div class="bundle-orig">Full value: $320</div>
-    <div class="bundle-price">$35</div>
-    <div class="bundle-saving">You save $285 &mdash; 89% off</div>
-    <button class="bundle-btn" onclick="buyBundle()">Get the Full Collection &mdash; $35</button>
+    <div class="bundle-orig">Full value: $341</div>
+    <div class="bundle-price">$280</div>
+    <div class="bundle-saving">You save $61 &mdash; everything in one offering</div>
+    <button class="bundle-btn" onclick="buyBundle()">Unlock Everything &mdash; $280</button>
     <div class="bundle-note">🔒 One-time payment &middot; No subscription &middot; Instant download</div>
   </div>
 
@@ -184,8 +184,8 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
 <!-- Sticky CTA -->
 <div class="sticky-cta">
-  <button class="sticky-btn" onclick="buyBundle()">Get the Full Collection &mdash; $35</button>
-  <div class="sticky-note">8 guides + 8 MP3s + 3 bonuses &middot; One-time &middot; No subscription</div>
+  <button class="sticky-btn" onclick="buyBundle()">Unlock Everything &mdash; $280</button>
+  <div class="sticky-note">8 guides + 8 MP3 audios + 3 exclusive bonuses &middot; One-time &middot; $280 vs $341 individually</div>
   <button class="skip-btn" onclick="skipBundle()">No thanks, continue without the bundle</button>
 </div>
 
@@ -193,8 +193,8 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 function buyBundle(){
   var b=document.querySelector('.bundle-btn');
   b.textContent='Redirecting...';b.style.opacity='.7';
-  if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:35,content_name:'bundle'});
-  if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:35});
+  if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:280,content_name:'bundle'});
+  if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:280});
   var url=window.GIFTED_CONFIG&&!GIFTED_CONFIG.gumroad.bundle.includes('PASTE')
     ?GIFTED_CONFIG.gumroad.bundle:'challenge.html';
   setTimeout(()=>{window.location.href=url},500);

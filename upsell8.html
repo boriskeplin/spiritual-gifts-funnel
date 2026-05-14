@@ -78,8 +78,8 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 </div>
 <div class="wrap">
   <div class="logo">✝ Discover Your Gift</div>
-  <div class="prog-label">Personalising your plan — 8 of 8</div>
-  <div class="prog-dots"><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot active"></div></div>
+  <div class="prog-label">Guide 8 of 8</div>
+  <div class="prog-dots"><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot active"></div></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot done"></div><div class="dot active"></div></div>
 </div>
 <div class="content">
   <img class="art-img" src="assets/jesus_lazarus.jpg" alt="Raising of Lazarus — Carl Bloch">
@@ -88,7 +88,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
     <div class="scripture-text">"Very truly I tell you, whoever believes in me will do the works I have been doing, and they will do even greater things than these."</div>
     <div class="scripture-ref">John 14:12</div>
   </div>
-  <div class="offer-desc">Healing is not a gift for the spiritually elite — Jesus gave authority over sickness to every believer who follows Him. This guide equips you to pray for the sick with biblical confidence, understand how healing works, and persist in faith when the answer takes time.</div>
+  <div class="offer-desc">The gift of healing is real — Jesus modelled it, the apostles carried it, and Scripture commands it. But most believers have never been taught how to pray for the sick with faith, not just hope.<br><br>This guide walks you through the biblical foundations of healing, how to pray with authority and compassion, and what to do when the healing doesn't come immediately. Plus an audio prayer to activate the gift today.</div>
   <div class="what-label">What's included</div>
   <div class="bullets">
     <div class="bullet"><span class="b-cross">✝</span><span>The biblical foundation for healing — from Yahweh Rapha in Exodus to the cross of Christ</span></div>
@@ -100,18 +100,18 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 <div class="bullet"><span class="b-cross">🎧</span><span><strong>Bonus: Healing Prayer Activation Audio (MP3) — a 10-minute prayer for healing and the release of miraculous gifts</strong></span></div></div>
 </div>
 <div class="cta-wrap">
-  <button class="cta-btn" onclick="add()">+ Add The Healing &amp; Miracles Guide — $8 today</button>
-  <div class="cta-charge"><s style="opacity:.5">$40</s> &nbsp;<strong>$8 today</strong> &nbsp;· 80% off · No subscription · Instant access.</div>
+  <button class="cta-btn" onclick="add()">Add The Healing & Miracles Guide — $33 &rarr;</button>
+  <div class="cta-charge"><s style="opacity:.45">$130</s> &nbsp;<strong>$33 today</strong> &nbsp;&middot;&nbsp; Guide + Audio &middot; Pentecost offer &middot; No subscription</div>
   <button class="skip-btn" onclick="skip()">No thanks, go to my plan</button>
 </div>
 <script>
 async function add(){
   var b=document.querySelector('.cta-btn');b.textContent='Redirecting...';b.style.opacity='.7';
-  if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:8,content_name:'healing'});
-  if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:8});
+  if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:33,content_name:'healing'});
+  if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:33});
   var url = window.GIFTED_CONFIG&&!GIFTED_CONFIG.gumroad.healing.includes('PASTE')
     ? GIFTED_CONFIG.gumroad.healing
-    : 'dashboard.html';
+    : 'unlock-all.html';
   setTimeout(()=>{window.location.href=url},500);
 }
 function skip(){window.location.href='downsell8.html'}

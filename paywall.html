@@ -3,129 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Give & Unlock Your Plan — Discover Your Gift</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Make Your Offering — Gifted</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-
-<!-- STRIPE: Replace YOUR_STRIPE_PUBLISHABLE_KEY with your key -->
 <script src="https://js.stripe.com/v3/"></script>
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#FEF8E4; --card:#FFFDF0; --accent:#1B4B8A; --red:#8B1A1A;
-  --gold:#B8870B; --text:#160E05; --muted:#7A6240;
-  --btn:#F5E9C8; --btn-h:#E3DAC8;
-  --shadow:0 2px 18px rgba(139,115,88,.13);
-}
-body{background-color:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;
-  min-height:100vh;display:flex;flex-direction:column;align-items:center}
+:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--red:#8B1A1A;--gold:#B8870B;--text:#160E05;--muted:#7A6240;--shadow:0 2px 18px rgba(139,115,88,.13)}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
 
-/* Countdown banner */
-.top-banner{width:100%;background:var(--red);color:#fff;text-align:center;
-  padding:11px 16px;font-size:13px;font-weight:600;display:flex;align-items:center;
-  justify-content:center;gap:8px;position:sticky;top:0;z-index:100}
-.banner-timer{font-size:16px;font-weight:800;letter-spacing:.5px;min-width:42px}
+/* Scarcity banner */
+.top-banner{width:100%;background:var(--red);color:#fff;text-align:center;padding:10px 16px;font-size:12px;font-weight:600;position:sticky;top:0;z-index:100}
+.top-banner strong{display:block;font-size:13px}
 
-/* Cross hero */
-.cross-hero{width:100%;max-width:420px;text-align:center;padding:32px 20px 16px}
-.cross-icon{font-size:52px;color:var(--red);display:block;margin-bottom:12px}
-.hero-title{font-size:24px;font-weight:800;line-height:1.3;color:var(--text);margin-bottom:8px}
-.hero-sub{font-size:14px;color:var(--muted);line-height:1.7}
+/* Hero */
+.hero{width:100%;max-width:420px;padding:28px 20px 0}
+.hero-img{width:100%;border-radius:16px;box-shadow:0 6px 28px rgba(139,26,26,.3);margin-bottom:20px;max-height:280px;object-fit:cover;object-position:center top}
+.years-badge{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:800;padding:5px 14px;border-radius:12px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:14px}
+.hero-title{font-size:24px;font-weight:800;line-height:1.3;color:var(--text);margin-bottom:12px}
+.hero-body{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px}
+.hero-body strong{color:var(--text);font-weight:700}
 
-/* Scripture banner */
-.verse-banner{width:100%;max-width:420px;padding:0 20px 20px}
-.verse-card{background:var(--card);border-radius:16px;padding:18px 20px;
-  border-left:4px solid var(--red);box-shadow:var(--shadow)}
-.verse-text{font-family:'Lora',serif;font-style:italic;font-size:15px;
-  line-height:1.7;color:var(--text);margin-bottom:6px}
-.verse-ref{font-size:11px;font-weight:700;color:var(--red);
-  text-transform:uppercase;letter-spacing:.5px}
+/* Scripture card */
+.verse-card{background:var(--card);border-radius:14px;padding:18px 20px;border-left:4px solid var(--red);box-shadow:var(--shadow);margin-bottom:24px}
+.verse-text{font-family:'Lora',serif;font-style:italic;font-size:14px;line-height:1.75;color:var(--text);margin-bottom:6px}
+.verse-ref{font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px}
 
-/* Sheet */
-.sheet{background:var(--card);border-radius:24px 24px 0 0;width:100%;
-  max-width:420px;padding:28px 20px 48px;border-top:3px solid var(--accent)}
+/* The 33 section */
+.thirty-three{background:linear-gradient(135deg,rgba(139,26,26,.07),rgba(139,26,26,.02));border:1.5px solid rgba(139,26,26,.2);border-radius:18px;padding:22px 20px;margin-bottom:24px;text-align:center}
+.tt-number{font-size:72px;font-weight:800;color:var(--red);line-height:1;margin-bottom:6px}
+.tt-label{font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px}
+.tt-body{font-size:13px;color:var(--muted);line-height:1.75}
+.tt-body strong{color:var(--text)}
+
+/* Donation section */
+.sheet{background:var(--card);border-radius:24px 24px 0 0;width:100%;max-width:420px;padding:28px 20px 60px;border-top:3px solid var(--red);margin-top:8px}
 .sheet-handle{width:36px;height:4px;background:#DDD5C4;border-radius:2px;margin:0 auto 20px}
-.sheet-cross{font-size:22px;text-align:center;color:var(--red);margin-bottom:12px}
-.sheet-title{font-size:19px;font-weight:800;color:var(--text);margin-bottom:6px}
-.sheet-sub{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+.sheet-title{font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px}
+.sheet-sub{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:22px}
 
-/* Donation amounts */
-.donation-label{font-size:11px;font-weight:700;color:var(--muted);
-  text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
-.donation-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
-.donation-opt{background:var(--btn);border:2px solid #C4B99E;
-  border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;
-  transition:border-color .2s,background .2s;position:relative;
-  box-shadow:0 1px 6px rgba(0,0,0,.05)}
-.donation-opt:hover{border-color:var(--accent);background:rgba(27,75,138,.05)}
-.donation-opt.selected{border-color:var(--accent);background:rgba(27,75,138,.08)}
-.donation-amount{font-size:26px;font-weight:800;color:var(--text)}
-.donation-desc{font-size:11px;color:var(--muted);margin-top:3px}
-.donation-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);
-  background:var(--red);color:#fff;font-size:10px;font-weight:700;
-  padding:3px 10px;border-radius:10px;white-space:nowrap}
+.donation-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
+.donation-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.donation-opt{background:#F5E9C8;border:2px solid #C4B99E;border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
+.donation-opt:hover{border-color:var(--red)}
+.donation-opt.selected{border-color:var(--red);background:rgba(139,26,26,.06)}
+.donation-amount{font-size:28px;font-weight:800;color:var(--text)}
+.donation-desc{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.3}
+.donation-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;white-space:nowrap}
 
-/* Charitable use */
-.charity-box{background:rgba(27,75,138,.06);border:1px solid rgba(27,75,138,.18);
-  border-radius:14px;padding:16px;margin-bottom:20px}
-.charity-title{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;
-  display:flex;align-items:center;gap:6px}
-.charity-text{font-size:12px;color:var(--muted);line-height:1.7}
-
-/* Bullets */
-.bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+/* What's included */
+.bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
 .bullet{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5}
 .bullet-cross{color:var(--red);font-size:14px;flex-shrink:0;margin-top:1px}
 
-/* Google Pay */
-#payment-request-button{margin-bottom:14px}
-.divider{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.divider-line{flex:1;height:1px;background:#DDD5C4}
-.divider-text{font-size:11px;color:var(--muted);white-space:nowrap}
-
-/* Card form */
-.field-label{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:4px;
-  text-transform:uppercase;letter-spacing:.5px}
-.field{background:#fff;border:1.5px solid #C4B99E;border-radius:10px;padding:14px;
-  font-size:15px;font-family:'Poppins',sans-serif;color:var(--text);width:100%;
-  transition:border-color .2s;outline:none;-webkit-appearance:none}
-.field:focus{border-color:var(--accent)}
-.field::placeholder{color:#C4B99E}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card-form{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
-#card-element{background:#fff;border:1.5px solid #C4B99E;border-radius:10px;padding:14px;
-  transition:border-color .2s}
-#card-element.StripeElement--focus{border-color:var(--accent)}
-#card-error{color:var(--red);font-size:12px;margin-top:6px;min-height:18px}
-
-/* Order bump */
-.order-bump{background:rgba(27,75,138,.05);border:1.5px solid rgba(27,75,138,.2);
-  border-radius:12px;padding:14px;margin-bottom:14px;display:flex;
-  align-items:flex-start;gap:12px;cursor:pointer}
-.order-bump:hover{background:rgba(27,75,138,.08)}
-.bump-box{width:22px;height:22px;border-radius:5px;border:2px solid #C4B99E;
-  background:#fff;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;margin-top:1px;transition:all .15s}
-.bump-box.checked{background:var(--accent);border-color:var(--accent)}
-.bump-label{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:2px}
-.bump-sub{font-size:11px;color:var(--muted);line-height:1.5}
+/* Charity box */
+.charity-box{background:rgba(27,75,138,.05);border:1px solid rgba(27,75,138,.18);border-radius:14px;padding:16px;margin-bottom:22px}
+.charity-title{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px}
+.charity-text{font-size:12px;color:var(--muted);line-height:1.7}
 
 /* CTA */
-.cta-btn{display:block;width:100%;background:var(--accent);color:#fff;
-  font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;
-  border:none;border-radius:14px;padding:18px;cursor:pointer;
-  transition:opacity .2s,transform .2s;margin-bottom:10px;
-  box-shadow:0 6px 20px rgba(27,75,138,.35)}
-.cta-btn:hover{opacity:.9;transform:translateY(-1px)}
-.cta-btn.loading{opacity:.65;pointer-events:none}
-
-/* Trust */
-.trust{display:flex;align-items:center;justify-content:center;
-  gap:6px;margin-top:10px;flex-wrap:wrap}
-.trust-badge{background:var(--btn);border-radius:6px;padding:4px 8px;
-  font-size:10px;color:var(--muted);font-weight:600}
-.trust-lock{font-size:11px;color:var(--muted);width:100%;text-align:center;margin-top:4px}
+.cta-btn{display:block;width:100%;background:var(--red);color:#fff;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:14px;padding:18px;cursor:pointer;transition:opacity .2s;margin-bottom:10px;box-shadow:0 6px 20px rgba(139,26,26,.35)}
+.cta-btn:hover{opacity:.9}
+.cta-note{font-size:11px;color:var(--muted);text-align:center;line-height:1.5}
+.trust{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;flex-wrap:wrap}
+.trust-badge{background:#F5E9C8;border-radius:6px;padding:4px 8px;font-size:10px;color:var(--muted);font-weight:600}
 </style>
 <script src="/config.js"></script>
 <script>
@@ -151,209 +91,121 @@ body{background-color:var(--bg);color:var(--text);font-family:'Poppins',sans-ser
 })();
 </script>
 </head>
+</head>
 <body>
 
 <div class="top-banner">
-  ✝ This offer expires in &nbsp;<span class="banner-timer" id="banner-timer">8:00</span>
+  <strong>🕊 Pentecost Launch Offer &mdash; ends May 24, 2026</strong>
+  Your gift plan is ready. Make your offering to unlock it.
 </div>
 
-<div class="cross-hero">
-  <img src="assets/crucifixion.jpg" alt="The Crucifixion — Gustave Doré" style="width:100%;max-width:380px;border-radius:16px;box-shadow:0 4px 20px rgba(139,26,26,.25);margin-bottom:16px"><span class="cross-icon">✝</span>
-  <div class="hero-title">God has shown you your gift.<br>Now He is asking you to give.</div>
-  <div class="hero-sub">Jesus gave everything — His comfort, His life, His all — without holding anything back.<br>You are being invited to give something small in return.</div>
-</div>
+<div class="hero">
 
-<div class="verse-banner">
+  <img class="hero-img" src="assets/crucifixion.jpg" alt="The Crucifixion">
+
+  <div class="years-badge">✝ 33 Years</div>
+
+  <div class="hero-title">He gave 33 years.<br>Every one of them was for you.</div>
+
+  <div class="hero-body">
+    Jesus did not live a single day for Himself.<br><br>
+    <strong>Thirty-three years of walking dusty roads, touching the untouchable, speaking truth to power, weeping at tombs, praying through the night.</strong><br><br>
+    Thirty-three years of preparing the way — so that you, right now, could know your purpose. Know your gift. Know why God made you the way He made you.<br><br>
+    Everything you discovered in this assessment exists because of those 33 years. And what comes next — your full Gift Plan, your Scripture activation map, your calling laid out step by step — all of it flows from what He gave.
+  </div>
+
   <div class="verse-card">
     <div class="verse-text">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver. And God is able to bless you abundantly, so that in all things at all times, having all that you need, you will abound in every good work."</div>
-    <div class="verse-ref">2 Corinthians 9:7–8</div>
+    <div class="verse-ref">2 Corinthians 9:7&ndash;8</div>
   </div>
+
+  <div class="thirty-three">
+    <div class="tt-number">$33</div>
+    <div class="tt-label">A dollar for every year He lived for you</div>
+    <div class="tt-body">
+      This is not a purchase. It is an offering.<br><br>
+      <strong>Give $33 — one dollar for each of the 33 years Jesus walked this earth on your behalf</strong> — and unlock your complete Spiritual Gift Plan, your 28-day activation roadmap, and access to everything built for your specific gift type.<br><br>
+      If God places more on your heart, give more. Every offering beyond $33 goes directly to providing free access for believers in need around the world.
+    </div>
+  </div>
+
 </div>
 
 <div class="sheet">
   <div class="sheet-handle"></div>
-  <div class="sheet-cross">✝</div>
   <div class="sheet-title">Make your offering</div>
-  <div class="sheet-sub">Choose what God puts on your heart. Every amount — however small — goes directly to providing free access to believers who cannot afford it, and to supporting Christian charitable work.</div>
+  <div class="sheet-sub">Choose the amount God places on your heart. The minimum offering is $33 — a dollar for every year Jesus lived for you.</div>
 
-  <div class="donation-label">Choose your offering</div>
+  <div class="donation-label">Your ministry offering</div>
   <div class="donation-grid">
-    <div class="donation-opt" onclick="selectDonation(this,'£1')">
-      <div class="donation-amount">£1</div>
-      <div class="donation-desc">A seed of faith</div>
+    <div class="donation-opt selected" onclick="selectDonation(this,33)" id="opt-33">
+      <div class="donation-badge">MINIMUM</div>
+      <div class="donation-amount">$33</div>
+      <div class="donation-desc">A dollar for every year He lived</div>
     </div>
-    <div class="donation-opt" onclick="selectDonation(this,'£2')">
-      <div class="donation-amount">£2</div>
-      <div class="donation-desc">A faithful offering</div>
-    </div>
-    <div class="donation-opt selected" onclick="selectDonation(this,'£5')">
-      <div class="donation-badge">MOST GIVEN</div>
-      <div class="donation-amount">£5</div>
+    <div class="donation-opt" onclick="selectDonation(this,50)" id="opt-50">
+      <div class="donation-amount">$50</div>
       <div class="donation-desc">A generous heart</div>
     </div>
-    <div class="donation-opt" onclick="selectDonation(this,'£10')">
-      <div class="donation-amount">£10</div>
-      <div class="donation-desc">Sowing abundantly</div>
+    <div class="donation-opt" onclick="selectDonation(this,77)" id="opt-77">
+      <div class="donation-amount">$77</div>
+      <div class="donation-desc">The number of forgiveness</div>
     </div>
+    <div class="donation-opt" onclick="selectDonation(this,100)" id="opt-100">
+      <div class="donation-amount">$100</div>
+      <div class="donation-desc">A sacrifice of praise</div>
+    </div>
+  </div>
+
+  <div class="bullets">
+    <div class="bullet"><span class="bullet-cross">✝</span><span><strong>Your complete Spiritual Gifts Profile</strong> — your dominant gift, how it shows up, and what Scripture says about it</span></div>
+    <div class="bullet"><span class="bullet-cross">✝</span><span><strong>28-day Gift Activation Plan</strong> — daily Scripture exercises to begin walking in your calling immediately</span></div>
+    <div class="bullet"><span class="bullet-cross">✝</span><span><strong>Your full biblical gift foundation</strong> — where your gift appears in Scripture, who carried it, and what it accomplished</span></div>
+    <div class="bullet"><span class="bullet-cross">✝</span><span><strong>Ministry application guide</strong> — how your gift serves the local church and the broader Kingdom</span></div>
   </div>
 
   <div class="charity-box">
     <div class="charity-title">🙏 Where your offering goes</div>
-    <div class="charity-text">Your donation keeps this assessment completely free for believers in lower-income countries, funds Christian discipleship resources for new believers, and supports the ongoing development of this ministry. <strong>Every penny is used for Kingdom purposes.</strong></div>
-  </div>
-
-  <div class="bullets">
-    <div class="bullet">
-      <span class="bullet-cross">✝</span>
-      <span>Your full 28-day Spiritual Gift Activation Plan — personalised to your results</span>
-    </div>
-    <div class="bullet">
-      <span class="bullet-cross">✝</span>
-      <span>Daily Scripture-based exercises to begin operating in your gift immediately</span>
-    </div>
-    <div class="bullet">
-      <span class="bullet-cross">✝</span>
-      <span>Your complete gift profile with biblical foundation for every dimension</span>
-    </div>
-    <div class="bullet">
-      <span class="bullet-cross">✝</span>
-      <span>Access to the Gifted app — your spiritual growth companion (iOS & Android)</span>
-    </div>
-  </div>
-
-  <!-- Order bump: Guided Prayer Journal PDF -->
-  <div class="order-bump" onclick="toggleBump()" id="order-bump">
-    <div class="bump-box checked" id="bump-box"><span id="bump-check" style="color:#fff;font-size:13px;font-weight:800">✓</span></div>
-    <div>
-      <div class="bump-label">✝ Add the 30-Day Prayer & Gift Journal (+£3)</div>
-      <div class="bump-sub">90 daily Scripture prompts and prayers tailored to your spiritual gift. Normally £9 — included at a reduced offering for believers who give today.</div>
-    </div>
-  </div>
-
-  <div id="payment-request-button"></div>
-  <div class="divider" id="card-divider">
-    <div class="divider-line"></div>
-    <div class="divider-text">OR PAY WITH CARD</div>
-    <div class="divider-line"></div>
-  </div>
-
-  <div id="card-element"></div>
-  <div id="card-error"></div>
-
-  <div class="card-form" id="manual-fields">
-    <div>
-      <div class="field-label">Card number</div>
-      <input class="field" type="text" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19" id="card-number-fallback">
-    </div>
-    <div class="field-row">
-      <div>
-        <div class="field-label">MM / YY</div>
-        <input class="field" type="text" placeholder="MM / YY" maxlength="7">
-      </div>
-      <div>
-        <div class="field-label">CVC</div>
-        <input class="field" type="text" inputmode="numeric" placeholder="CVC" maxlength="4">
-      </div>
-    </div>
-    <div>
-      <div class="field-label">Postal code</div>
-      <input class="field" type="text" placeholder="Postal code">
-    </div>
+    <div class="charity-text">Every dollar covers the cost of providing this assessment free to believers in lower-income countries, funds new discipleship resources, and supports Christian charitable work. <strong>100% of every dollar beyond our costs goes directly to Kingdom purposes.</strong></div>
   </div>
 
   <button class="cta-btn" id="submit-btn" onclick="submitPayment()">
-    Give & Unlock My Gift Plan →
+    Give $33 &amp; Unlock My Gift Plan &rarr;
   </button>
+  <div class="cta-note">
+    Minimum offering: $33 &middot; Give more if God leads you &middot; Secured by Stripe
+  </div>
 
   <div class="trust">
     <span class="trust-badge">🍎 Apple Pay</span>
     <span class="trust-badge">G Google Pay</span>
     <span class="trust-badge">VISA</span>
     <span class="trust-badge">Mastercard</span>
-    <span class="trust-badge">Amex</span>
-    <div class="trust-lock">🔒 Secured by Stripe · 256-bit SSL · Your donation is safe</div>
+    <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-top:4px">🔒 256-bit SSL · Secured by Stripe · Your offering is safe</div>
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════
-// STRIPE SETUP — TODO:
-// 1. Replace 'pk_test_YOUR_KEY_HERE' with your Stripe publishable key
-// 2. Create server endpoint /api/create-payment-intent:
-//    - Reads bumpSelected and selectedAmount from POST body
-//    - Creates PaymentIntent for the combined amount in pence
-//    - Returns { clientSecret }
-// ═══════════════════════════════════════════════════════════════
-
-let selectedAmount = '£5';
-let bumpSelected = true;
+let selectedAmount = 33;
 
 function selectDonation(el, amount) {
   selectedAmount = amount;
   document.querySelectorAll('.donation-opt').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
-  updateCTA();
-}
-
-function toggleBump() {
-  bumpSelected = !bumpSelected;
-  const box = document.getElementById('bump-box');
-  const check = document.getElementById('bump-check');
-  box.classList.toggle('checked', bumpSelected);
-  check.style.display = bumpSelected ? 'block' : 'none';
-  updateCTA();
-}
-
-function updateCTA() {
-  const btn = document.getElementById('submit-btn');
-  const extra = bumpSelected ? ' + Journal' : '';
-  btn.textContent = `Give ${selectedAmount}${extra} & Unlock My Plan →`;
+  document.getElementById('submit-btn').textContent = 'Give $' + amount + ' & Unlock My Gift Plan →';
 }
 
 async function submitPayment() {
-  const btn = document.getElementById('submit-btn');
-  btn.classList.add('loading');
+  var btn = document.getElementById('submit-btn');
+  btn.style.opacity = '.7';
   btn.textContent = 'Redirecting to secure payment...';
-
-  // Track InitiateCheckout
-  if(window._fbq) _fbq('track','InitiateCheckout',{currency:'GBP',value:1});
-  if(window._gtag) _gtag('event','begin_checkout',{currency:'GBP',value:1});
-
-  // ── STRIPE PAYMENT LINK (beta) ────────────────────────────────
-  // Reads the link from config.js — no server needed.
-  // Stripe will redirect back to /upsell.html after successful payment
-  // (set your success URL in Stripe dashboard: Payment Links → After payment)
-  setTimeout(() => {
-    const link = window.GIFTED_CONFIG && !GIFTED_CONFIG.stripePaymentLink.includes('PASTE')
-      ? GIFTED_CONFIG.stripePaymentLink
-      : 'upsell.html'; // fallback until Stripe is connected
+  if(window._fbq) _fbq('track','InitiateCheckout',{currency:'USD',value:selectedAmount});
+  if(window._gtag) _gtag('event','begin_checkout',{currency:'USD',value:selectedAmount});
+  setTimeout(function(){
+    var link = window.GIFTED_CONFIG && !GIFTED_CONFIG.stripePaymentLink.includes('PASTE')
+      ? GIFTED_CONFIG.stripePaymentLink : 'upsell.html';
     window.location.href = link;
   }, 600);
-}
-
-// Countdown (8 min offer)
-const OFFER_KEY = 'gifted_offer_end';
-let offerEnd = localStorage.getItem(OFFER_KEY);
-if (!offerEnd || Date.now() > parseInt(offerEnd)) {
-  offerEnd = Date.now() + 8 * 60 * 1000;
-  localStorage.setItem(OFFER_KEY, offerEnd);
-}
-function updateBanner() {
-  const left = Math.max(0, parseInt(offerEnd) - Date.now());
-  const m = Math.floor(left / 60000);
-  const s = Math.floor((left % 60000) / 1000);
-  document.getElementById('banner-timer').textContent = m + ':' + String(s).padStart(2, '0');
-  if (left > 0) requestAnimationFrame(updateBanner);
-}
-updateBanner();
-
-// Card number auto-format
-const cn = document.getElementById('card-number-fallback');
-if (cn) {
-  cn.addEventListener('input', e => {
-    let v = e.target.value.replace(/\D/g,'').slice(0,16);
-    e.target.value = v.replace(/(.{4})/g,'$1 ').trim();
-  });
 }
 </script>
 </body>

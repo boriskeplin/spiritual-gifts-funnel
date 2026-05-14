@@ -87,8 +87,8 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 </div>
 <div class="wrap">
   <div class="logo">✝ Discover Your Gift</div>
-  <div class="prog-label">Personalising your plan — 3 of 8</div>
-  <div class="prog-dots"><div class="dot done"></div><div class="dot done"></div><div class="dot active"></div><div class="dot future"></div><div class="dot future"></div><div class="dot future"></div><div class="dot future"></div></div>
+  <div class="prog-label">Guide 3 of 8</div>
+  <div class="prog-dots"><div class="dot done"></div><div class="dot done"></div><div class="dot active"></div><div class="dot future"></div><div class="dot future"></div><div class="dot future"></div><div class="dot future"></div><div class="dot future"></div></div><div class="dot done"></div><div class="dot active"></div><div class="dot future"></div><div class="dot future"></div><div class="dot future"></div><div class="dot future"></div></div>
 </div>
 <div class="content">
   <img class="art-img" src="assets/jesus_sermon.jpg" alt="">
@@ -97,21 +97,21 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
     <div class="scripture-text">"I have hidden your word in my heart that I might not sin against you."</div>
     <div class="scripture-ref">Psalm 119:11</div>
   </div>
-  <div class="offer-desc">Ancient Jewish disciples memorised entire books of Scripture. The early church had no printing press — they carried the Word in their hearts. This system adapts the methods that have worked for millennia into a modern 52-week plan — one powerful verse per week, embedded deep enough to stay forever.</div>
+  <div class="offer-desc">The Word of God is alive — but most believers know far less of it by heart than they want to. When the trial comes, you need the sword already in your hand, not still on the shelf.<br><br>This system gives you 52 key scriptures, a proven memorisation framework, and a Lectio Divina audio practice that takes the Word off the page and into your spirit.</div>
   <div class="what-label">What's included</div>
   <div class="bullets"><div class="bullet"><span class="b-cross">✝</span><span>52 key verses selected for maximum spiritual impact — one per week, organized by theme and season</span></div><div class="bullet"><span class="b-cross">✝</span><span>The ancient peg-memory method adapted for Scripture — store verses permanently, not just temporarily</span></div><div class="bullet"><span class="b-cross">✝</span><span>5-minute daily practice — short enough to be sustainable, powerful enough to be transformative</span></div><div class="bullet"><span class="b-cross">✝</span><span>Verses grouped by spiritual need: faith, identity, warfare, healing, love, purpose, and calling</span></div><div class="bullet"><span class="b-cross">✝</span><span>Review system that makes forgetting nearly impossible — based on proven spacing techniques</span></div>
 <div class="bullet"><span class="b-cross">🎧</span><span><strong>Bonus: Scripture Meditation Audio (MP3) — a 10-minute Lectio Divina practice to embed the Word deep in your spirit</strong></span></div></div>
 </div>
 <div class="cta-wrap">
-  <button class="cta-btn" onclick="add()">+ Add The Scripture Memory System — $8 today</button>
-  <div class="cta-charge"><s style="opacity:.5">$40</s> &nbsp;<strong>$8 today</strong> &nbsp;· 80% off · No subscription · Instant access.</div>
+  <button class="cta-btn" onclick="add()">Add The Scripture Memory System — $33 &rarr;</button>
+  <div class="cta-charge"><s style="opacity:.45">$130</s> &nbsp;<strong>$33 today</strong> &nbsp;&middot;&nbsp; Guide + Audio &middot; Pentecost offer &middot; No subscription</div>
   <button class="skip-btn" onclick="skip()">No thanks, skip this</button>
 </div>
 <script>
 async function add(){
   var b=document.querySelector('.cta-btn');b.textContent='Redirecting...';b.style.opacity='.7';
-  if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:8,content_name:'scripture'});
-  if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:8});
+  if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:33,content_name:'scripture'});
+  if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:33});
   var url = window.GIFTED_CONFIG&&!GIFTED_CONFIG.gumroad.scripture.includes('PASTE')
     ? GIFTED_CONFIG.gumroad.scripture
     : 'upsell4.html';
