@@ -186,20 +186,6 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
     <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-top:4px">🔒 256-bit SSL · Secured by Stripe · Your offering is safe</div>
   </div>
 
-  <!-- Pre-checked MRR — just a blue tick, click to deselect -->
-  <div id="mrr-row" onclick="toggleMrr()" style="display:flex;align-items:center;gap:7px;margin-top:16px;cursor:pointer;user-select:none">
-    <span id="mrr-tick" style="color:var(--accent);font-size:14px;font-weight:700;line-height:1;flex-shrink:0">&#10003;</span>
-    <span style="font-size:11px;color:var(--muted);line-height:1.5;font-style:italic">"He who sows generously will also reap generously." &mdash; 2 Cor 9:6 &middot; Continue giving $1/month</span>
-  </div>
-  <script>
-  var _mrrOn = true;
-  function toggleMrr(){
-    _mrrOn = !_mrrOn;
-    document.getElementById('mrr-tick').style.visibility = _mrrOn ? 'visible' : 'hidden';
-  }
-  function getMrrChecked(){ return _mrrOn; }
-  </script>
-
 
 <script>
 let selectedAmount = 1;
@@ -217,11 +203,10 @@ async function submitPayment() {
   btn.textContent = 'Redirecting to secure payment...';
   if(window._fbq) _fbq('track','InitiateCheckout',{currency:'USD',value:selectedAmount});
   if(window._gtag) _gtag('event','begin_checkout',{currency:'USD',value:selectedAmount});
-  var mrr = getMrrChecked();
   var cfg = window.GIFTED_CONFIG;
   var url;
-  if(mrr && cfg && cfg.gumroadMonthlyUrl && !cfg.gumroadMonthlyUrl.includes('PASTE')) {
-    url = cfg.gumroadMonthlyUrl;
+  if(cfg && cfg.gumroad && !cfg.gumroad.tripwire.includes('PASTE')) {
+    url = cfg.gumroad.tripwire;
   } else if(cfg && !cfg.stripePaymentLink.includes('PASTE')) {
     url = cfg.stripePaymentLink;
   } else {
