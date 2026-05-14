@@ -104,9 +104,25 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
   <img class="hero-img" src="assets/crucifixion.jpg" alt="The Crucifixion">
 
-  <div class="years-badge">✝ 33 Years</div>
+  <div class="years-badge" id="gift-badge">✝ 33 Years</div>
 
-  <div class="hero-title">He gave 33 years.<br>Every one of them was for you.</div>
+  <div class="hero-title" id="hero-title">He gave 33 years.<br>Every one of them was for you.</div>
+  <script>
+  (function(){
+    var gift = localStorage.getItem('gifted_gift_type');
+    var name = localStorage.getItem('gifted_name');
+    if(gift){
+      document.getElementById('gift-badge').textContent = '✝ Your gift: ' + gift;
+      if(name){
+        document.getElementById('hero-title').innerHTML =
+          name + ', your gift of <strong>' + gift + '</strong> was placed in you by God.<br>Unlock your full profile for $1.';
+      } else {
+        document.getElementById('hero-title').innerHTML =
+          'Your gift of <strong>' + gift + '</strong> was placed in you by God.<br>Unlock your full profile for $1.';
+      }
+    }
+  })();
+  </script>
 
   <div class="hero-body">
     Jesus did not live a single day for Himself.<br><br>

@@ -817,24 +817,36 @@ function submitEmail(){
   if(!S.email)return;
   playClick();
 
-  // ── Mailchimp subscribe ──────────────────────────────────────
-  // Uses a hidden form POST to Mailchimp's form action URL.
-  // Fill in GIFTED_CONFIG.mailchimpFormAction in config.js to activate.
+  // ── Calculate dominant gift ───────────────────────────────────
+  const cats = catScores();
+  const top  = primaryGift(cats);
+  S.gift = top.lbl;
+
+  // Store in localStorage so paywall + thank you pages can read it
+  localStorage.setItem('gifted_gift_type', S.gift);
+  localStorage.setItem('gifted_name',      S.name||'');
+  localStorage.setItem('gifted_email',     S.email);
+
+  // ── Send to n8n webhook (JSON) → Mailchimp + tagging ─────────
   if(window.GIFTED_CONFIG && !GIFTED_CONFIG.mailchimpFormAction.includes('PASTE')){
-    const fd = new FormData();
-    fd.append('EMAIL', S.email);
-    fd.append('FNAME', S.name||'');
-    fd.append('MERGE3', S.gift||'');   // custom field: gift type
-    // Mailchimp blocks XHR — use the no-cors form POST pattern
-    fetch(GIFTED_CONFIG.mailchimpFormAction, { method:'POST', body:fd, mode:'no-cors' })
-      .catch(()=>{/* fail silently — advance regardless */});
+    fetch(GIFTED_CONFIG.mailchimpFormAction, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        email:     S.email,
+        name:      S.name||'',
+        gift_type: S.gift,
+        source:    'quiz'
+      })
+    }).catch(()=>{});
   }
 
   // ── Track Lead event ─────────────────────────────────────────
   if(window._fbq) _fbq('track','Lead');
-  if(window._gtag) _gtag('event','generate_lead',{currency:'GBP',value:0});
+  if(window._gtag) _gtag('event','generate_lead',{currency:'USD',value:0});
 
-  advance();
+  // ── Skip results page — go straight to paywall ───────────────
+  window.location.href = 'paywall.html';
 }
 function advance(){S.idx++;if(S.idx>=FLOW.length)return;render()}
 function goBack(){
