@@ -26,13 +26,13 @@ const GIFTED_CONFIG = {
     tripwire:   'https://YOURNAME.gumroad.com/l/PASTE_TRIPWIRE_PRODUCT',   // £1 gift profile
     prayer:     'https://YOURNAME.gumroad.com/l/PASTE_PRAYER_PRODUCT',     // £4
     marriage:   'https://YOURNAME.gumroad.com/l/PASTE_MARRIAGE_PRODUCT',   // £4
-    scripture:  'https://YOURNAME.gumroad.com/l/PASTE_SCRIPTURE_PRODUCT',  // £4
+    scripture:  'https://boriskep.gumroad.com/l/bodpe',  // £4
     warfare:    'https://YOURNAME.gumroad.com/l/PASTE_WARFARE_PRODUCT',    // £4
     identity:   'https://YOURNAME.gumroad.com/l/PASTE_IDENTITY_PRODUCT',   // £4
     commission: 'https://YOURNAME.gumroad.com/l/PASTE_COMMISSION_PRODUCT', // £4
     prophetic:  'https://YOURNAME.gumroad.com/l/PASTE_PROPHETIC_PRODUCT',  // £4
     healing:    'https://YOURNAME.gumroad.com/l/PASTE_HEALING_PRODUCT',    // £4
-    bundle:     'https://YOURNAME.gumroad.com/l/PASTE_BUNDLE_PRODUCT',     // £17.97
+    bundle:     'https://boriskep.gumroad.com/l/ntuttv',     // £17.97
     challenge:  'https://YOURNAME.gumroad.com/l/PASTE_CHALLENGE_PRODUCT',  // £27
   },
 
