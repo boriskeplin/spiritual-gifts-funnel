@@ -23,7 +23,7 @@ const GIFTED_CONFIG = {
   // 1. Log in to gumroad.com → New Product → Upload PDF → Set price → Publish
   // 2. Copy the product URL (looks like: https://YOURNAME.gumroad.com/l/XXXXX)
   gumroad: {
-    tripwire:   'https://YOURNAME.gumroad.com/l/PASTE_TRIPWIRE_PRODUCT',   // £1 gift profile
+    tripwire:   'https://boriskep.gumroad.com/l/bodpe',   // £1 gift profile
     prayer:     'https://YOURNAME.gumroad.com/l/PASTE_PRAYER_PRODUCT',     // £4
     marriage:   'https://YOURNAME.gumroad.com/l/PASTE_MARRIAGE_PRODUCT',   // £4
     scripture:  'https://boriskep.gumroad.com/l/bodpe',  // £4
