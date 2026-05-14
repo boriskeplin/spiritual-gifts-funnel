@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thank You — Gifted</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--gold:#B8870B;--text:#160E05;--muted:#7A6240;--shadow:0 2px 18px rgba(180,140,60,.18)}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px 80px}
+.wrap{max-width:400px;width:100%;text-align:center}
+.logo{font-size:16px;font-weight:800;color:var(--accent);margin-bottom:28px}
+.cross{font-size:52px;display:block;margin-bottom:16px}
+.title{font-size:26px;font-weight:800;line-height:1.3;margin-bottom:12px}
+.sub{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.verse-card{background:var(--card);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 18px;text-align:left;margin-bottom:28px}
+.verse-text{font-family:'Lora',serif;font-style:italic;font-size:13px;line-height:1.75;margin-bottom:6px}
+.verse-ref{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px}
+.steps{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;text-align:left}
+.step{display:flex;gap:12px;align-items:flex-start;background:var(--card);border-radius:12px;padding:14px}
+.step-num{width:24px;height:24px;background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:1px}
+.step-text{font-size:13px;line-height:1.5;color:var(--muted)}
+.step-text strong{color:var(--text);display:block;margin-bottom:2px}
+.cta-btn{display:block;width:100%;background:var(--accent);color:#fff;font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;border:none;border-radius:12px;padding:16px;cursor:pointer;text-decoration:none;margin-bottom:10px}
+.cta-btn:hover{opacity:.9}
+.cta-note{font-size:11px;color:var(--muted)}
+</style>
+<script src="/config.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="logo">✝ gifted</div>
+  <span class="cross">✝</span>
+  <div class="title">Your offering has been received.</div>
+  <div class="sub">Thank you for your generosity. Check your email — your download link is waiting there from Gumroad.</div>
+
+  <div class="verse-card">
+    <div class="verse-text">"And God is able to bless you abundantly, so that in all things at all times, having all that you need, you will abound in every good work."</div>
+    <div class="verse-ref">2 Corinthians 9:8</div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Check your email</strong>Your download link was sent to the email you used at checkout. Check your spam folder if you don't see it within a few minutes.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Download your profile</strong>Open your Gumroad receipt and download your Spiritual Gifts Profile PDF.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>Read it slowly</strong>Take your time. This isn't content — it's a window into how God made you.</div>
+    </div>
+  </div>
+
+  <a class="cta-btn" href="upsell.html">Continue to Your Gift Plan →</a>
+  <div class="cta-note">Next: personalised guides built around your specific gift type</div>
+
+</div>
+
+<script>
+// Track purchase conversion
+(function(){
+  if(!window.GIFTED_CONFIG) return;
+  if(GIFTED_CONFIG.fbPixelId && !GIFTED_CONFIG.fbPixelId.includes('PASTE')){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init',GIFTED_CONFIG.fbPixelId);
+    fbq('track','Purchase',{currency:'USD',value:33});
+  }
+  if(GIFTED_CONFIG.ga4Id && !GIFTED_CONFIG.ga4Id.includes('PASTE')){
+    var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GIFTED_CONFIG.ga4Id;document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());gtag('config',GIFTED_CONFIG.ga4Id);
+    gtag('event','purchase',{transaction_id:Date.now(),value:33,currency:'USD'});
+  }
+})();
+</script>
+</body>
+</html>
