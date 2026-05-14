@@ -10,35 +10,66 @@
 :root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--gold:#B8870B;--text:#160E05;--muted:#7A6240}
 body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px}
 .wrap{max-width:380px;width:100%;text-align:center}
-.logo{font-size:16px;font-weight:800;color:var(--accent);margin-bottom:32px}
-.cross{font-size:48px;margin-bottom:20px;display:block}
-.title{font-size:28px;font-weight:800;line-height:1.25;margin-bottom:12px}
+
+/* Logo */
+.app-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px}
+.logo-icon{width:52px;height:52px;background:var(--accent);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;font-weight:800;box-shadow:0 4px 16px rgba(27,75,138,.3)}
+.logo-text{font-size:26px;font-weight:800;color:var(--accent);letter-spacing:-.5px}
+
 .badge{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:20px}
+.title{font-size:28px;font-weight:800;line-height:1.25;margin-bottom:12px}
 .sub{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px}
-.verse-card{background:var(--card);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:28px;text-align:left}
-.verse-text{font-family:'Lora',serif;font-style:italic;font-size:13px;line-height:1.7;margin-bottom:6px}
-.verse-ref{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px}
+
+/* Notification confirmed card */
+.confirmed-card{background:linear-gradient(135deg,rgba(27,75,138,.08),rgba(27,75,138,.03));border:1.5px solid rgba(27,75,138,.2);border-radius:16px;padding:20px;margin-bottom:28px}
+.confirmed-icon{font-size:32px;margin-bottom:10px}
+.confirmed-title{font-size:15px;font-weight:700;color:var(--accent);margin-bottom:6px}
+.confirmed-sub{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* Features */
 .features{display:flex;flex-direction:column;gap:10px;text-align:left;margin-bottom:28px}
 .feat{display:flex;gap:12px;align-items:flex-start;background:var(--card);border-radius:12px;padding:14px}
 .feat-icon{font-size:20px;flex-shrink:0}
-.feat-text{font-size:13px;line-height:1.5}
 .feat-text strong{display:block;font-size:13px;margin-bottom:2px}
-.notify-form{display:flex;flex-direction:column;gap:10px}
-.notify-input{background:#fff;border:1.5px solid #C4B99E;border-radius:10px;padding:14px;font-family:'Poppins',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s}
-.notify-input:focus{border-color:var(--accent)}
-.notify-btn{background:var(--accent);color:#fff;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:12px;padding:16px;cursor:pointer}
-.notify-btn:hover{opacity:.9}
-.confirmed{display:none;background:rgba(27,75,138,.07);border:1.5px solid rgba(27,75,138,.2);border-radius:12px;padding:16px;font-size:13px;color:var(--accent);font-weight:600}
+.feat-text span{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* Store buttons */
+.store-buttons{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+.store-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#000;color:#fff;border-radius:12px;padding:13px 20px;text-decoration:none;transition:opacity .2s}
+.store-btn:hover{opacity:.85}
+.store-btn.apple{background:#000}
+.store-btn.google{background:#1a1a2e}
+.store-icon{font-size:22px;flex-shrink:0}
+.store-label{text-align:left}
+.store-label small{font-size:10px;opacity:.75;display:block;line-height:1}
+.store-label strong{font-size:15px;font-weight:700;line-height:1.3;display:block}
+.store-note{font-size:11px;color:var(--muted);text-align:center;margin-top:4px}
+
+.verse-card{background:var(--card);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 18px;margin-bottom:24px;text-align:left}
+.verse-text{font-family:'Lora',serif;font-style:italic;font-size:13px;line-height:1.7;margin-bottom:6px}
+.verse-ref{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px}
 </style>
 <script src="/config.js"></script>
 </head>
 <body>
 <div class="wrap">
-  <div class="logo">✝ gifted</div>
-  <span class="cross">✦</span>
+
+  <!-- Logo -->
+  <div class="app-logo">
+    <div class="logo-icon">✝</div>
+    <div class="logo-text">gifted</div>
+  </div>
+
   <div class="badge">Coming Soon</div>
   <div class="title">Your gifts.<br>Activated daily.</div>
-  <div class="sub">The Gifted app is being built for believers who want to walk in their calling every single day — not just know about it.</div>
+  <div class="sub">The Gifted app is being built to take everything you've unlocked and make it a daily practice.</div>
+
+  <!-- You're already on the list -->
+  <div class="confirmed-card">
+    <div class="confirmed-icon">🔔</div>
+    <div class="confirmed-title">You'll be notified when it launches</div>
+    <div class="confirmed-sub">We already have your email. The moment Gifted goes live on the App Store and Google Play, you'll be the first to know.</div>
+  </div>
 
   <div class="verse-card">
     <div class="verse-text">"Having gifts that differ according to the grace given to us, let us use them: if prophecy, in proportion to our faith; if service, in our serving; the one who teaches, in his teaching."</div>
@@ -48,29 +79,41 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   <div class="features">
     <div class="feat">
       <div class="feat-icon">📖</div>
-      <div class="feat-text"><strong>Daily devotionals for your gift type</strong>Teaching, mercy, faith, and prophecy tracks — each day built around how God made you.</div>
+      <div class="feat-text"><strong>Daily devotionals for your gift type</strong><span>Teaching, mercy, faith, and prophecy tracks built around how God made you.</span></div>
     </div>
     <div class="feat">
       <div class="feat-icon">🎧</div>
-      <div class="feat-text"><strong>Guided prayer &amp; audio activations</strong>Start every morning with a prayer that aligns your gift with the day ahead.</div>
+      <div class="feat-text"><strong>Guided prayer &amp; audio activations</strong><span>Start every morning with a prayer that aligns your gift with the day ahead.</span></div>
     </div>
     <div class="feat">
       <div class="feat-icon">📝</div>
-      <div class="feat-text"><strong>Gift journal &amp; progress tracking</strong>Record what God is showing you. Watch your gift grow week by week.</div>
+      <div class="feat-text"><strong>Gift journal &amp; progress tracking</strong><span>Record what God is showing you. Watch your gift grow week by week.</span></div>
     </div>
     <div class="feat">
       <div class="feat-icon">🙏</div>
-      <div class="feat-text"><strong>Community &amp; accountability</strong>Connect with believers who carry the same gift and grow together.</div>
+      <div class="feat-text"><strong>Community &amp; accountability</strong><span>Connect with believers who carry the same gift and grow together.</span></div>
     </div>
   </div>
 
-  <div class="notify-form">
-    <input class="notify-input" type="email" id="notify-email" placeholder="Your email address" />
-    <button class="notify-btn" onclick="notifyMe()">Notify Me When It Launches →</button>
+  <!-- Store badges (coming soon) -->
+  <div class="store-buttons">
+    <a class="store-btn apple" href="#" onclick="return false">
+      <div class="store-icon"></div>
+      <div class="store-label">
+        <small>Coming soon to the</small>
+        <strong>App Store</strong>
+      </div>
+    </a>
+    <a class="store-btn google" href="#" onclick="return false">
+      <div class="store-icon">▶</div>
+      <div class="store-label">
+        <small>Coming soon to</small>
+        <strong>Google Play</strong>
+      </div>
+    </a>
   </div>
-  <div class="confirmed" id="confirmed">
-    ✝ &nbsp;You're on the list. We'll let you know the moment Gifted launches.
-  </div>
+  <div class="store-note">iOS &amp; Android · Free to download</div>
+
 </div>
 
 <!-- Persistent ambient music -->
@@ -92,22 +135,6 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
     }).catch(function(){});
   }
 })();
-</script>
-<script>
-function notifyMe() {{
-  var email = document.getElementById('notify-email').value.trim();
-  if(!email || !email.includes('@')) return;
-  // Send to n8n / Mailchimp
-  if(window.GIFTED_CONFIG && GIFTED_CONFIG.mailchimpFormAction && !GIFTED_CONFIG.mailchimpFormAction.includes('PASTE')) {{
-    fetch(GIFTED_CONFIG.mailchimpFormAction, {{
-      method: 'POST',
-      headers: {{'Content-Type': 'application/json'}},
-      body: JSON.stringify({{email: email, tags: ['gifted-app-waitlist']}})
-    }}).catch(()=>{{}});
-  }}
-  document.querySelector('.notify-form').style.display = 'none';
-  document.getElementById('confirmed').style.display = 'block';
-}}
 </script>
 </body>
 </html>

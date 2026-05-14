@@ -48,6 +48,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 .sticky-note{font-size:11px;color:var(--muted)}
 .skip-btn{font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;font-family:'Poppins',sans-serif}
 </style>
+<script src="https://gumroad.com/js/gumroad.js"></script>
 <script src="/config.js"></script>
 <script>
 /* GA4 */
@@ -85,7 +86,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
     <div class="bundle-badge"></div>
     <div class="bundle-orig">Full value: $341</div>
     <div class="bundle-price">$280</div>
-    <div class="bundle-saving">You save $61 &mdash; everything in one offering</div>
+    <div class="bundle-saving">You save $61 &mdash; vs buying everything individually</div>
     <button class="bundle-btn" onclick="buyBundle()">Unlock Everything &mdash; $280</button>
     <div class="bundle-note">🔒 One-time payment &middot; No subscription &middot; Instant download</div>
   </div>
@@ -99,7 +100,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
       <div class="item-name">The Intercessor's Prayer Guide + Audio</div>
       <div class="item-sub">21-day prayer plan &middot; Warfare prayers &middot; 15-min guided prayer MP3</div>
     </div>
-    <div class="item-val">$40</div>
+    <div class="item-val">$33</div>
   </div>
 
   <div class="item-row">
@@ -108,7 +109,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
       <div class="item-name">Marriage &amp; Family Covenant Guide + Audio</div>
       <div class="item-sub">Biblical marriage principles &middot; Covenant prayer MP3</div>
     </div>
-    <div class="item-val">$40</div>
+    <div class="item-val">$33</div>
   </div>
 
   <div class="item-row">
@@ -117,7 +118,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
       <div class="item-name">Scripture Memory System + Audio</div>
       <div class="item-sub">52 key verses &middot; Lectio Divina meditation MP3</div>
     </div>
-    <div class="item-val">$40</div>
+    <div class="item-val">$33</div>
   </div>
 
   <div class="item-row">
@@ -126,7 +127,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
       <div class="item-name">Spiritual Warfare Handbook + Audio</div>
       <div class="item-sub">Armour of God &middot; Breaking strongholds &middot; Declaration MP3</div>
     </div>
-    <div class="item-val">$40</div>
+    <div class="item-val">$33</div>
   </div>
 
   <div class="item-row">
@@ -135,7 +136,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
       <div class="item-name">Identity in Christ Workbook + Audio</div>
       <div class="item-sub">31-day declarations &middot; Identity affirmation MP3</div>
     </div>
-    <div class="item-val">$40</div>
+    <div class="item-val">$33</div>
   </div>
 
   <div class="item-row">
@@ -144,7 +145,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
       <div class="item-name">Great Commission Blueprint + Audio</div>
       <div class="item-sub">Share your faith &middot; Evangelism empowerment MP3</div>
     </div>
-    <div class="item-val">$40</div>
+    <div class="item-val">$33</div>
   </div>
 
   <div class="item-row">
@@ -153,7 +154,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
       <div class="item-name">Prophetic Activation Guide + Audio</div>
       <div class="item-sub">Listening prayer exercises &middot; Prophetic activation MP3</div>
     </div>
-    <div class="item-val">$40</div>
+    <div class="item-val">$33</div>
   </div>
 
   <div class="item-row">
@@ -162,7 +163,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
       <div class="item-name">Healing &amp; Miracles Guide + Audio</div>
       <div class="item-sub">Pray for the sick &middot; Healing prayer activation MP3</div>
     </div>
-    <div class="item-val">$40</div>
+    <div class="item-val">$33</div>
   </div>
 
   <!-- Exclusive bundle bonuses -->
@@ -192,7 +193,10 @@ function buyBundle(){
   if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:280});
   var url=window.GIFTED_CONFIG&&!GIFTED_CONFIG.gumroad.bundle.includes('PASTE')
     ?GIFTED_CONFIG.gumroad.bundle:'challenge.html';
-  setTimeout(()=>{window.location.href=url},500);
+  if(window.GumroadOverlay && url.includes('gumroad.com')){
+    btn.style.opacity='1';btn.textContent='Unlock Everything — $280';
+    GumroadOverlay.show(url);
+  } else { setTimeout(()=>{window.location.href=url},500); }
 }
 function skipBundle(){window.location.href='challenge.html';}
 </script>

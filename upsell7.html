@@ -52,7 +52,8 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 .mi-muted{color:var(--muted)}
 
 
-</style><script src="/config.js"></script>
+</style><script src="https://gumroad.com/js/gumroad.js"></script>
+<script src="/config.js"></script>
 <script>
 /* GA4 */
 (function(){
@@ -106,7 +107,10 @@ async function add(){
   var url = window.GIFTED_CONFIG&&!GIFTED_CONFIG.gumroad.prophetic.includes('PASTE')
     ? GIFTED_CONFIG.gumroad.prophetic
     : 'upsell8.html';
-  setTimeout(()=>{window.location.href=url},500);
+  if(window.GumroadOverlay && url && url.includes('gumroad.com')){
+    b.textContent=b.textContent.replace('Redirecting...', b.getAttribute('data-label')||'Add Guide — $33');
+    GumroadOverlay.show(url);
+  } else { setTimeout(()=>{window.location.href=url},500); }
 }
 function skip(){window.location.href='downsell7.html'}
 </script>
