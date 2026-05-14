@@ -14,7 +14,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 /* Logo */
 .app-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px}
 .logo-icon{width:52px;height:52px;background:var(--accent);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;font-weight:800;box-shadow:0 4px 16px rgba(27,75,138,.3)}
-.logo-text{font-size:26px;font-weight:800;color:var(--accent);letter-spacing:-.5px}
+.logo-text{font-size:26px;font-weight:800;color:var(--accent);letter-spacing:-.5px;margin-bottom:4px}
 
 .badge{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:20px}
 .title{font-size:28px;font-weight:800;line-height:1.25;margin-bottom:12px}
@@ -35,7 +35,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
 /* Store buttons */
 .store-buttons{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
-.store-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#000;color:#fff;border-radius:12px;padding:13px 20px;text-decoration:none;transition:opacity .2s}
+.store-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#000;color:#fff;border-radius:12px;padding:13px 20px;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .store-btn:hover{opacity:.85}
 .store-btn.apple{background:#000}
 .store-btn.google{background:#1a1a2e}
@@ -56,9 +56,9 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
   <!-- Logo -->
   <div class="app-logo">
-    <div class="logo-icon">✝</div>
-    <div class="logo-text">gifted</div>
+    <div class="logo-icon" style="width:72px;height:72px;background:linear-gradient(135deg,#1B4B8A,#2E6DB8);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:36px;color:#fff;box-shadow:0 6px 20px rgba(27,75,138,.4);margin-bottom:4px">✦</div>
   </div>
+  <div class="logo-text" style="font-size:26px;font-weight:800;color:var(--accent);letter-spacing:-.5px;margin-bottom:6px">gifted</div>
 
   <div class="badge">Coming Soon</div>
   <div class="title">Your gifts.<br>Activated daily.</div>
@@ -97,14 +97,14 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
   <!-- Store badges (coming soon) -->
   <div class="store-buttons">
-    <a class="store-btn apple" href="#" onclick="return false">
+    <a class="store-btn apple" href="#">
       <div class="store-icon"></div>
       <div class="store-label">
         <small>Coming soon to the</small>
         <strong>App Store</strong>
       </div>
     </a>
-    <a class="store-btn google" href="#" onclick="return false">
+    <a class="store-btn google" href="#">
       <div class="store-icon">▶</div>
       <div class="store-label">
         <small>Coming soon to</small>

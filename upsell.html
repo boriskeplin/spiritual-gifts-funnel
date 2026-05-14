@@ -52,14 +52,14 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   <div class="what-label">What's included</div>
   <div class="bullets">
     <div class="bullet"><span class="b-cross">✝</span><span><strong>All 8 Ministry Guides</strong> — Prayer, Marriage, Scripture, Warfare, Identity, Commission, Prophetic, Healing</span></div>
-    <div class="bullet"><span class="b-cross">🎧</span><span><strong>All 8 Guided Prayer MP3s</strong> — 10–15 min audio activations, one per gift type</span></div>
+    <div class="bullet"><span class="b-cross">🎧</span><span><strong>All 8 Guided Prayer MP3s</strong> — Guided prayer activation for each gift type</span></div>
     <div class="bullet"><span class="b-cross">✦</span><span><strong>31-Day Gift Activation Journal</strong> — daily prompts to grow in your calling</span></div>
     <div class="bullet"><span class="b-cross">✦</span><span><strong>Spiritual Gifts Quick-Reference Card</strong> — all 9 gifts, signs, roles, shadow sides</span></div>
     <div class="bullet"><span class="b-cross">✦</span><span><strong>Gift Combinations Guide</strong> — what happens when your gifts work together</span></div>
   </div>
   <div class="price-row">
     <div class="price-now">$33</div>
-    <div class="price-label">One-time · Instant download<br><s style="opacity:.4">$264 if bought individually</s></div>
+    <div class="price-label">One-time · Instant download<br></div>
   </div>
 </div>
 <div class="cta-wrap">
@@ -75,7 +75,7 @@ function addBundle(){
   if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:33,content_name:'bundle'});
   if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:33});
   var cfg=window.GIFTED_CONFIG;
-  var url=cfg&&!cfg.gumroad.bundle.includes('PASTE')?cfg.gumroad.bundle:'challenge.html';
+  var url=cfg&&!cfg.gumroad.bundle.includes('PASTE')?cfg.gumroad.bundle:'app.html';
   if(window.GumroadOverlay&&url.includes('gumroad.com')){
     b.style.opacity='1';b.textContent='Get the Complete Collection — $33 →';
     GumroadOverlay.show(url);

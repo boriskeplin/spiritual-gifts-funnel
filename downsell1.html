@@ -76,13 +76,13 @@ function addDownsell(){
   var b=document.querySelector('.cta-btn');b.textContent='Redirecting...';b.style.opacity='.7';
   if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:17,content_name:'bundle-downsell'});
   var cfg=window.GIFTED_CONFIG;
-  var base=cfg&&cfg.gumroad&&!cfg.gumroad.bundle.includes('PASTE')?cfg.gumroad.bundle:'challenge.html';
+  var base=cfg&&cfg.gumroad&&!cfg.gumroad.bundle.includes('PASTE')?cfg.gumroad.bundle:'app.html';
   var url=base.includes('gumroad.com')?base+'?code=JESUS':base;
   if(window.GumroadOverlay&&url.includes('gumroad.com')){
     b.style.opacity='1';b.textContent='Get Everything — $17 →';
     GumroadOverlay.show(url);
   } else { setTimeout(()=>{window.location.href=url},500); }
 }
-function skipDownsell(){window.location.href='challenge.html'}
+function skipDownsell(){window.location.href='app.html'}
 </script>
 </body></html>
