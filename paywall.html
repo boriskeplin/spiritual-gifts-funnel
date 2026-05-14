@@ -121,12 +121,12 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   </div>
 
   <div class="thirty-three">
-    <div class="tt-number">$33</div>
-    <div class="tt-label">A dollar for every year He lived for you</div>
+    <div class="tt-number">$1</div>
+    <div class="tt-label">Give just $1 to unlock your gift plan</div>
     <div class="tt-body">
       This is not a purchase. It is an offering.<br><br>
-      <strong>Give $33 — one dollar for each of the 33 years Jesus walked this earth on your behalf</strong> — and unlock your complete Spiritual Gift Plan, your 28-day activation roadmap, and access to everything built for your specific gift type.<br><br>
-      If God places more on your heart, give more. Every offering beyond $33 goes directly to providing free access for believers in need around the world.
+      <strong>Give just $1</strong> — or whatever God places on your heart — and unlock your complete Spiritual Gift Plan, your 28-day activation roadmap, and access to everything built for your specific gift type.<br><br>
+      Every dollar beyond the minimum goes directly to providing free access for believers who cannot afford it.
     </div>
   </div>
 
@@ -140,21 +140,21 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   
 <div class="donation-label">Your ministry offering</div>
   <div class="donation-grid">
-    <div class="donation-opt selected" onclick="selectDonation(this,33)" id="opt-33">
+    <div class="donation-opt selected" onclick="selectDonation(this,1)" id="opt-1">
       <div class="donation-badge">MINIMUM</div>
-      <div class="donation-amount">$33</div>
-      <div class="donation-desc">A dollar for every year He lived</div>
+      <div class="donation-amount">$1</div>
+      <div class="donation-desc">A seed of faith</div>
     </div>
-    <div class="donation-opt" onclick="selectDonation(this,50)" id="opt-50">
-      <div class="donation-amount">$50</div>
+    <div class="donation-opt" onclick="selectDonation(this,5)" id="opt-5">
+      <div class="donation-amount">$5</div>
       <div class="donation-desc">A generous heart</div>
     </div>
-    <div class="donation-opt" onclick="selectDonation(this,77)" id="opt-77">
-      <div class="donation-amount">$77</div>
-      <div class="donation-desc">The number of forgiveness</div>
+    <div class="donation-opt" onclick="selectDonation(this,10)" id="opt-10">
+      <div class="donation-amount">$10</div>
+      <div class="donation-desc">Sowing abundantly</div>
     </div>
-    <div class="donation-opt" onclick="selectDonation(this,100)" id="opt-100">
-      <div class="donation-amount">$100</div>
+    <div class="donation-opt" onclick="selectDonation(this,33)" id="opt-33">
+      <div class="donation-amount">$33</div>
       <div class="donation-desc">A sacrifice of praise</div>
     </div>
   </div>
@@ -172,10 +172,10 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   </div>
 
   <button class="cta-btn" id="submit-btn" onclick="submitPayment()">
-    Give $33 &amp; Unlock My Gift Plan &rarr;
+    Give $1 &amp; Unlock My Gift Plan &rarr;
   </button>
   <div class="cta-note">
-    Minimum offering: $33 &middot; Give more if God leads you &middot; Secured by Stripe
+    Minimum offering: $1 &middot; Give more if God leads you &middot; Secured by Stripe
   </div>
 
   <div class="trust">
@@ -189,7 +189,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   <!-- Pre-checked MRR — just a blue tick, click to deselect -->
   <div id="mrr-row" onclick="toggleMrr()" style="display:flex;align-items:center;gap:7px;margin-top:16px;cursor:pointer;user-select:none">
     <span id="mrr-tick" style="color:var(--accent);font-size:14px;font-weight:700;line-height:1;flex-shrink:0">&#10003;</span>
-    <span style="font-size:11px;color:var(--muted);line-height:1.5;font-style:italic">"He who sows generously will also reap generously." &mdash; 2 Cor 9:6</span>
+    <span style="font-size:11px;color:var(--muted);line-height:1.5;font-style:italic">"He who sows generously will also reap generously." &mdash; 2 Cor 9:6 &middot; Continue giving $1/month</span>
   </div>
   <script>
   var _mrrOn = true;
@@ -202,7 +202,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
 
 <script>
-let selectedAmount = 33;
+let selectedAmount = 1;
 
 function selectDonation(el, amount) {
   selectedAmount = amount;
