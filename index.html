@@ -1071,27 +1071,22 @@ function rEmail(){
 
 // ── REVEAL (dramatic) + RESULTS ───────────────────────────────────────
 function renderReveal(){
-  if(S.revealDone){
-    document.getElementById('app').innerHTML=rResults();
-    startScoreAnim();
-    return;
-  }
-  const gift=primaryGift();
-  const gInfo=GIFTS[gift];
+  // Dramatic sealed reveal — gift is identified but NOT shown
+  // The guide is what delivers the answer
   const app=document.getElementById('app');
-  // Full-screen dark reveal
   const d=document.createElement('div');
   d.className='reveal-screen';
   d.id='reveal-overlay';
   d.innerHTML=`
-    <img class="reveal-painting" src="${gInfo.img}" alt="${gift}">
-    <div class="reveal-eyebrow">✦ Your Spiritual Gift ✦</div>
-    <div class="reveal-gift">${gift}</div>
-    <div class="reveal-verse">${gInfo.verse}</div>
-    <button class="reveal-btn" onclick="dismissReveal()">See My Full Profile →</button>
+    <img class="reveal-painting" src="assets/jesus_consolator.jpg" alt="Christ the Consolator — Carl Bloch">
+    <div class="reveal-eyebrow">✦ Your gift has been identified ✦</div>
+    <div class="reveal-gift" style="font-size:28px;line-height:36px;max-width:320px">
+      ${S.name?S.name+', the':'The'} Holy Spirit has revealed something specific about how you were made.
+    </div>
+    <div class="reveal-verse">Your guide will give you the answer — and everything you need to walk in it.</div>
+    <button class="reveal-btn" onclick="dismissReveal()">Receive My Answer →</button>
   `;
   document.body.appendChild(d);
-  // Play milestone sound after painting fades in
   setTimeout(()=>playMilestone(),400);
 }
 
@@ -1104,27 +1099,34 @@ function dismissReveal(){
 }
 
 function rResults(){
-  const gift=primaryGift();
-  const gInfo=GIFTS[gift];
   const scores=giftScores();
-  const name=S.name?S.name+', your':'Your';
-  const gumroadLink=(window.GIFTED_CONFIG&&GIFTED_CONFIG.gumroad)?GIFTED_CONFIG.gumroad.tripwire:'https://giftedministry.gumroad.com/l/bodpe';
+  const name=S.name||'';
+  // Store gift type in sessionStorage so offering page can reference it
+  try{sessionStorage.setItem('gifted_gift',primaryGift())}catch(e){}
   return`<div class="screen results">
-  <div class="r-title">${name} Spiritual Gift Profile</div>
+  <div class="r-title">${name?name+', your':'Your'} gift has been identified.</div>
 
-  <div class="gift-card">
-    <img class="gift-card-img" src="${gInfo.img}" alt="${gift} — Carl Bloch">
-    <div class="gift-label">✦ Your Primary Gift</div>
-    <div class="gift-name">${gift}</div>
-    <div class="gift-verse">${gInfo.verse}</div>
-    <div class="gift-desc">${gInfo.desc}</div>
+  <!-- Sealed card — no gift name shown -->
+  <div class="gift-card" style="text-align:center">
+    <div style="font-size:40px;margin-bottom:14px">🔒</div>
+    <div class="gift-label">✦ Your Primary Spiritual Gift</div>
+    <div style="font-size:16px;color:var(--muted);line-height:24px;margin:10px 0 6px">
+      Revealed in your Spiritual Gifts Profile
+    </div>
+    <div style="font-size:14px;color:var(--muted);line-height:22px">
+      Your guide is where the answer lives — along with everything you need to understand what it means and begin walking in it.
+    </div>
   </div>
 
-  <div class="score-title">Your Full Gift Profile</div>
+  <!-- Score bars — shows distribution without naming the top gift -->
+  <div class="score-title">Your Gift Distribution</div>
   <div class="score-row">
-    ${scores.map(s=>`
+    ${scores.map((s,i)=>`
     <div class="score-item">
-      <div class="score-lr"><span class="score-lbl">${s.lbl}</span><span class="score-val">${s.pct}%</span></div>
+      <div class="score-lr">
+        <span class="score-lbl">${i===0?'Your Primary Gift':'Gift Category '+(i+1)}</span>
+        <span class="score-val">${s.pct}%</span>
+      </div>
       <div class="score-track"><div class="score-fill" data-pct="${s.pct}" style="width:0%"></div></div>
     </div>`).join('')}
   </div>
@@ -1133,14 +1135,14 @@ function rResults(){
 
   <div class="ministry-stripe">
     <div class="ms-cross">☁</div>
-    <div class="ms-title">There is a 37-page guide written specifically for the gift you carry.</div>
-    <div class="ms-text">Scripture. Carl Bloch paintings. Guided prayer audio. Reflection prompts. Declaration pages. Everything you need to understand and begin walking in what God placed in you.</div>
+    <div class="ms-title">Your guide has the answers you've been searching for your whole spiritual life.</div>
+    <div class="ms-text">Why certain things come naturally to you. Why you're drawn to specific kinds of service. Why some forms of worship feel hollow and others feel like home. What God actually placed in you — and what to do with it.</div>
   </div>
 
   <div class="cta-section">
-    <div class="cta-top">Take your gift from this screen into your actual life.</div>
-    <div class="cta-sub">Your full Spiritual Gifts Profile is 37 pages of scripture-grounded depth — yours for $1 or whatever it\'s worth to you.</div>
-    <a class="cta-btn" href="offering.html">Receive My Profile →</a>
+    <div class="cta-top">The answer is in your guide.</div>
+    <div class="cta-sub">Make your offering to the ministry and receive your Spiritual Gifts Profile — the document that will finally give you the clarity you've been looking for.</div>
+    <a class="cta-btn" href="offering.html">Receive My Answer →</a>
     <div class="cta-note">✦ Gifted Ministry · Not a business. A ministry.</div>
   </div>
   </div>`;
