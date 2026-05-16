@@ -7,80 +7,54 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://gumroad.com/js/gumroad.js"></script>
-<script>
-// Track paywall view
-window.addEventListener('load',function(){
-  try{
-    fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({event:'paywall_viewed',page:'offering'})}).catch(()=>{});
-  }catch(e){}
-});
-</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#EAF4F8;--surface:#FFFFFF;--navy:#1B2A4A;--navy2:#253858;
+  --bg:#EAF4F8;--surface:#FFFFFF;--navy:#1B2A4A;
   --gold:#C4913A;--gold-soft:#E8CFA0;--gold-pale:#F5EBD6;
   --text:#1B2A4A;--muted:#5A6E8A;--border:rgba(27,42,74,.11);
   --shadow:0 2px 24px rgba(27,42,74,.10);
 }
+*{box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh}
 .wrap{max-width:460px;margin:0 auto;padding:0 18px 80px}
-
-/* Header */
 .hdr{display:flex;justify-content:center;align-items:center;gap:10px;padding:22px 0 0}
 .logo-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;letter-spacing:.6px;color:var(--navy)}
-
-/* Hero */
 .hero-img{width:100%;border-radius:16px;object-fit:cover;max-height:280px;box-shadow:var(--shadow);margin:24px 0 22px}
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;text-align:center}
 .h1{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:41px;color:var(--navy);margin-bottom:12px;text-align:center}
 .h-sub{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:22px;text-align:center}
-
-/* Verse */
 .verse-card{background:var(--surface);border-radius:14px;padding:18px 20px;border-left:3px solid var(--gold);box-shadow:var(--shadow);margin-bottom:24px}
 .vt{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;line-height:26px;color:var(--text);margin-bottom:5px}
 .vr{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}
-
-/* Ministry statement */
-.ministry-card{background:var(--navy);border-radius:16px;padding:24px 22px;margin-bottom:26px;display:flex;flex-direction:column;gap:12px}
-.mc-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
-.mc-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;line-height:29px}
-.mc-text{font-size:14px;color:rgba(255,255,255,.72);line-height:22px}
-
-/* What's inside */
-.inside-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
-.inside-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
-.inside-item{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border-radius:13px;padding:14px 16px;box-shadow:0 1px 6px rgba(27,42,74,.07)}
-.inside-icon{width:38px;height:38px;border-radius:10px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
-.inside-lbl{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px}
-.inside-desc{font-size:13px;color:var(--muted);line-height:19px}
-
-/* Testimonies */
+.navy-card{background:var(--navy);border-radius:16px;padding:24px 22px;margin-bottom:24px;display:flex;flex-direction:column;gap:12px}
+.nc-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.nc-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;line-height:29px}
+.nc-text{font-size:14px;color:rgba(255,255,255,.75);line-height:22px}
+.section-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
+.reveals{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.rev-item{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border-radius:13px;padding:14px 16px;box-shadow:0 1px 6px rgba(27,42,74,.07)}
+.rev-num{width:32px;height:32px;border-radius:8px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--gold);flex-shrink:0}
+.rev-lbl{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.rev-sub{font-size:13px;color:var(--muted);line-height:19px}
 .testimonies{display:flex;flex-direction:column;gap:14px;margin-bottom:26px}
 .t-card{background:var(--surface);border-radius:14px;padding:18px;box-shadow:0 1px 6px rgba(27,42,74,.07)}
 .t-text{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;line-height:24px;color:var(--text);margin-bottom:10px;border-left:2px solid var(--gold);padding-left:12px}
 .t-name{font-size:12px;font-weight:700;color:var(--navy)}
 .t-role{font-size:11px;color:var(--muted)}
-
-/* Pricing */
 .price-section{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:24px;text-align:center}
 .price-label{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.3px}
-.price-amount{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--navy);line-height:1}
-.price-note{font-size:13px;color:var(--muted);line-height:19px;max-width:280px}
-
-/* CTA */
+.price-amount{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:700;color:var(--navy);line-height:1}
+.price-note{font-size:14px;color:var(--muted);line-height:20px;max-width:290px}
 .cta-btn{
   display:block;width:100%;background:var(--navy);color:#fff;border:none;
   border-radius:16px;font-family:inherit;font-size:18px;font-weight:700;
   padding:20px 24px;text-align:center;text-decoration:none;cursor:pointer;
-  transition:opacity .15s,transform .1s;
-  box-shadow:0 6px 22px rgba(27,42,74,.32);letter-spacing:.2px;margin-bottom:12px;
+  transition:opacity .15s,transform .1s;box-shadow:0 6px 22px rgba(27,42,74,.32);
+  letter-spacing:.2px;margin-bottom:12px;
 }
 .cta-btn:hover{opacity:.92;transform:translateY(-1px)}
 .cta-note{font-size:12px;color:var(--muted);text-align:center;margin-bottom:28px}
-
-/* Divider */
 .div{width:100%;height:1px;background:var(--border);margin:24px 0}
 </style>
 </head>
@@ -97,12 +71,12 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
     <span class="logo-text">Gifted Ministry</span>
   </div>
 
-  <!-- Hero -->
+  <!-- Hero painting -->
   <img class="hero-img" src="assets/jesus_consolator.jpg" alt="Christ the Consolator — Carl Bloch">
 
-  <div class="eyebrow">✦ Your Answer Is In This Guide</div>
-  <div class="h1">The answers you've been searching for your whole spiritual life.</div>
-  <div class="h-sub">Why certain things come naturally to you. Why you're drawn to specific kinds of ministry. Why some forms of service feel hollow and others feel like home. What God actually placed in you — and what to do with it.</div>
+  <div class="eyebrow">✦ Your Gift Is In This Guide</div>
+  <div class="h1">Your spiritual gift has been identified. Your guide will reveal it.</div>
+  <div class="h-sub">Along with everything you need to understand what it means and how to begin walking in it.</div>
 
   <!-- Verse -->
   <div class="verse-card">
@@ -110,49 +84,49 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
     <div class="vr">Romans 11:29</div>
   </div>
 
-  <!-- Ministry statement -->
-  <div class="ministry-card">
-    <div class="mc-tag">☁ A note from this ministry</div>
-    <div class="mc-title">This is not a business. This is a ministry.</div>
-    <div class="mc-text">Gifted exists for one purpose: to help believers understand and walk in what God placed in them. Too many people spend their whole lives in the church without ever having the clarity this guide provides. That is what we are here to change.</div>
-    <div class="mc-text">What you pay here is a donation to that mission. The minimum is $1. Give what it's worth to you — and know that what you give goes directly into reaching the next person who has been searching for the same answers you just came looking for.</div>
+  <!-- Jesus 33 years -->
+  <div class="navy-card">
+    <div class="nc-tag">☁ Why 33 questions</div>
+    <div class="nc-title">Jesus spent 33 years on this earth. Before He left, He gave gifts.</div>
+    <div class="nc-text">He was born in poverty and raised in obscurity. He lived fully — through temptation, grief, betrayal, and suffering — and gave His life for every person who would ever follow Him. Before He ascended, He sent His Spirit. And with His Spirit, He gave gifts.</div>
+    <div class="nc-text">To you. Specifically. Before you were born. This guide exists because those gifts are irrevocable — and too many believers are carrying something they have never been helped to understand.</div>
   </div>
 
-  <!-- What the guide gives them -->
-  <div class="inside-title">What your guide will reveal</div>
-  <div class="inside-grid">
-    <div class="inside-item">
-      <div class="inside-icon">🔓</div>
+  <!-- What the guide reveals -->
+  <div class="section-title">What your guide reveals</div>
+  <div class="reveals">
+    <div class="rev-item">
+      <div class="rev-num">01</div>
       <div>
-        <div class="inside-lbl">The name and nature of your specific gift</div>
-        <div class="inside-desc">Not a vague category — your specific spiritual gift, explained in full. Why you have it, what it looks like in practice, and what the Holy Spirit has placed in you that others around you don't carry the same way.</div>
+        <div class="rev-lbl">The name and nature of your specific gift</div>
+        <div class="rev-sub">Not a category — your actual spiritual gift, explained in full. What it is, why you have it, and what the Holy Spirit placed in you that others around you don't carry the same way.</div>
       </div>
     </div>
-    <div class="inside-item">
-      <div class="inside-icon">🪞</div>
+    <div class="rev-item">
+      <div class="rev-num">02</div>
       <div>
-        <div class="inside-lbl">Why you are the way you are</div>
-        <div class="inside-desc">The things that have always been true about you — that you may have been confused by or even ashamed of — explained through scripture. Reading this section is often the moment people say: I finally understand myself.</div>
+        <div class="rev-lbl">Why you are the way you are</div>
+        <div class="rev-sub">The things that have always been true about you — that you may have been confused by, dismissed, or even ashamed of — explained through scripture. This is often the section people read and say: I finally understand myself.</div>
       </div>
     </div>
-    <div class="inside-item">
-      <div class="inside-icon">📍</div>
+    <div class="rev-item">
+      <div class="rev-num">03</div>
       <div>
-        <div class="inside-lbl">What to do with it — practically</div>
-        <div class="inside-desc">Not theory. Not a list of suggestions. Specific, practical guidance on how to develop your gift, where it belongs in the Body of Christ, and what faithfully walking in it looks like in your actual life.</div>
+        <div class="rev-lbl">How to walk in it — practically</div>
+        <div class="rev-sub">Specific guidance on how to develop your gift, where it belongs in the Body of Christ, and what faithfulness looks like in your actual life — not in theory.</div>
       </div>
     </div>
-    <div class="inside-item">
-      <div class="inside-icon">📖</div>
+    <div class="rev-item">
+      <div class="rev-num">04</div>
       <div>
-        <div class="inside-lbl">What the Bible says about your specific calling</div>
-        <div class="inside-desc">Chapter after chapter of scripture written directly to the person who carries what you carry. Not generic devotional content — scripture that speaks to your specific gift, your specific calling, your specific role in the Kingdom of God.</div>
+        <div class="rev-lbl">What the Bible says about your calling</div>
+        <div class="rev-sub">Scripture written directly to the person who carries what you carry. Your gift. Your role. Your specific place in the Kingdom of God.</div>
       </div>
     </div>
   </div>
 
-  <!-- Testimonies -->
-  <div class="inside-title">What people are saying</div>
+  <!-- Testimonials -->
+  <div class="section-title">What people are saying</div>
   <div class="testimonies">
     <div class="t-card">
       <div class="t-text">"I've been in church my whole life and never understood why prayer came so naturally to me but felt like effort to everyone else. This profile gave me words for something I've carried my whole life. I cried reading it."</div>
@@ -165,41 +139,44 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
       <div class="t-role">Small group leader</div>
     </div>
     <div class="t-card">
-      <div class="t-text">"I donated $1 expecting very little. What I got explained more about why I am the way I am spiritually than any sermon I've heard in 15 years of church. I went back and gave more. This ministry is the real thing."</div>
+      <div class="t-text">"I donated $1 expecting very little. What I got explained more about my spiritual wiring than any sermon I've heard in 15 years of church. I went back and gave more. This ministry is the real thing."</div>
       <div class="t-name">Danielle T.</div>
       <div class="t-role">Gift of Mercy & Service</div>
     </div>
   </div>
 
-  <!-- Pricing -->
-  <div class="verse-card" style="margin-bottom:20px">
-    <div class="vt">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</div>
-    <div class="vr">2 Corinthians 9:7</div>
+  <!-- Ministry card -->
+  <div class="navy-card">
+    <div class="nc-tag">☁ A note from this ministry</div>
+    <div class="nc-title">This is not a business. This is a ministry.</div>
+    <div class="nc-text">Gifted exists for one purpose: to help believers understand and walk in what God placed in them. Every resource is funded entirely by the community it serves — by people who received something real and chose to give back so the next person could receive it too.</div>
+    <div class="nc-text">What you give here is a donation to that mission. Give what it's worth to you. Know that whatever you give goes directly into reaching the next person who took this quiz and finally began to understand who they are in God.</div>
   </div>
 
+  <!-- Scripture on giving -->
+  <div class="verse-card">
+    <div class="vt">"Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously. Each of you should give what you have decided in your heart to give — not reluctantly or under compulsion, for God loves a cheerful giver."</div>
+    <div class="vr">2 Corinthians 9:6–7</div>
+  </div>
+
+  <div class="verse-card">
+    <div class="vt">"Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap."</div>
+    <div class="vr">Luke 6:38</div>
+  </div>
+
+  <!-- Pricing -->
   <div class="price-section">
     <div class="price-label">Ministry donation — name your amount</div>
-    <div class="price-amount">$1<span style="font-size:22px;color:var(--muted)">+</span></div>
+    <div class="price-amount">$1<span style="font-size:24px;color:var(--muted)">+</span></div>
     <div class="price-note">Give what it's worth to you. Every dollar goes directly into reaching the next person who has been searching for these answers.</div>
   </div>
 
-  <a class="cta-btn" href="https://giftedministry.gumroad.com/l/bodpe" target="_blank">
+  <a class="cta-btn" href="https://giftedministry.gumroad.com/l/bodpe?redirect=https://gifted.church/collection.html" target="_blank">
     Receive My Spiritual Gifts Profile →
   </a>
   <div class="cta-note">✦ Delivered to your email · Yours to keep</div>
 
   <div class="div"></div>
-
-  <!-- Want everything? -->
-  <div class="ministry-card">
-    <div class="mc-tag">✦ The Complete Gifted Library</div>
-    <div class="mc-title">All 8 ministry guides. The 28-Day Kingdom Challenge. For the believer who wants to go all the way in.</div>
-    <div class="mc-text">8 full guides covering everything from spiritual warfare to prophetic activation — each one built around a specific dimension of the Christian walk. Plus the 28-Day Kingdom Challenge to take what you learn and build it into daily practice. One donation. Everything included.</div>
-  </div>
-
-  <a class="cta-btn" href="collection.html" style="background:var(--gold);color:var(--navy);box-shadow:0 6px 22px rgba(196,145,58,.32)">
-    See the Complete Library →
-  </a>
   <div class="cta-note">✦ Gifted Ministry · gifted.church · Not a business. A ministry.</div>
 
 </div>

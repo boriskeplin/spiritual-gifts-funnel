@@ -800,10 +800,8 @@ const FLOW=[
       {t:'It would be the most important thing — because God\'s gifts are not given to be unused',g:'T',s:3},
     ]},
 
-  {type:'name'},
   {type:'loading'},
-  {type:'email'},
-  {type:'results'},
+  {type:'nameemail'},
 ];
 
 // ── SCORING ──────────────────────────────────────────────────────────
@@ -888,13 +886,11 @@ function render(){
   if(!it)return;
   if(S.popup){renderPopup(app);return}
   switch(it.type){
-    case 'intro':   app.innerHTML=rIntro(); break;
-    case 'q':       app.innerHTML=rQ(it); break;
-    case 'name':    app.innerHTML=rName(); break;
-    case 'loading': app.innerHTML=rLoading(); startLoadingAnim(); break;
-    case 'email':   app.innerHTML=rEmail(); break;
-    case 'results': renderReveal(); break;
-    case 'popup':   S.popup=it.popup; renderPopup(app); break;
+    case 'intro':     app.innerHTML=rIntro(); break;
+    case 'q':         app.innerHTML=rQ(it); break;
+    case 'loading':   app.innerHTML=rLoading(); startLoadingAnim(); break;
+    case 'nameemail': app.innerHTML=rNameEmail(); break;
+    case 'popup':     S.popup=it.popup; renderPopup(app); break;
     default: advance();
   }
 }
@@ -1023,131 +1019,44 @@ function renderPopup(app){
   </div></div>`;
 }
 
-// ── NAME ──────────────────────────────────────────────────────────────
-function rName(){
+// ── NAME + EMAIL (combined) ───────────────────────────────────────────
+function rNameEmail(){
   return`<div class="screen">
   ${hdr()}
   <div class="name-screen">
-    <img class="name-img" src="assets/jesus_consolator.jpg" alt="Christ the Consolator — Carl Bloch">
-    <div class="name-title">God knows you by name.<br>What is it?</div>
-    <div class="name-sub">He called His disciples by name. He is calling you too.</div>
+    <img class="name-img" src="assets/jesus_consolator.jpg" alt="Christ the Consolator — Carl Bloch" style="max-height:220px">
+    <div class="name-title" style="font-size:26px;line-height:33px">Before we continue —<br>we'd like to stay in touch.</div>
+    <div class="name-sub">Gifted Ministry sends weekly content for believers walking in their gifts. Enter your name and email to join us.</div>
     <input class="text-input" id="name-input" type="text" placeholder="Your first name"
       value="${S.name}" oninput="S.name=this.value.trim()"
-      onkeydown="if(event.key==='Enter')submitName()">
-    <button class="submit-btn" onclick="submitName()">Reveal My Gift →</button>
+      onkeydown="if(event.key==='Tab'||event.key==='Enter')document.getElementById('email-inp').focus()"
+      style="margin-bottom:0">
+    <input class="text-input" id="email-inp" type="email" placeholder="Your email address"
+      value="${S.email}" oninput="S.email=this.value.trim()"
+      onkeydown="if(event.key==='Enter')submitNameEmail()">
+    <button class="submit-btn" onclick="submitNameEmail()">Continue →</button>
+    <div style="font-size:12px;color:var(--muted);text-align:center">🔒 Private. We will never share your email.</div>
   </div></div>`;
 }
 
 // ── LOADING ───────────────────────────────────────────────────────────
 function rLoading(){
   return`<div class="screen loading">
-  <img class="l-painting" src="assets/jesus_lazarus.jpg" alt="The Raising of Lazarus — Carl Bloch">
-  <div class="l-title">${S.name?`Seeking God\'s wisdom for you, ${S.name}…`:'Seeking God\'s wisdom for you…'}</div>
+  <img class="l-painting" src="assets/jesus_consolator.jpg" alt="Christ the Consolator — Carl Bloch">
+  <div class="l-title">Seeking God's wisdom for you…</div>
   <div class="l-verse">"The Spirit himself testifies with our spirit that we are God's children." — Romans 8:16</div>
   <div class="l-bar-wrap"><div class="l-bar"></div></div>
   <div class="l-steps">
-    ${['Reading your prayer patterns','Examining your heart for people','Mapping your prophetic sensitivity','Revealing your primary gift']
+    ${['Reading your answers','Examining your heart','Mapping your gifting pattern','Identifying your calling']
       .map((s,i)=>`<div class="lstep" id="ls${i}"><div class="lstep-icon">✦</div><span>${s}</span></div>`).join('')}
   </div>
   </div>`;
 }
 
-// ── EMAIL ─────────────────────────────────────────────────────────────
-function rEmail(){
-  return`<div class="screen">
-  <div class="email-screen">
-    <img class="email-img" src="assets/jesus_consolator.jpg" alt="Christ the Consolator — Carl Bloch">
-    <div class="reveal-badge">✦ Your gift has been identified</div>
-    <div class="email-title">God has revealed your gift${S.name?', '+S.name:''}.</div>
-    <div class="email-sub">Enter your email and we\'ll send you your full Spiritual Gifts Profile — free.</div>
-    <div class="email-verse">"A gift opens the way and ushers the giver into the presence of the great." — Proverbs 18:16</div>
-    <input class="text-input" id="email-input" type="email" placeholder="Your email address"
-      value="${S.email}" oninput="S.email=this.value.trim()"
-      onkeydown="if(event.key==='Enter')submitEmail()">
-    <button class="submit-btn" onclick="submitEmail()">Unlock My Gift Profile →</button>
-    <div style="font-size:12px;color:var(--muted)">🔒 Private. We will never share your email.</div>
-  </div></div>`;
-}
+// rEmail removed — name+email now combined in rNameEmail()
 
 // ── REVEAL (dramatic) + RESULTS ───────────────────────────────────────
-function renderReveal(){
-  // Dramatic sealed reveal — gift is identified but NOT shown
-  // The guide is what delivers the answer
-  const app=document.getElementById('app');
-  const d=document.createElement('div');
-  d.className='reveal-screen';
-  d.id='reveal-overlay';
-  d.innerHTML=`
-    <img class="reveal-painting" src="assets/jesus_consolator.jpg" alt="Christ the Consolator — Carl Bloch">
-    <div class="reveal-eyebrow">✦ Your gift has been identified ✦</div>
-    <div class="reveal-gift" style="font-size:28px;line-height:36px;max-width:320px">
-      ${S.name?S.name+', the':'The'} Holy Spirit has revealed something specific about how you were made.
-    </div>
-    <div class="reveal-verse">Your guide will give you the answer — and everything you need to walk in it.</div>
-    <button class="reveal-btn" onclick="dismissReveal()">Receive My Answer →</button>
-  `;
-  document.body.appendChild(d);
-  setTimeout(()=>playMilestone(),400);
-}
-
-function dismissReveal(){
-  const ov=document.getElementById('reveal-overlay');
-  if(ov){ov.style.animation='fadeOut .3s ease forwards';setTimeout(()=>{ov.remove()},300)}
-  S.revealDone=true;
-  _track('step_results',{gift:primaryGift()});
-  document.getElementById('app').innerHTML=rResults();
-  startScoreAnim();
-}
-
-function rResults(){
-  const scores=giftScores();
-  const name=S.name||'';
-  // Store gift type in sessionStorage so offering page can reference it
-  try{sessionStorage.setItem('gifted_gift',primaryGift())}catch(e){}
-  return`<div class="screen results">
-  <div class="r-title">${name?name+', your':'Your'} gift has been identified.</div>
-
-  <!-- Sealed card — no gift name shown -->
-  <div class="gift-card" style="text-align:center">
-    <div style="font-size:40px;margin-bottom:14px">🔒</div>
-    <div class="gift-label">✦ Your Primary Spiritual Gift</div>
-    <div style="font-size:16px;color:var(--muted);line-height:24px;margin:10px 0 6px">
-      Revealed in your Spiritual Gifts Profile
-    </div>
-    <div style="font-size:14px;color:var(--muted);line-height:22px">
-      Your guide is where the answer lives — along with everything you need to understand what it means and begin walking in it.
-    </div>
-  </div>
-
-  <!-- Score bars — shows distribution without naming the top gift -->
-  <div class="score-title">Your Gift Distribution</div>
-  <div class="score-row">
-    ${scores.map((s,i)=>`
-    <div class="score-item">
-      <div class="score-lr">
-        <span class="score-lbl">${i===0?'Your Primary Gift':'Gift Category '+(i+1)}</span>
-        <span class="score-val">${s.pct}%</span>
-      </div>
-      <div class="score-track"><div class="score-fill" data-pct="${s.pct}" style="width:0%"></div></div>
-    </div>`).join('')}
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="ministry-stripe">
-    <div class="ms-cross">☁</div>
-    <div class="ms-title">Your guide has the answers you've been searching for your whole spiritual life.</div>
-    <div class="ms-text">Why certain things come naturally to you. Why you're drawn to specific kinds of service. Why some forms of worship feel hollow and others feel like home. What God actually placed in you — and what to do with it.</div>
-  </div>
-
-  <div class="cta-section">
-    <div class="cta-top">The answer is in your guide.</div>
-    <div class="cta-sub">Make your offering to the ministry and receive your Spiritual Gifts Profile — the document that will finally give you the clarity you've been looking for.</div>
-    <a class="cta-btn" href="offering.html">Receive My Answer →</a>
-    <div class="cta-note">✦ Gifted Ministry · Not a business. A ministry.</div>
-  </div>
-  </div>`;
-}
+// renderReveal / rResults removed — flow redirects directly to offering.html after name+email
 
 // ── INTERACTIONS ──────────────────────────────────────────────────────
 function pickGender(g){
@@ -1188,62 +1097,51 @@ function closePopup(){
   playSubmit();S.popup=null;advance();
 }
 
-function submitName(){
-  const inp=document.getElementById('name-input');
-  const val=inp?inp.value.trim():S.name;
-  if(!val||val.length<2){
-    if(inp){inp.style.borderColor='#C0392B';inp.placeholder='Please enter your name'}
-    return;
-  }
-  S.name=val;playSubmit();_track('step_name');advance();
-}
+function submitNameEmail(){
+  const ni=document.getElementById('name-input');
+  const ei=document.getElementById('email-inp');
+  const name=(ni?ni.value.trim():S.name)||'';
+  const email=(ei?ei.value.trim():S.email)||'';
 
-function submitEmail(){
-  const inp=document.getElementById('email-input');
-  const val=inp?inp.value.trim():S.email;
-  if(!val||!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)){
-    if(inp){inp.style.borderColor='#C0392B';inp.placeholder='Please enter a valid email'}
+  if(name.length<2){
+    if(ni){ni.style.borderColor='#C0392B';ni.focus();}
     return;
   }
-  S.email=val;
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){
+    if(ei){ei.style.borderColor='#C0392B';ei.focus();}
+    return;
+  }
+
+  S.name=name; S.email=email;
   playSubmit();
   _track('step_email',{gift:primaryGift()});
   if(window._gtag)_gtag('event','generate_lead',{event_category:'funnel'});
   if(window._fbq)_fbq('track','Lead',{value:0.01,currency:'USD'});
-  // Submit to Mailchimp via API
-  if(window.GIFTED_CONFIG){
-    const gift=primaryGift();
-    fetch('/api/quiz-submit',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name:S.name,email:val,gender:S.gender,gift,scores:S.scores})
-    }).catch(()=>{});
-  }
-  advance();
+
+  // Send to Mailchimp (fire and forget)
+  const gift=primaryGift();
+  fetch('/api/quiz-submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name,email,gender:S.gender,gift,scores:S.scores})
+  }).catch(()=>{});
+
+  // Store gift for offering page to reference
+  try{sessionStorage.setItem('gifted_gift',gift);sessionStorage.setItem('gifted_name',name);}catch(e){}
+
+  // Redirect to offering page — the guide is where the gift is revealed
+  setTimeout(()=>{window.location.href='offering.html';},350);
 }
 
 // ── LOADING ANIMATION ─────────────────────────────────────────────────
 function startLoadingAnim(){
-  const steps=[500,1400,2600,3800];
-  steps.forEach((t,i)=>{
-    setTimeout(()=>{
-      const el=document.getElementById('ls'+i);
-      if(el)el.classList.add('on');
-    },t);
+  [500,1400,2600,3800].forEach((t,i)=>{
+    setTimeout(()=>{const el=document.getElementById('ls'+i);if(el)el.classList.add('on');},t);
   });
-  setTimeout(()=>advance(),5200);
+  setTimeout(()=>advance(),5000);
 }
 
-// ── SCORE BARS ────────────────────────────────────────────────────────
-function startScoreAnim(){
-  setTimeout(()=>{
-    document.querySelectorAll('.score-fill').forEach(el=>{
-      el.style.width=el.dataset.pct+'%';
-    });
-  },300);
-}
-
-// ── FADE OUT KEYFRAME for reveal ──────────────────────────────────────
+// ── FADE OUT KEYFRAME ─────────────────────────────────────────────────
 const _style=document.createElement('style');
 _style.textContent='@keyframes fadeOut{from{opacity:1}to{opacity:0}}';
 document.head.appendChild(_style);
