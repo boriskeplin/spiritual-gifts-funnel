@@ -1,106 +1,139 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Your Complete Gift Collection — Gifted</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Complete Gifted Library — Gifted Ministry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://gumroad.com/js/gumroad.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--red:#8B1A1A;--gold:#B8870B;--text:#160E05;--muted:#7A6240;--shadow:0 2px 18px rgba(180,140,60,.18)}
-body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding-bottom:120px}
-.wrap{width:100%;max-width:420px;padding:20px 20px 0;display:flex;flex-direction:column;align-items:center;gap:10px}
-.logo{font-size:16px;font-weight:800;color:var(--accent)}
-.prog-label{font-size:12px;color:var(--muted)}
-.content{width:100%;max-width:420px;padding:20px}
-.offer-badge{display:inline-block;background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:10px;letter-spacing:.6px;text-transform:uppercase;margin-bottom:14px}
-.offer-title{font-size:22px;font-weight:800;line-height:1.25;margin-bottom:8px}
-.scripture-pull{background:var(--card);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 14px;margin-bottom:16px}
-.scripture-text{font-family:'Lora',serif;font-style:italic;font-size:14px;line-height:1.6;color:var(--text)}
-.scripture-ref{font-size:11px;font-weight:700;color:var(--accent);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
-.offer-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px}
-.what-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
-.bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
-.bullet{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5}
-.b-cross{color:var(--accent);font-size:14px;flex-shrink:0;margin-top:1px}
-.price-row{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:14px;padding:16px;margin-bottom:16px;box-shadow:var(--shadow)}
-.price-now{font-size:32px;font-weight:800;color:var(--accent)}
-.price-label{font-size:12px;color:var(--muted);line-height:1.4}
-.cta-wrap{position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:1px solid #E5D89A;padding:16px 20px 28px;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:50}
-.cta-btn{width:100%;max-width:380px;background:var(--accent);color:#fff;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:12px;padding:17px;cursor:pointer;transition:opacity .2s;box-shadow:0 4px 14px rgba(27,75,138,.3)}
-.cta-btn:hover{opacity:.9}
-.cta-charge{font-size:11px;color:var(--muted);text-align:center;max-width:340px}
-.skip-btn{font-size:13px;color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;font-family:'Poppins',sans-serif}
-</style>
-<script src="/config.js"></script>
-<script>
-(function(){if(!window.GIFTED_CONFIG||GIFTED_CONFIG.ga4Id.includes('PASTE'))return;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GIFTED_CONFIG.ga4Id;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',GIFTED_CONFIG.ga4Id);window._gtag=gtag;})();
-(function(){if(!window.GIFTED_CONFIG||GIFTED_CONFIG.fbPixelId.includes('PASTE'))return;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',GIFTED_CONFIG.fbPixelId);fbq('track','PageView');window._fbq=fbq;})();
-</script>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEPTSHR2ML"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LEPTSHR2ML');
-  </script>
-  <!-- Meta Pixel -->
-  <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','2455680908285872');fbq('track','PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2455680908285872&ev=PageView&noscript=1"/></noscript>
-</head><body>
-<div class="wrap">
-  <div class="logo">✝ Discover Your Gift</div>
-  <div class="prog-label">One special offer for you</div>
-</div>
-<div class="content">
-  <div class="offer-badge">✦ Complete Collection</div>
-  <div class="offer-title">Every guide. Every prayer audio. Everything.</div>
-  <div class="scripture-pull">
-    <div class="scripture-text">"From whom the whole body, joined and held together by every joint with which it is equipped, when each part is working properly, makes the body grow so that it builds itself up in love."</div>
-    <div class="scripture-ref">Ephesians 4:16</div>
-  </div>
-  <div class="offer-desc">You know your gift. Now go deep on all of them — so you can understand the gifts around you, serve your community fully, and walk in your calling at every level.<br><br>This is everything we've built, in one download.</div>
-  <div class="what-label">What's included</div>
-  <div class="bullets">
-    <div class="bullet"><span class="b-cross">✝</span><span><strong>All 8 Ministry Guides</strong> — Prayer, Marriage, Scripture, Warfare, Identity, Commission, Prophetic, Healing</span></div>
-    <div class="bullet"><span class="b-cross">🎧</span><span><strong>All 8 Guided Prayer MP3s</strong> — Guided prayer activation for each gift type</span></div>
-    <div class="bullet"><span class="b-cross">✦</span><span><strong>31-Day Gift Activation Journal</strong> — daily prompts to grow in your calling</span></div>
-    <div class="bullet"><span class="b-cross">✦</span><span><strong>Spiritual Gifts Quick-Reference Card</strong> — all 9 gifts, signs, roles, shadow sides</span></div>
-    <div class="bullet"><span class="b-cross">✦</span><span><strong>Gift Combinations Guide</strong> — what happens when your gifts work together</span></div>
-  </div>
-  <div class="price-row">
-    <div class="price-now">$33</div>
-    <div class="price-label">One-time · Instant download<br></div>
-  </div>
-</div>
-<div class="cta-wrap">
-  <button class="cta-btn" onclick="addBundle()">Get the Complete Collection — $33 →</button>
-  <div class="cta-charge">All 8 guides + 8 MP3s + 3 bonuses · One-time · No subscription</div>
-  <button class="skip-btn" onclick="skipBundle()">No thanks, skip this</button>
-</div>
-<audio id="bg-music" src="/assets/background_audio.mp3" loop preload="auto"></audio>
-<script>
-(function(){if(!localStorage.getItem('gifted_music_on'))return;var m=document.getElementById('bg-music');if(!m)return;m.volume=0;var p=m.play();if(p!==undefined){p.then(function(){var steps=30,target=0.12,step=target/steps,i=0;var t=setInterval(function(){i++;m.volume=Math.min(target,m.volume+step);if(i>=steps)clearInterval(t);},50);}).catch(function(){});}})();
-function addBundle(){
-  var b=document.querySelector('.cta-btn');b.textContent='Redirecting...';b.style.opacity='.7';
-  if(window._fbq)_fbq('track','AddToCart',{currency:'USD',value:33,content_name:'bundle'});
-  if(window._gtag)_gtag('event','add_to_cart',{currency:'USD',value:33});
-  var cfg=window.GIFTED_CONFIG;
-  var url=cfg&&!cfg.gumroad.bundle.includes('PASTE')?cfg.gumroad.bundle:'app.html';
-  if(window.GumroadOverlay&&url.includes('gumroad.com')){
-    b.style.opacity='1';b.textContent='Get the Complete Collection — $33 →';
-    GumroadOverlay.show(url);
-  } else { setTimeout(()=>{window.location.href=url},500); }
+:root{
+  --bg:#EAF4F8;--surface:#FFFFFF;--navy:#1B2A4A;
+  --gold:#C4913A;--gold-soft:#E8CFA0;--gold-pale:#F5EBD6;
+  --text:#1B2A4A;--muted:#5A6E8A;--border:rgba(27,42,74,.11);
+  --shadow:0 2px 24px rgba(27,42,74,.10);
 }
-function skipBundle(){window.location.href='downsell1.html'}
-</script>
-<script>try{fetch('http:///api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'upsell_viewed'})}).catch(()=>{})}catch(e){}</script>
-</body></html>
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh}
+.wrap{max-width:460px;margin:0 auto;padding:0 18px 80px}
+.hdr{display:flex;justify-content:center;align-items:center;gap:10px;padding:22px 0 0}
+.logo-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;letter-spacing:.6px;color:var(--navy)}
+.hero-img{width:100%;border-radius:16px;object-fit:cover;max-height:280px;box-shadow:var(--shadow);margin:24px 0 22px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;text-align:center}
+.h1{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:41px;color:var(--navy);margin-bottom:12px;text-align:center}
+.h-sub{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:22px;text-align:center}
+.verse-card{background:var(--surface);border-radius:14px;padding:18px 20px;border-left:3px solid var(--gold);box-shadow:var(--shadow);margin-bottom:24px}
+.vt{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;line-height:26px;color:var(--text);margin-bottom:5px}
+.vr{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}
+.ministry-card{background:var(--navy);border-radius:16px;padding:24px 22px;margin-bottom:26px;display:flex;flex-direction:column;gap:12px}
+.mc-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.mc-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;line-height:29px}
+.mc-text{font-size:14px;color:rgba(255,255,255,.72);line-height:22px}
+.section-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
+.guides-list{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.guide-item{display:flex;align-items:center;gap:14px;background:var(--surface);border-radius:14px;padding:14px 16px;box-shadow:0 1px 6px rgba(27,42,74,.07)}
+.guide-num{width:32px;height:32px;border-radius:8px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--gold);flex-shrink:0}
+.guide-lbl{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.guide-sub{font-size:12px;color:var(--muted)}
+.extras{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.extra-item{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border-radius:13px;padding:14px 16px;box-shadow:0 1px 6px rgba(27,42,74,.07)}
+.extra-icon{width:38px;height:38px;border-radius:10px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.extra-lbl{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.extra-desc{font-size:13px;color:var(--muted);line-height:19px}
+.price-section{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:24px;text-align:center}
+.price-was{font-size:14px;color:var(--muted);text-decoration:line-through}
+.price-amount{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--navy);line-height:1}
+.price-note{font-size:13px;color:var(--muted);line-height:19px;max-width:280px}
+.cta-btn{display:block;width:100%;background:var(--navy);color:#fff;border:none;border-radius:16px;font-family:inherit;font-size:18px;font-weight:700;padding:20px 24px;text-align:center;text-decoration:none;cursor:pointer;transition:opacity .15s,transform .1s;box-shadow:0 6px 22px rgba(27,42,74,.32);letter-spacing:.2px;margin-bottom:12px}
+.cta-btn:hover{opacity:.92;transform:translateY(-1px)}
+.cta-note{font-size:12px;color:var(--muted);text-align:center;margin-bottom:28px}
+.div{width:100%;height:1px;background:var(--border);margin:24px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <svg width="34" height="26" viewBox="0 0 34 26" fill="none">
+      <path d="M27.5 11.5C27.5 11.5 27 7 23 7C20.8 7 19 8.8 18.5 11C17.9 8.7 15.7 7 13 7C9.4 7 6.5 9.9 6.5 13.5C3.5 13.5 1 16 1 19C1 22 3.5 24.5 6.5 24.5H27.5C30.5 24.5 33 22 33 19C33 16 30.5 13.5 27.5 13.5C27.5 12.8 27.5 12.2 27.5 11.5Z" fill="#1B2A4A"/>
+      <line x1="17" y1="13" x2="17" y2="22" stroke="#C4913A" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="13" y1="17.5" x2="21" y2="17.5" stroke="#C4913A" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-text">Gifted Ministry</span>
+  </div>
+
+  <img class="hero-img" src="assets/jesus_resurrection.jpg" alt="The Resurrection — Carl Bloch">
+
+  <div class="eyebrow">✦ The Complete Gifted Library</div>
+  <div class="h1">Everything built to take you from discovering your gift to living in it.</div>
+  <div class="h-sub">8 full ministry guides. 8 guided prayer recordings. The 28-Day Kingdom Challenge. For the believer who wants to go all the way in.</div>
+
+  <div class="verse-card">
+    <div class="vt">"Now to each one the manifestation of the Spirit is given for the common good."</div>
+    <div class="vr">1 Corinthians 12:7</div>
+  </div>
+
+  <div class="ministry-card">
+    <div class="mc-tag">☁ From the ministry</div>
+    <div class="mc-title">We built this library because too many believers are operating far below what God placed in them.</div>
+    <div class="mc-text">Gifted Ministry is not a business. It is a ministry — funded entirely by the community it serves. Every dollar you give here goes directly back into building resources like these and reaching the next person who takes this quiz and finally begins to understand what God placed in them.</div>
+    <div class="mc-text">Your donation to this library is your donation to that mission. What you give funds God's work in the next person. We receive it with gratitude and we steward it carefully.</div>
+  </div>
+
+  <div class="section-title">The 8 Ministry Guides</div>
+  <div class="guides-list">
+    <div class="guide-item"><div class="guide-num">01</div><div><div class="guide-lbl">Intercessor's Prayer Guide</div><div class="guide-sub">35+ pages · For those called to stand in the gap</div></div></div>
+    <div class="guide-item"><div class="guide-num">02</div><div><div class="guide-lbl">Spiritual Warfare Handbook</div><div class="guide-sub">38+ pages · Identity, armour, and the power of the Word</div></div></div>
+    <div class="guide-item"><div class="guide-num">03</div><div><div class="guide-lbl">Identity in Christ Workbook</div><div class="guide-sub">37+ pages · Who you are in God's sight</div></div></div>
+    <div class="guide-item"><div class="guide-num">04</div><div><div class="guide-lbl">Scripture Memory System</div><div class="guide-sub">36+ pages · Planting the Word deep enough to live from it</div></div></div>
+    <div class="guide-item"><div class="guide-num">05</div><div><div class="guide-lbl">Marriage & Family Covenant</div><div class="guide-sub">37+ pages · Building a home on covenant love</div></div></div>
+    <div class="guide-item"><div class="guide-num">06</div><div><div class="guide-lbl">Great Commission Blueprint</div><div class="guide-sub">36+ pages · Your part in the mission Jesus gave His church</div></div></div>
+    <div class="guide-item"><div class="guide-num">07</div><div><div class="guide-lbl">Prophetic Activation Guide</div><div class="guide-sub">38+ pages · Developing the gift of hearing and speaking</div></div></div>
+    <div class="guide-item"><div class="guide-num">08</div><div><div class="guide-lbl">Healing & Miracles Guide</div><div class="guide-sub">37+ pages · Walking in the gifts of healing and faith</div></div></div>
+  </div>
+
+  <div class="section-title">Also included</div>
+  <div class="extras">
+    <div class="extra-item">
+      <div class="extra-icon">🎧</div>
+      <div><div class="extra-lbl">8 Guided Prayer Recordings</div><div class="extra-desc">One per guide. 13–17 minutes each. Real silence gaps. Soft ambient music. Recorded to take you into the presence of God — not to perform something for you.</div></div>
+    </div>
+    <div class="extra-item">
+      <div class="extra-icon">📅</div>
+      <div><div class="extra-lbl">The 28-Day Kingdom Challenge</div><div class="extra-desc">28 days of daily scripture, reflection, activation, and prayer — built around your specific gift. By day 28 you will have done something, not just read something.</div></div>
+    </div>
+    <div class="extra-item">
+      <div class="extra-icon">🎨</div>
+      <div><div class="extra-lbl">Carl Bloch Masterworks Throughout</div><div class="extra-desc">Every guide is illustrated with 19th-century paintings of Christ's life. The art was chosen to reflect what each guide is actually about. These are not decorations.</div></div>
+    </div>
+  </div>
+
+  <div class="verse-card" style="margin-bottom:20px">
+    <div class="vt">"The gifts and the calling of God are irrevocable."</div>
+    <div class="vr">Romans 11:29</div>
+  </div>
+
+  <div class="price-section">
+    <div class="price-was">Individual value: $200+</div>
+    <div class="price-amount">$33</div>
+    <div class="price-note">A one-time donation to the ministry. Everything included. Yours to keep and share freely with your church.</div>
+  </div>
+
+  <a class="cta-btn" href="https://giftedministry.gumroad.com/l/ntuttv" target="_blank">
+    Receive the Complete Library →
+  </a>
+  <div class="cta-note">✦ Instant access · All 8 guides + audio + 28-Day Challenge</div>
+
+  <div class="div"></div>
+
+  <div style="text-align:center;margin-bottom:16px">
+    <div style="font-size:14px;color:var(--muted);margin-bottom:12px">Start smaller — just your gift profile.</div>
+    <a href="offering.html" style="font-size:15px;font-weight:700;color:var(--navy);text-decoration:underline">Get my Spiritual Gifts Profile for $1 →</a>
+  </div>
+
+  <div class="cta-note">✦ Gifted Ministry · gifted.church · Not a business. A ministry.</div>
+
+</div>
+</body>
+</html>

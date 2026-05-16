@@ -3,284 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Make Your Offering — Gifted</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-<script src="https://js.stripe.com/v3/"></script>
+<title>Your Spiritual Gifts Profile — Gifted Ministry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://gumroad.com/js/gumroad.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#FEF8E4;--card:#FFFDF0;--accent:#1B4B8A;--red:#8B1A1A;--gold:#B8870B;--text:#160E05;--muted:#7A6240;--shadow:0 2px 18px rgba(139,115,88,.13)}
-body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+:root{
+  --bg:#EAF4F8;--surface:#FFFFFF;--navy:#1B2A4A;--navy2:#253858;
+  --gold:#C4913A;--gold-soft:#E8CFA0;--gold-pale:#F5EBD6;
+  --text:#1B2A4A;--muted:#5A6E8A;--border:rgba(27,42,74,.11);
+  --shadow:0 2px 24px rgba(27,42,74,.10);
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh}
+.wrap{max-width:460px;margin:0 auto;padding:0 18px 80px}
 
-/* Top banner */
-.top-banner{width:100%;background:var(--accent);color:#fff;text-align:center;padding:10px 16px;font-size:12px;font-weight:600;position:sticky;top:0;z-index:100}
-.top-banner strong{display:block;font-size:13px}
+/* Header */
+.hdr{display:flex;justify-content:center;align-items:center;gap:10px;padding:22px 0 0}
+.logo-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;letter-spacing:.6px;color:var(--navy)}
 
 /* Hero */
-.hero{width:100%;max-width:420px;padding:28px 20px 0}
-.hero-img{width:100%;border-radius:16px;box-shadow:0 6px 28px rgba(139,26,26,.3);margin-bottom:20px;max-height:280px;object-fit:cover;object-position:center top}
-.years-badge{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:800;padding:5px 14px;border-radius:12px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:14px}
-.hero-title{font-size:24px;font-weight:800;line-height:1.3;color:var(--text);margin-bottom:12px}
-.hero-body{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px}
-.hero-body strong{color:var(--text);font-weight:700}
+.hero-img{width:100%;border-radius:16px;object-fit:cover;max-height:280px;box-shadow:var(--shadow);margin:24px 0 22px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;text-align:center}
+.h1{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:41px;color:var(--navy);margin-bottom:12px;text-align:center}
+.h-sub{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:22px;text-align:center}
 
-/* Scripture card */
-.verse-card{background:var(--card);border-radius:14px;padding:18px 20px;border-left:4px solid var(--red);box-shadow:var(--shadow);margin-bottom:24px}
-.verse-text{font-family:'Lora',serif;font-style:italic;font-size:14px;line-height:1.75;color:var(--text);margin-bottom:6px}
-.verse-ref{font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px}
+/* Verse */
+.verse-card{background:var(--surface);border-radius:14px;padding:18px 20px;border-left:3px solid var(--gold);box-shadow:var(--shadow);margin-bottom:24px}
+.vt{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;line-height:26px;color:var(--text);margin-bottom:5px}
+.vr{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}
 
-/* The 33 section */
-.thirty-three{background:linear-gradient(135deg,rgba(27,75,138,.07),rgba(27,75,138,.02));border:1.5px solid rgba(27,75,138,.2);border-radius:18px;padding:22px 20px;margin-bottom:24px;text-align:center}
-.tt-number{font-size:72px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:6px}
-.tt-label{font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px}
-.tt-body{font-size:13px;color:var(--muted);line-height:1.75}
-.tt-body strong{color:var(--text)}
+/* Ministry statement */
+.ministry-card{background:var(--navy);border-radius:16px;padding:24px 22px;margin-bottom:26px;display:flex;flex-direction:column;gap:12px}
+.mc-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.mc-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;line-height:29px}
+.mc-text{font-size:14px;color:rgba(255,255,255,.72);line-height:22px}
 
-/* Donation section */
-.sheet{background:var(--card);border-radius:24px 24px 0 0;width:100%;max-width:420px;padding:28px 20px 60px;border-top:3px solid var(--red);margin-top:8px}
-.sheet-handle{width:36px;height:4px;background:#DDD5C4;border-radius:2px;margin:0 auto 20px}
-.sheet-title{font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px}
-.sheet-sub{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+/* What's inside */
+.inside-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
+.inside-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.inside-item{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border-radius:13px;padding:14px 16px;box-shadow:0 1px 6px rgba(27,42,74,.07)}
+.inside-icon{width:38px;height:38px;border-radius:10px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.inside-lbl{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.inside-desc{font-size:13px;color:var(--muted);line-height:19px}
 
-.donation-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
-.donation-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
-.donation-opt{background:#F5E9C8;border:2px solid #C4B99E;border-radius:14px;padding:16px 12px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
-.donation-opt:hover{border-color:var(--accent)}
-.donation-opt.selected{border-color:var(--accent);background:rgba(27,75,138,.06)}
-.donation-amount{font-size:28px;font-weight:800;color:var(--text)}
-.donation-desc{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.3}
-.donation-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;white-space:nowrap}
+/* Testimonies */
+.testimonies{display:flex;flex-direction:column;gap:14px;margin-bottom:26px}
+.t-card{background:var(--surface);border-radius:14px;padding:18px;box-shadow:0 1px 6px rgba(27,42,74,.07)}
+.t-text{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;line-height:24px;color:var(--text);margin-bottom:10px;border-left:2px solid var(--gold);padding-left:12px}
+.t-name{font-size:12px;font-weight:700;color:var(--navy)}
+.t-role{font-size:11px;color:var(--muted)}
 
-/* What's included */
-.bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
-.bullet{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5}
-.bullet-cross{color:var(--red);font-size:14px;flex-shrink:0;margin-top:1px}
-
-/* Charity box */
-.charity-box{background:rgba(27,75,138,.05);border:1px solid rgba(27,75,138,.18);border-radius:14px;padding:16px;margin-bottom:22px}
-.charity-title{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px}
-.charity-text{font-size:12px;color:var(--muted);line-height:1.7}
+/* Pricing */
+.price-section{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:24px;text-align:center}
+.price-label{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.3px}
+.price-amount{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--navy);line-height:1}
+.price-note{font-size:13px;color:var(--muted);line-height:19px;max-width:280px}
 
 /* CTA */
-.cta-btn{display:block;width:100%;background:var(--accent);color:#fff;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;border:none;border-radius:14px;padding:18px;cursor:pointer;transition:opacity .2s;margin-bottom:10px;box-shadow:0 6px 20px rgba(27,75,138,.35)}
-.cta-btn:hover{opacity:.9}
-.cta-note{font-size:11px;color:var(--muted);text-align:center;line-height:1.5}
-.trust{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;flex-wrap:wrap}
-.trust-badge{background:#F5E9C8;border-radius:6px;padding:4px 8px;font-size:10px;color:var(--muted);font-weight:600}
+.cta-btn{
+  display:block;width:100%;background:var(--navy);color:#fff;border:none;
+  border-radius:16px;font-family:inherit;font-size:18px;font-weight:700;
+  padding:20px 24px;text-align:center;text-decoration:none;cursor:pointer;
+  transition:opacity .15s,transform .1s;
+  box-shadow:0 6px 22px rgba(27,42,74,.32);letter-spacing:.2px;margin-bottom:12px;
+}
+.cta-btn:hover{opacity:.92;transform:translateY(-1px)}
+.cta-note{font-size:12px;color:var(--muted);text-align:center;margin-bottom:28px}
+
+/* Divider */
+.div{width:100%;height:1px;background:var(--border);margin:24px 0}
 </style>
-<script src="/config.js"></script>
-<script>
-/* GA4 */
-(function(){
-  if(!window.GIFTED_CONFIG||GIFTED_CONFIG.ga4Id.includes('PASTE'))return;
-  var s=document.createElement('script');s.async=true;
-  s.src='https://www.googletagmanager.com/gtag/js?id='+GIFTED_CONFIG.ga4Id;
-  document.head.appendChild(s);
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js',new Date());gtag('config',GIFTED_CONFIG.ga4Id);window._gtag=gtag;
-})();
-/* Facebook Pixel */
-(function(){
-  if(!window.GIFTED_CONFIG||GIFTED_CONFIG.fbPixelId.includes('PASTE'))return;
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init',GIFTED_CONFIG.fbPixelId);fbq('track','PageView');window._fbq=fbq;
-})();
-</script>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEPTSHR2ML"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LEPTSHR2ML');
-  </script>
-  <!-- Meta Pixel -->
-  <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','2455680908285872');fbq('track','PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2455680908285872&ev=PageView&noscript=1"/></noscript>
-</head>
 </head>
 <body>
+<div class="wrap">
 
-<div class="top-banner">
-  <strong></strong>
-  Your gift plan is ready. Make your offering to unlock it.
-</div>
-
-<div class="hero">
-
-  <img class="hero-img" src="assets/jesus_resurrection.jpg" alt="The Resurrection of Christ" loading="lazy" style="width:100%;border-radius:16px;max-height:280px;object-fit:cover;object-position:center top">
-
-  <div class="years-badge" id="gift-badge">✝ 33 Years</div>
-
-  <div class="hero-title" id="hero-title">He gave 33 years.<br>Every one of them was for you.</div>
-  <script>
-  (function(){
-    var gift = localStorage.getItem('gifted_gift_type');
-    var name = localStorage.getItem('gifted_name');
-    if(gift){
-      document.getElementById('gift-badge').textContent = '✝ Your gift: ' + gift;
-      if(name){
-        document.getElementById('hero-title').innerHTML =
-          name + ', your gift of <strong>' + gift + '</strong> was placed in you by God.<br>Unlock your full profile — $33 minimum.';
-      } else {
-        document.getElementById('hero-title').innerHTML =
-          'Your gift of <strong>' + gift + '</strong> was placed in you by God.<br>Unlock your full profile — $33 minimum.';
-      }
-    }
-  })();
-  </script>
-
-  <div class="hero-body">
-    Jesus did not live a single day for Himself.<br><br>
-    <strong>Thirty-three years of walking dusty roads, touching the untouchable, speaking truth to power, weeping at tombs, praying through the night.</strong><br><br>
-    Thirty-three years of preparing the way — so that you, right now, could know your purpose. Know your gift. Know why God made you the way He made you.<br><br>
-    Everything you discovered in this assessment exists because of those 33 years. And what comes next — your full Gift Plan, your Scripture activation map, your calling laid out step by step — all of it flows from what He gave.
+  <!-- Header -->
+  <div class="hdr">
+    <svg width="34" height="26" viewBox="0 0 34 26" fill="none">
+      <path d="M27.5 11.5C27.5 11.5 27 7 23 7C20.8 7 19 8.8 18.5 11C17.9 8.7 15.7 7 13 7C9.4 7 6.5 9.9 6.5 13.5C3.5 13.5 1 16 1 19C1 22 3.5 24.5 6.5 24.5H27.5C30.5 24.5 33 22 33 19C33 16 30.5 13.5 27.5 13.5C27.5 12.8 27.5 12.2 27.5 11.5Z" fill="#1B2A4A"/>
+      <line x1="17" y1="13" x2="17" y2="22" stroke="#C4913A" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="13" y1="17.5" x2="21" y2="17.5" stroke="#C4913A" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-text">Gifted Ministry</span>
   </div>
 
+  <!-- Hero -->
+  <img class="hero-img" src="assets/jesus_consolator.jpg" alt="Christ the Consolator — Carl Bloch">
+
+  <div class="eyebrow">✦ Your Profile Is Ready</div>
+  <div class="h1">37 pages. Written specifically for the gift you carry.</div>
+  <div class="h-sub">Most believers spend their whole lives in the church without ever understanding what God placed in them. This guide is the thing that changes that.</div>
+
+  <!-- Verse -->
   <div class="verse-card">
-    <div class="verse-text">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver. And God is able to bless you abundantly, so that in all things at all times, having all that you need, you will abound in every good work."</div>
-    <div class="verse-ref">2 Corinthians 9:7&ndash;8</div>
+    <div class="vt">"For the gifts and the calling of God are irrevocable."</div>
+    <div class="vr">Romans 11:29</div>
   </div>
 
-  <div class="thirty-three">
-    <div class="tt-number">33</div>
-    <div class="tt-label">Give just $1 to unlock your gift plan</div>
-    <div class="tt-body">
-      This is not a purchase. It is an offering.<br><br>
-      <strong>Give $1</strong> — or whatever God places on your heart — and unlock your complete Spiritual Gift Plan, your 28-day activation roadmap, and access to everything built for your specific gift type.<br><br>
-      Every dollar goes directly to continuing the Lord's work.
+  <!-- Ministry statement -->
+  <div class="ministry-card">
+    <div class="mc-tag">☁ A note from this ministry</div>
+    <div class="mc-title">This is not a business. This is a ministry.</div>
+    <div class="mc-text">Gifted exists for one purpose: to help believers understand and walk in what God placed in them. Every resource we build is funded by the community it serves — by people who received something real and chose to give back so the next person could receive it too.</div>
+    <div class="mc-text">What you pay here is a donation to that mission. The minimum is $1. Give what it's worth to you — and know that whatever you give goes directly into building the next resource, reaching the next person, serving the next believer who takes this quiz and finally begins to understand who they are.</div>
+  </div>
+
+  <!-- What's inside -->
+  <div class="inside-title">What's inside your profile</div>
+  <div class="inside-grid">
+    <div class="inside-item">
+      <div class="inside-icon">📖</div>
+      <div>
+        <div class="inside-lbl">37 pages of scripture-grounded depth</div>
+        <div class="inside-desc">Written specifically for your gift type. Not generic Christian living — your gift, your calling, your specific wiring explained through the Word of God.</div>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-icon">🎨</div>
+      <div>
+        <div class="inside-lbl">Carl Bloch paintings throughout</div>
+        <div class="inside-desc">The same 19th-century masterworks that have moved believers for 150 years. Each painting was chosen to reflect something specific about the gift you carry.</div>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-icon">🎧</div>
+      <div>
+        <div class="inside-lbl">A guided 15-minute prayer audio</div>
+        <div class="inside-desc">Recorded specifically for your gift type. Not a lecture — a guided prayer that takes you into the Holy Spirit's presence and lets you receive what only He can give.</div>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-icon">✍️</div>
+      <div>
+        <div class="inside-lbl">Reflection prompts and journaling space</div>
+        <div class="inside-desc">Questions that go beneath the surface. Space to write. The kind of self-examination that produces lasting change rather than just new information.</div>
+      </div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-icon">✦</div>
+      <div>
+        <div class="inside-lbl">A declaration to speak out loud</div>
+        <div class="inside-desc">Words to say over yourself — slowly, out loud, meaning every one. The gift God placed in you is real. This page helps you begin to receive it as real.</div>
+      </div>
     </div>
   </div>
+
+  <!-- Testimonies -->
+  <div class="inside-title">What people are saying</div>
+  <div class="testimonies">
+    <div class="t-card">
+      <div class="t-text">"I've been in church my whole life and never understood why prayer came so naturally to me but felt like effort to everyone else. This profile gave me words for something I've carried my whole life. I cried reading it."</div>
+      <div class="t-name">Rachel M.</div>
+      <div class="t-role">Believer for 22 years</div>
+    </div>
+    <div class="t-card">
+      <div class="t-text">"The Carl Bloch paintings alone were worth it. But reading the section on the gift of teaching — it was like someone had been watching my life for years and wrote it down. I sent it to my pastor."</div>
+      <div class="t-name">James K.</div>
+      <div class="t-role">Small group leader</div>
+    </div>
+    <div class="t-card">
+      <div class="t-text">"I bought it for $1 expecting very little. I got 37 pages that explained more about why I am the way I am — spiritually — than any sermon I've heard. I went back and paid more. This ministry deserves support."</div>
+      <div class="t-name">Danielle T.</div>
+      <div class="t-role">Gifted: Mercy & Service</div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="verse-card" style="margin-bottom:20px">
+    <div class="vt">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</div>
+    <div class="vr">2 Corinthians 9:7</div>
+  </div>
+
+  <div class="price-section">
+    <div class="price-label">Name your price — minimum donation</div>
+    <div class="price-amount">$1<span style="font-size:22px;color:var(--muted)">+</span></div>
+    <div class="price-note">Pay what it's worth to you. Every dollar funds the next person who finds this and finally understands what God placed in them.</div>
+  </div>
+
+  <a class="cta-btn" href="https://giftedministry.gumroad.com/l/bodpe" target="_blank">
+    Receive My Spiritual Gifts Profile →
+  </a>
+  <div class="cta-note">✦ Instant access · PDF + Audio · Yours to keep</div>
+
+  <div class="div"></div>
+
+  <!-- Want everything? -->
+  <div class="ministry-card">
+    <div class="mc-tag">✦ The Complete Gifted Library</div>
+    <div class="mc-title">All 8 ministry guides + 8 guided prayers + the 28-Day Challenge.</div>
+    <div class="mc-text">Everything built to take you from discovering your gift to actually walking in it. 8 full guides (35–45 pages each), 8 prayer recordings, and 28 days of daily activation. For the believer who wants to go all the way in.</div>
+  </div>
+
+  <a class="cta-btn" href="collection.html" style="background:var(--gold);color:var(--navy);box-shadow:0 6px 22px rgba(196,145,58,.32)">
+    See the Complete Library →
+  </a>
+  <div class="cta-note">✦ Gifted Ministry · gifted.church · Not a business. A ministry.</div>
 
 </div>
-
-<div class="sheet">
-  <div class="sheet-handle"></div>
-  <div class="sheet-title">Make your offering</div>
-  <div class="sheet-sub">Choose the amount God places on your heart. Every dollar goes directly to continuing the Lord's work.</div>
-
-<div class="donation-label">Your ministry offering</div>
-  <div class="donation-grid">
-    <div class="donation-opt selected" onclick="selectDonation(this,1)" id="opt-1">
-      <div class="donation-badge">MINIMUM</div>
-      <div class="donation-amount">$1</div>
-      <div class="donation-desc">A seed of faith</div>
-    </div>
-    <div class="donation-opt" onclick="selectDonation(this,5)" id="opt-5">
-      <div class="donation-amount">$5</div>
-      <div class="donation-desc">A generous heart</div>
-    </div>
-    <div class="donation-opt" onclick="selectDonation(this,17)" id="opt-17">
-      <div class="donation-amount">$17</div>
-      <div class="donation-desc">Sowing abundantly</div>
-    </div>
-    <div class="donation-opt" onclick="selectDonation(this,33)" id="opt-33">
-      <div class="donation-amount">$33</div>
-      <div class="donation-desc">A sacrifice of praise</div>
-    </div>
-  </div>
-
-  <div class="bullets">
-    <div class="bullet"><span class="bullet-cross">✝</span><span><strong>Your complete Spiritual Gifts Profile</strong> — your dominant gift, how it shows up, and what Scripture says about it</span></div>
-    <div class="bullet"><span class="bullet-cross">✝</span><span><strong>28-day Gift Activation Plan</strong> — daily Scripture exercises to begin walking in your calling immediately</span></div>
-    <div class="bullet"><span class="bullet-cross">✝</span><span><strong>Your full biblical gift foundation</strong> — where your gift appears in Scripture, who carried it, and what it accomplished</span></div>
-    <div class="bullet"><span class="bullet-cross">✝</span><span><strong>Ministry application guide</strong> — how your gift serves the local church and the broader Kingdom</span></div>
-  </div>
-
-  <div class="charity-box">
-    <div class="charity-title">🙏 Every dollar goes directly to the ministry</div>
-    <div class="charity-text">This is not a corporation. This is a ministry. Every dollar you give goes directly toward continuing the Lord's work — funding new discipleship resources, providing this assessment free to believers in lower-income nations, and equipping the Body of Christ to walk in its calling. <strong>You are not buying a product. You are partnering with something God is building.</strong> We are grateful for every offering, no matter the size.</div>
-  </div>
-
-  <button class="cta-btn" id="submit-btn" onclick="submitPayment()">
-    Give $1 &amp; Unlock My Gift Plan &rarr;
-  </button>
-  <div class="cta-note">
-    Minimum offering: $1 &middot; Give more if God leads you &middot; Secured by Gumroad
-  </div>
-
-  <div class="trust">
-    <span class="trust-badge">🍎 Apple Pay</span>
-    <span class="trust-badge">G Google Pay</span>
-    <span class="trust-badge">VISA</span>
-    <span class="trust-badge">Mastercard</span>
-    <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-top:4px">🔒 256-bit SSL · Secured by Gumroad · Your offering is safe</div>
-  </div>
-
-
-<script>
-let selectedAmount = 1;
-
-function selectDonation(el, amount) {
-  selectedAmount = amount;
-  document.querySelectorAll('.donation-opt').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  document.getElementById('submit-btn').textContent = 'Give $' + amount + ' & Unlock My Gift Plan →';
-}
-
-async function submitPayment() {
-  var btn = document.getElementById('submit-btn');
-  btn.style.opacity = '.7';
-  btn.textContent = 'Opening secure checkout...';
-  if(window._fbq) _fbq('track','InitiateCheckout',{currency:'USD',value:selectedAmount});
-  if(window._gtag) _gtag('event','begin_checkout',{currency:'USD',value:selectedAmount});
-
-  var email    = localStorage.getItem('gifted_email') || '';
-  var baseUrl  = 'https://giftedministry.gumroad.com/l/bodpe';
-  var params   = new URLSearchParams({ wanted: 'true', price: selectedAmount });
-  if(email) params.set('email', email);
-  var url = baseUrl + '?' + params.toString();
-
-  btn.style.opacity = '1';
-  btn.textContent = 'Give $' + selectedAmount + ' & Unlock My Gift Plan →';
-
-  if(window.GumroadOverlay) {
-    GumroadOverlay.show(url);
-  } else {
-    window.location.href = url;
-  }
-}
-</script>
-
-<!-- Persistent ambient music -->
-<audio id="bg-music" src="/assets/background_audio.mp3" loop preload="auto"></audio>
-<script>
-(function(){
-  if(!localStorage.getItem('gifted_music_on')) return;
-  var m = document.getElementById('bg-music');
-  if(!m) return;
-  m.volume = 0;
-  var p = m.play();
-  if(p !== undefined){
-    p.then(function(){
-      // Fade in over 1.5s so it doesn't jar
-      var steps = 30, target = 0.12, step = target / steps, i = 0;
-      var t = setInterval(function(){
-        i++;
-        m.volume = Math.min(target, m.volume + step);
-        if(i >= steps) clearInterval(t);
-      }, 50);
-    }).catch(function(){});
-  }
-})();
-</script>
-
-
-<script>
-</script>
-<script>try{fetch('http:///api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'paywall_viewed'})}).catch(()=>{})}catch(e){}</script>
 </body>
 </html>
