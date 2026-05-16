@@ -7,6 +7,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://gumroad.com/js/gumroad.js"></script>
+<script>
+// Catch Gumroad overlay purchase completion and redirect to bundle page
+window.addEventListener('message', function(e) {
+  try {
+    var d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+    if (
+      (d && d.type === 'purchase') ||
+      (d && d.purchased === true) ||
+      (d && d.post_message_name === 'purchase') ||
+      e.data === 'gumroad:purchase'
+    ) {
+      window.location.href = 'https://gifted.church/collection.html';
+    }
+  } catch(err) {}
+}, false);
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -171,7 +187,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
     <div class="price-note">Give what it's worth to you. Every dollar goes directly into reaching the next person who has been searching for these answers.</div>
   </div>
 
-  <a class="cta-btn" href="https://giftedministry.gumroad.com/l/bodpe?redirect=https://gifted.church/collection.html" target="_blank">
+  <a class="cta-btn" href="https://giftedministry.gumroad.com/l/bodpe" data-gumroad-overlay-checkout="true">
     Receive My Spiritual Gifts Profile →
   </a>
   <div class="cta-note">✦ Delivered to your email · Yours to keep</div>
