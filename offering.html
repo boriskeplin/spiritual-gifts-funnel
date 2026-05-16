@@ -121,7 +121,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
 <div class="hero">
 
-  <img class="hero-img" src="assets/crucifixion.jpg" alt="The Crucifixion">
+  <img class="hero-img" src="assets/jesus_resurrection.jpg" alt="The Resurrection of Christ" loading="lazy" style="width:100%;border-radius:16px;max-height:280px;object-fit:cover;object-position:center top">
 
   <div class="years-badge" id="gift-badge">✝ 33 Years</div>
 
@@ -134,10 +134,10 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
       document.getElementById('gift-badge').textContent = '✝ Your gift: ' + gift;
       if(name){
         document.getElementById('hero-title').innerHTML =
-          name + ', your gift of <strong>' + gift + '</strong> was placed in you by God.<br>Unlock your full profile for $1.';
+          name + ', your gift of <strong>' + gift + '</strong> was placed in you by God.<br>Unlock your full profile — $33 minimum.';
       } else {
         document.getElementById('hero-title').innerHTML =
-          'Your gift of <strong>' + gift + '</strong> was placed in you by God.<br>Unlock your full profile for $1.';
+          'Your gift of <strong>' + gift + '</strong> was placed in you by God.<br>Unlock your full profile — $33 minimum.';
       }
     }
   })();
@@ -157,10 +157,10 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
   <div class="thirty-three">
     <div class="tt-number">$1</div>
-    <div class="tt-label">Give just $1 to unlock your gift plan</div>
+    <div class="tt-label">Give $33 to unlock your gift plan</div>
     <div class="tt-body">
       This is not a purchase. It is an offering.<br><br>
-      <strong>Give just $1</strong> — or whatever God places on your heart — and unlock your complete Spiritual Gift Plan, your 28-day activation roadmap, and access to everything built for your specific gift type.<br><br>
+      <strong>Give $33</strong> — or whatever God places on your heart — and unlock your complete Spiritual Gift Plan, your 28-day activation roadmap, and access to everything built for your specific gift type.<br><br>
       Every dollar beyond the minimum goes directly to providing free access for believers who cannot afford it.
     </div>
   </div>
@@ -175,22 +175,22 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   
 <div class="donation-label">Your ministry offering</div>
   <div class="donation-grid">
-    <div class="donation-opt selected" onclick="selectDonation(this,1)" id="opt-1">
+    <div class="donation-opt selected" onclick="selectDonation(this,33)" id="opt-33">
       <div class="donation-badge">MINIMUM</div>
-      <div class="donation-amount">$1</div>
-      <div class="donation-desc">A seed of faith</div>
-    </div>
-    <div class="donation-opt" onclick="selectDonation(this,5)" id="opt-5">
-      <div class="donation-amount">$5</div>
-      <div class="donation-desc">A generous heart</div>
-    </div>
-    <div class="donation-opt" onclick="selectDonation(this,10)" id="opt-10">
-      <div class="donation-amount">$10</div>
-      <div class="donation-desc">Sowing abundantly</div>
-    </div>
-    <div class="donation-opt" onclick="selectDonation(this,33)" id="opt-33">
       <div class="donation-amount">$33</div>
       <div class="donation-desc">A sacrifice of praise</div>
+    </div>
+    <div class="donation-opt" onclick="selectDonation(this,50)" id="opt-50">
+      <div class="donation-amount">$50</div>
+      <div class="donation-desc">A generous heart</div>
+    </div>
+    <div class="donation-opt" onclick="selectDonation(this,100)" id="opt-100">
+      <div class="donation-amount">$100</div>
+      <div class="donation-desc">Sowing abundantly</div>
+    </div>
+    <div class="donation-opt" onclick="selectDonation(this,200)" id="opt-200">
+      <div class="donation-amount">$200</div>
+      <div class="donation-desc">A kingdom investment</div>
     </div>
   </div>
 
@@ -207,10 +207,10 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   </div>
 
   <button class="cta-btn" id="submit-btn" onclick="submitPayment()">
-    Give $1 &amp; Unlock My Gift Plan &rarr;
+    Give $33 &amp; Unlock My Gift Plan &rarr;
   </button>
   <div class="cta-note">
-    Minimum offering: $1 &middot; Give more if God leads you &middot; Secured by Gumroad
+    Minimum offering: $33 &middot; Give more if God leads you &middot; Secured by Gumroad
   </div>
 
   <div class="trust">
@@ -223,7 +223,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
 
 <script>
-let selectedAmount = 1;
+let selectedAmount = 33;
 
 function selectDonation(el, amount) {
   selectedAmount = amount;
