@@ -199,11 +199,15 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 // Server endpoint /api/challenge-charge: amount=2700, currency='gbp'
 // Uses saved PaymentMethod — one click, no card re-entry
 // ═══════════════════════════════════════════════════════════════
-async function buyChallenge() {
-  const btns = document.querySelectorAll('.price-btn, .main-btn');
-  btns.forEach(b => { b.textContent = 'Adding...'; b.style.opacity = '.7'; });
-  // TODO: await fetch('/api/challenge-charge', { method:'POST', body: JSON.stringify({ amount:2700, currency:'gbp' }) })
-  setTimeout(() => { window.location.href = 'app.html'; }, 1400);
+function buyChallenge() {
+  var url = (window.GIFTED_CONFIG && window.GIFTED_CONFIG.gumroad && window.GIFTED_CONFIG.gumroad.challenge)
+    ? window.GIFTED_CONFIG.gumroad.challenge
+    : 'https://giftedministry.gumroad.com/l/thbrj';
+  if (window.GumroadOverlay && url.includes('gumroad.com')) {
+    window.GumroadOverlay.show(url);
+  } else {
+    window.location.href = url;
+  }
 }
 function skipChallenge() { window.location.href = 'app.html'; }
 </script>
