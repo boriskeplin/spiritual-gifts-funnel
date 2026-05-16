@@ -156,12 +156,12 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   </div>
 
   <div class="thirty-three">
-    <div class="tt-number">$1</div>
-    <div class="tt-label">Give $33 to unlock your gift plan</div>
+    <div class="tt-number">33</div>
+    <div class="tt-label">Give just $1 to unlock your gift plan</div>
     <div class="tt-body">
       This is not a purchase. It is an offering.<br><br>
-      <strong>Give $33</strong> — or whatever God places on your heart — and unlock your complete Spiritual Gift Plan, your 28-day activation roadmap, and access to everything built for your specific gift type.<br><br>
-      Every dollar beyond the minimum goes directly to providing free access for believers who cannot afford it.
+      <strong>Give $1</strong> — or whatever God places on your heart — and unlock your complete Spiritual Gift Plan, your 28-day activation roadmap, and access to everything built for your specific gift type.<br><br>
+      Every dollar goes directly to continuing the Lord's work.
     </div>
   </div>
 
@@ -170,27 +170,26 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 <div class="sheet">
   <div class="sheet-handle"></div>
   <div class="sheet-title">Make your offering</div>
-  <div class="sheet-sub">Choose the amount God places on your heart. The minimum offering is $33 — a dollar for every year Jesus lived for you.</div>
+  <div class="sheet-sub">Choose the amount God places on your heart. Every dollar goes directly to continuing the Lord's work.</div>
 
-  
 <div class="donation-label">Your ministry offering</div>
   <div class="donation-grid">
-    <div class="donation-opt selected" onclick="selectDonation(this,33)" id="opt-33">
+    <div class="donation-opt selected" onclick="selectDonation(this,1)" id="opt-1">
       <div class="donation-badge">MINIMUM</div>
-      <div class="donation-amount">$33</div>
-      <div class="donation-desc">A sacrifice of praise</div>
+      <div class="donation-amount">$1</div>
+      <div class="donation-desc">A seed of faith</div>
     </div>
-    <div class="donation-opt" onclick="selectDonation(this,50)" id="opt-50">
-      <div class="donation-amount">$50</div>
+    <div class="donation-opt" onclick="selectDonation(this,5)" id="opt-5">
+      <div class="donation-amount">$5</div>
       <div class="donation-desc">A generous heart</div>
     </div>
-    <div class="donation-opt" onclick="selectDonation(this,100)" id="opt-100">
-      <div class="donation-amount">$100</div>
+    <div class="donation-opt" onclick="selectDonation(this,17)" id="opt-17">
+      <div class="donation-amount">$17</div>
       <div class="donation-desc">Sowing abundantly</div>
     </div>
-    <div class="donation-opt" onclick="selectDonation(this,200)" id="opt-200">
-      <div class="donation-amount">$200</div>
-      <div class="donation-desc">A kingdom investment</div>
+    <div class="donation-opt" onclick="selectDonation(this,33)" id="opt-33">
+      <div class="donation-amount">$33</div>
+      <div class="donation-desc">A sacrifice of praise</div>
     </div>
   </div>
 
@@ -202,15 +201,15 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
   </div>
 
   <div class="charity-box">
-    <div class="charity-title">🙏 Where your offering goes</div>
-    <div class="charity-text">Every dollar covers the cost of providing this assessment free to believers in lower-income countries, funds new discipleship resources, and supports Christian charitable work. <strong>100% of every dollar beyond our costs goes directly to Kingdom purposes.</strong></div>
+    <div class="charity-title">🙏 Every dollar goes directly to the ministry</div>
+    <div class="charity-text">This is not a corporation. This is a ministry. Every dollar you give goes directly toward continuing the Lord's work — funding new discipleship resources, providing this assessment free to believers in lower-income nations, and equipping the Body of Christ to walk in its calling. <strong>You are not buying a product. You are partnering with something God is building.</strong> We are grateful for every offering, no matter the size.</div>
   </div>
 
   <button class="cta-btn" id="submit-btn" onclick="submitPayment()">
-    Give $33 &amp; Unlock My Gift Plan &rarr;
+    Give $1 &amp; Unlock My Gift Plan &rarr;
   </button>
   <div class="cta-note">
-    Minimum offering: $33 &middot; Give more if God leads you &middot; Secured by Gumroad
+    Minimum offering: $1 &middot; Give more if God leads you &middot; Secured by Gumroad
   </div>
 
   <div class="trust">
@@ -223,7 +222,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
 
 
 <script>
-let selectedAmount = 33;
+let selectedAmount = 1;
 
 function selectDonation(el, amount) {
   selectedAmount = amount;
