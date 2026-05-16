@@ -830,10 +830,30 @@ function submitMulti(){
   S.scores[S.idx]=Math.min(score,2);advance();
 }
 function closePopup(){playClick();S.popup=null;advance()}
-function submitName(){S.name=(document.getElementById('name-input')?.value||'').trim();playClick();advance()}
+function submitName(){
+  var inp = document.getElementById('name-input');
+  var name = (inp?.value||'').trim();
+  if(!name || name.length < 2){
+    inp.style.borderColor='#ef4444';
+    inp.placeholder='Please enter your name';
+    inp.value='';
+    setTimeout(()=>{inp.style.borderColor='';inp.placeholder='Enter your first name';},2000);
+    return;
+  }
+  S.name=name;playClick();advance();
+}
 function submitEmail(){
-  S.email=(document.getElementById('email-input')?.value||'').trim();
-  if(!S.email)return;
+  var inp = document.getElementById('email-input');
+  var email = (inp?.value||'').trim();
+  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+  if(!emailOk){
+    inp.style.borderColor='#ef4444';
+    inp.value='';
+    inp.placeholder='Please enter a valid email address';
+    setTimeout(()=>{inp.style.borderColor='';inp.placeholder='Your email address';},2500);
+    return;
+  }
+  S.email=email;
   playClick();
 
   // ── Calculate dominant gift ───────────────────────────────────
@@ -846,25 +866,23 @@ function submitEmail(){
   localStorage.setItem('gifted_name',      S.name||'');
   localStorage.setItem('gifted_email',     S.email);
 
-  // ── Send to n8n webhook (JSON) → Mailchimp + tagging ─────────
-  if(window.GIFTED_CONFIG && !GIFTED_CONFIG.mailchimpFormAction.includes('PASTE')){
-    fetch(GIFTED_CONFIG.mailchimpFormAction, {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        email:     S.email,
-        name:      S.name||'',
-        gift_type: S.gift,
-        source:    'quiz'
-      })
-    }).catch(()=>{});
-  }
+  // ── Send to Vercel API → Mailchimp (HTTPS, no mixed content) ──
+  fetch('/api/quiz-submit', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      email:     S.email,
+      name:      S.name||'',
+      gift_type: S.gift,
+    })
+  }).catch(()=>{});
 
   // ── Track Lead event ─────────────────────────────────────────
   if(window._fbq) _fbq('track','Lead');
   if(window._gtag) _gtag('event','generate_lead',{currency:'USD',value:0});
+  _track('email_entered');
 
-  // ── Skip results page — go straight to paywall ───────────────
+  // ── Go to paywall ─────────────────────────────────────────────
   window.location.href = 'paywall.html';
 }
 function _track(event){try{fetch('http://165.227.200.77:8768/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:event})}).catch(()=>{});}catch(e){}}

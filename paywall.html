@@ -210,7 +210,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
     Give $1 &amp; Unlock My Gift Plan &rarr;
   </button>
   <div class="cta-note">
-    Minimum offering: $1 &middot; Give more if God leads you &middot; Secured by Stripe
+    Minimum offering: $1 &middot; Give more if God leads you &middot; Secured by Gumroad
   </div>
 
   <div class="trust">
@@ -218,7 +218,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;min
     <span class="trust-badge">G Google Pay</span>
     <span class="trust-badge">VISA</span>
     <span class="trust-badge">Mastercard</span>
-    <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-top:4px">🔒 256-bit SSL · Secured by Stripe · Your offering is safe</div>
+    <div style="width:100%;text-align:center;font-size:11px;color:var(--muted);margin-top:4px">🔒 256-bit SSL · Secured by Gumroad · Your offering is safe</div>
   </div>
 
 
@@ -235,22 +235,20 @@ function selectDonation(el, amount) {
 async function submitPayment() {
   var btn = document.getElementById('submit-btn');
   btn.style.opacity = '.7';
-  btn.textContent = 'Redirecting to secure payment...';
+  btn.textContent = 'Opening secure checkout...';
   if(window._fbq) _fbq('track','InitiateCheckout',{currency:'USD',value:selectedAmount});
   if(window._gtag) _gtag('event','begin_checkout',{currency:'USD',value:selectedAmount});
-  var cfg = window.GIFTED_CONFIG;
-  var url;
-  if(cfg && cfg.gumroad && !cfg.gumroad.tripwire.includes('PASTE')) {
-    url = cfg.gumroad.tripwire;
-  } else if(cfg && !cfg.stripePaymentLink.includes('PASTE')) {
-    url = cfg.stripePaymentLink;
-  } else {
-    url = 'upsell.html';
-  }
+
+  var email    = localStorage.getItem('gifted_email') || '';
+  var baseUrl  = 'https://giftedministry.gumroad.com/l/bodpe';
+  var params   = new URLSearchParams({ wanted: 'true', price: selectedAmount });
+  if(email) params.set('email', email);
+  var url = baseUrl + '?' + params.toString();
+
   btn.style.opacity = '1';
   btn.textContent = 'Give $' + selectedAmount + ' & Unlock My Gift Plan →';
-  // Open Gumroad overlay (checkout stays on THIS page, no redirect)
-  if(window.GumroadOverlay && url.includes('gumroad.com')) {
+
+  if(window.GumroadOverlay) {
     GumroadOverlay.show(url);
   } else {
     window.location.href = url;
