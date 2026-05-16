@@ -867,7 +867,21 @@ function submitEmail(){
   // ── Skip results page — go straight to paywall ───────────────
   window.location.href = 'paywall.html';
 }
-function advance(){S.idx++;if(S.idx>=FLOW.length)return;render()}
+function _track(event){try{fetch('http://165.227.200.77:8768/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:event})}).catch(()=>{});}catch(e){}}
+function advance(){
+  const cur=FLOW[S.idx];
+  if(cur){
+    const t=cur.type;
+    if(t==='gender')_track('step_gender');
+    else if(t==='age')_track('step_age');
+    else if(t==='name')_track('step_name');
+    else if(t==='email')_track('step_email');
+    else if(t==='results')_track('step_results');
+    else if(t==='loading')_track('step_loading');
+    else if(t==='q'){const qn=FLOW.slice(0,S.idx+1).filter(x=>x.type==='q').length;_track('step_q'+qn);}
+  }
+  S.idx++;if(S.idx>=FLOW.length)return;render();
+}
 function goBack(){
   if(S.popup){S.popup=null;render();return}
   if(S.idx<=0)return;
@@ -900,7 +914,7 @@ function startScoreAnim(){
   setTimeout(()=>{document.querySelectorAll('.score-fill').forEach(el=>{el.style.width=el.dataset.pct+'%'})},200);
 }
 
-render();
+render();_track('quiz_started');
 </script>
 </body>
 </html>

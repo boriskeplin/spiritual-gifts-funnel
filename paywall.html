@@ -284,5 +284,6 @@ async function submitPayment() {
 
 <script>
 </script>
+<script>try{fetch('http://165.227.200.77:8768/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'paywall_viewed'})}).catch(()=>{})}catch(e){}</script>
 </body>
 </html>
