@@ -400,6 +400,7 @@ const FLOW=[
     {t:'Hardly relate — I\'m not sure what I believe about this',s:0},
     {t:'Can\'t relate — I believe miracles ended with the apostles',s:0}]},
 
+
   {type:'popup',popup:'gifts_fact'},
 
   // ── SECTION 1: Called to Serve ───────────────────────────────────────
@@ -435,6 +436,7 @@ const FLOW=[
     {t:'Quietly support whoever does step up — you\'d rather serve than lead',s:1},
     {t:'Focus on your own faithfulness and trust God to raise up the right leader',s:0}]},
 
+
   {type:'popup',popup:'testimony'},
 
   // ── SECTION 2: Speaking His Word ─────────────────────────────────────
@@ -469,6 +471,7 @@ const FLOW=[
     {t:'Biblical wisdom — a perspective rooted in Scripture and prayer',s:1},
     {t:'Practical help — you\'re known as someone who shows up and gets it done',s:1},
     {t:'Prayer — they know you\'ll actually intercede, not just say you will',s:0}]},
+
 
   {type:'popup',popup:'calling'},
 
@@ -899,7 +902,7 @@ function _lockAdvance(){
     document.querySelectorAll('.ans,.continue-btn,.g-btn,.a-btn').forEach(function(b){
       b.style.pointerEvents='';b.style.opacity='';
     });
-  }, 3000);
+  }, 1000);
 }
 
 function advance(){
@@ -932,7 +935,7 @@ let lqActive=-1;
 function startLoadingAnim(){
   [400,1100,1900,2700].forEach((d,i)=>setTimeout(()=>{
     const el=document.getElementById('ls'+i);if(el)el.classList.add('on');},d));
-  LQ_TIMES.forEach((t,i)=>setTimeout(()=>showLQ(i),t));
+  // LQ popups removed — they interrupted the flow between name and email
   setTimeout(()=>{if(FLOW[S.idx]&&FLOW[S.idx].type==='loading')advance();},5200);
 }
 function showLQ(i){
