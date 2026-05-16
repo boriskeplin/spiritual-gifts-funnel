@@ -36,7 +36,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
 .wrap{max-width:460px;margin:0 auto;padding:0 18px 80px}
 .hdr{display:flex;justify-content:center;align-items:center;gap:10px;padding:22px 0 0}
 .logo-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;letter-spacing:.6px;color:var(--navy)}
-.hero-img{width:100%;border-radius:16px;object-fit:cover;max-height:280px;box-shadow:var(--shadow);margin:24px 0 22px}
+.hero-img{width:100%;border-radius:16px;object-fit:cover;object-position:top center;max-height:260px;box-shadow:var(--shadow);margin:24px 0 22px}
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;text-align:center}
 .h1{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;line-height:41px;color:var(--navy);margin-bottom:12px;text-align:center}
 .h-sub{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:22px;text-align:center}
@@ -87,59 +87,56 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
     <span class="logo-text">Gifted Ministry</span>
   </div>
 
-  <!-- Hero painting -->
+  <!-- Hero painting — object-position:top shows Jesus's head -->
   <img class="hero-img" src="assets/jesus_consolator.jpg" alt="Christ the Consolator — Carl Bloch">
 
   <div class="eyebrow">✦ Your Gift Is In This Guide</div>
-  <div class="h1">Your spiritual gift has been identified. Your guide will reveal it.</div>
-  <div class="h-sub">Along with everything you need to understand what it means and how to begin walking in it.</div>
+  <div class="h1">Your gift has been identified. This guide reveals it.</div>
+  <div class="h-sub">Along with everything you need to understand what it means and begin walking in it.</div>
 
-  <!-- Verse -->
-  <div class="verse-card">
-    <div class="vt">"For the gifts and the calling of God are irrevocable."</div>
-    <div class="vr">Romans 11:29</div>
-  </div>
-
-  <!-- Jesus 33 years -->
-  <div class="navy-card">
-    <div class="nc-tag">☁ Why 33 questions</div>
-    <div class="nc-title">Jesus spent 33 years on this earth. Before He left, He gave gifts.</div>
-    <div class="nc-text">He was born in poverty and raised in obscurity. He lived fully — through temptation, grief, betrayal, and suffering — and gave His life for every person who would ever follow Him. Before He ascended, He sent His Spirit. And with His Spirit, He gave gifts.</div>
-    <div class="nc-text">To you. Specifically. Before you were born. This guide exists because those gifts are irrevocable — and too many believers are carrying something they have never been helped to understand.</div>
-  </div>
-
-  <!-- What the guide reveals -->
-  <div class="section-title">What your guide reveals</div>
-  <div class="reveals">
+  <!-- What the guide reveals — compact -->
+  <div class="reveals" style="margin-bottom:20px">
     <div class="rev-item">
       <div class="rev-num">01</div>
       <div>
         <div class="rev-lbl">The name and nature of your specific gift</div>
-        <div class="rev-sub">Not a category — your actual spiritual gift, explained in full. What it is, why you have it, and what the Holy Spirit placed in you that others around you don't carry the same way.</div>
+        <div class="rev-sub">Your actual spiritual gift — what it is, why you have it, what the Holy Spirit placed in you specifically.</div>
       </div>
     </div>
     <div class="rev-item">
       <div class="rev-num">02</div>
       <div>
         <div class="rev-lbl">Why you are the way you are</div>
-        <div class="rev-sub">The things that have always been true about you — that you may have been confused by, dismissed, or even ashamed of — explained through scripture. This is often the section people read and say: I finally understand myself.</div>
+        <div class="rev-sub">The things that have always been true about you — explained through scripture. The section people read and say: I finally understand myself.</div>
       </div>
     </div>
     <div class="rev-item">
       <div class="rev-num">03</div>
       <div>
         <div class="rev-lbl">How to walk in it — practically</div>
-        <div class="rev-sub">Specific guidance on how to develop your gift, where it belongs in the Body of Christ, and what faithfulness looks like in your actual life — not in theory.</div>
+        <div class="rev-sub">Where your gift belongs in the Body of Christ and what faithfulness looks like in your actual life.</div>
       </div>
     </div>
     <div class="rev-item">
       <div class="rev-num">04</div>
       <div>
         <div class="rev-lbl">What the Bible says about your calling</div>
-        <div class="rev-sub">Scripture written directly to the person who carries what you carry. Your gift. Your role. Your specific place in the Kingdom of God.</div>
+        <div class="rev-sub">Scripture written directly to the person who carries what you carry.</div>
       </div>
     </div>
   </div>
+
+  <!-- FIRST CTA — early, before scrolling far -->
+  <div class="price-section" style="margin-bottom:16px">
+    <div class="price-label">Ministry donation — name your amount</div>
+    <div class="price-amount">$1<span style="font-size:24px;color:var(--muted)">+</span></div>
+  </div>
+  <a class="cta-btn" href="https://giftedministry.gumroad.com/l/bodpe" data-gumroad-overlay-checkout="true">
+    Receive My Spiritual Gifts Profile →
+  </a>
+  <div class="cta-note" style="margin-bottom:24px">✦ Delivered to your email · Yours to keep</div>
+
+  <div class="div"></div>
 
   <!-- Testimonials -->
   <div class="section-title">What people are saying</div>
@@ -161,38 +158,29 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
     </div>
   </div>
 
-  <!-- Ministry card -->
+  <!-- Jesus 33 years + ministry — combined, compact -->
   <div class="navy-card">
-    <div class="nc-tag">☁ A note from this ministry</div>
-    <div class="nc-title">This is not a business. This is a ministry.</div>
-    <div class="nc-text">Gifted exists for one purpose: to help believers understand and walk in what God placed in them. Every resource is funded entirely by the community it serves — by people who received something real and chose to give back so the next person could receive it too.</div>
-    <div class="nc-text">What you give here is a donation to that mission. Give what it's worth to you. Know that whatever you give goes directly into reaching the next person who took this quiz and finally began to understand who they are in God.</div>
+    <div class="nc-tag">☁ Not a business. A ministry.</div>
+    <div class="nc-title">Jesus spent 33 years on this earth. Before He left, He gave gifts — to you, specifically.</div>
+    <div class="nc-text">He was born in poverty, raised in obscurity, and gave His life for every person who would ever follow Him. Before He ascended, He sent His Spirit. And with His Spirit, He gave gifts. This guide exists because too many believers are carrying something they have never been helped to understand.</div>
+    <div class="nc-text">What you give here is a donation to that mission. Give what it's worth to you.</div>
   </div>
 
-  <!-- Scripture on giving -->
+  <!-- Scripture on giving — one verse -->
   <div class="verse-card">
-    <div class="vt">"Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously. Each of you should give what you have decided in your heart to give — not reluctantly or under compulsion, for God loves a cheerful giver."</div>
-    <div class="vr">2 Corinthians 9:6–7</div>
+    <div class="vt">"Each of you should give what you have decided in your heart to give — not reluctantly or under compulsion, for God loves a cheerful giver."</div>
+    <div class="vr">2 Corinthians 9:7</div>
   </div>
 
-  <div class="verse-card">
-    <div class="vt">"Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap."</div>
-    <div class="vr">Luke 6:38</div>
-  </div>
-
-  <!-- Pricing -->
+  <!-- SECOND CTA at bottom -->
   <div class="price-section">
     <div class="price-label">Ministry donation — name your amount</div>
     <div class="price-amount">$1<span style="font-size:24px;color:var(--muted)">+</span></div>
-    <div class="price-note">Give what it's worth to you. Every dollar goes directly into reaching the next person who has been searching for these answers.</div>
+    <div class="price-note">Every dollar goes directly into reaching the next person who has been searching for these answers.</div>
   </div>
-
   <a class="cta-btn" href="https://giftedministry.gumroad.com/l/bodpe" data-gumroad-overlay-checkout="true">
     Receive My Spiritual Gifts Profile →
   </a>
-  <div class="cta-note">✦ Delivered to your email · Yours to keep</div>
-
-  <div class="div"></div>
   <div class="cta-note">✦ Gifted Ministry · gifted.church · Not a business. A ministry.</div>
 
 </div>
