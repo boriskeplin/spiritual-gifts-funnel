@@ -5,7 +5,7 @@
 
 const GIFTED_CONFIG = {
 
-  stripePaymentLink:  'https://buy.stripe.com/PASTE_YOUR_LINK_HERE',
+  stripePaymentLink:  '',
   mailchimpFormAction: 'http://165.227.200.77:5678/webhook/gifted-quiz-email',
 
   gumroad: {
