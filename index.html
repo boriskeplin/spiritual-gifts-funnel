@@ -888,7 +888,7 @@ function submitEmail(){
   // ── Go to paywall ─────────────────────────────────────────────
   window.location.href = 'offering.html';
 }
-function _track(event){try{fetch('http://165.227.200.77:8768/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:event})}).catch(()=>{});}catch(e){}}
+function _track(event){try{fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:event})}).catch(()=>{});}catch(e){}}
 
 var _advanceLocked = false;
 function _lockAdvance(){
