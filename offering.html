@@ -7,6 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://gumroad.com/js/gumroad.js"></script>
+<script>
+// Track paywall view
+window.addEventListener('load',function(){
+  try{
+    fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({event:'paywall_viewed',page:'offering'})}).catch(()=>{});
+  }catch(e){}
+});
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{

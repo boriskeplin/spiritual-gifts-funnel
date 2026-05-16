@@ -1094,6 +1094,7 @@ function dismissReveal(){
   const ov=document.getElementById('reveal-overlay');
   if(ov){ov.style.animation='fadeOut .3s ease forwards';setTimeout(()=>{ov.remove()},300)}
   S.revealDone=true;
+  _track('step_results',{gift:primaryGift()});
   document.getElementById('app').innerHTML=rResults();
   startScoreAnim();
 }
@@ -1150,12 +1151,8 @@ function rResults(){
 
 // ── INTERACTIONS ──────────────────────────────────────────────────────
 function pickGender(g){
-  playSelect();S.gender=g;render();
-  // Auto-advance to first question after brief moment
-  setTimeout(()=>{
-    startMusic();
-    S.idx++;render();
-  },280);
+  playSelect();S.gender=g;_track('step_gender',{gender:g});render();
+  setTimeout(()=>{startMusic();S.idx++;render();},280);
 }
 
 function selectAns(i){
@@ -1178,7 +1175,7 @@ function submitAns(){
     S.scores[ans.g]=(S.scores[ans.g]||0)+(ans.s||0);
   }
   playSubmit();
-  // Check if this is end of a phase (milestone)
+  if(it.qnum)_track('step_q'+it.qnum,{phase:it.phase||0});
   const nextIdx=S.idx+1;
   if(FLOW[nextIdx]&&FLOW[nextIdx].type==='popup'){
     setTimeout(()=>advance(),120);
@@ -1198,7 +1195,7 @@ function submitName(){
     if(inp){inp.style.borderColor='#C0392B';inp.placeholder='Please enter your name'}
     return;
   }
-  S.name=val;playSubmit();advance();
+  S.name=val;playSubmit();_track('step_name');advance();
 }
 
 function submitEmail(){
@@ -1210,8 +1207,8 @@ function submitEmail(){
   }
   S.email=val;
   playSubmit();
-  // Track
-  if(window._gtag)_gtag('event','generate_lead',{event_category:'funnel',email:val});
+  _track('step_email',{gift:primaryGift()});
+  if(window._gtag)_gtag('event','generate_lead',{event_category:'funnel'});
   if(window._fbq)_fbq('track','Lead',{value:0.01,currency:'USD'});
   // Submit to Mailchimp via API
   if(window.GIFTED_CONFIG){
@@ -1251,7 +1248,23 @@ const _style=document.createElement('style');
 _style.textContent='@keyframes fadeOut{from{opacity:1}to{opacity:0}}';
 document.head.appendChild(_style);
 
+// ── TRACKING ─────────────────────────────────────────────────────────
+function _track(event, extra){
+  const body={event,...(extra||{})};
+  fetch('/api/track',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(body),
+  }).catch(()=>{});
+  if(window._gtag)_gtag('event',event,{event_category:'gifted_funnel',...(extra||{})});
+  if(window._fbq&&['step_email','step_results','paywall_viewed'].includes(event)){
+    const fbMap={step_email:'Lead',step_results:'ViewContent',paywall_viewed:'InitiateCheckout'};
+    if(fbMap[event])_fbq('track',fbMap[event]);
+  }
+}
+
 // ── INIT ──────────────────────────────────────────────────────────────
+_track('quiz_started');
 render();
 </script>
 </body>

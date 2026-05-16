@@ -52,16 +52,19 @@ export default async function handler(req, res) {
   if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST")    return res.status(405).json({ error: "Method not allowed" });
 
-  const { email, name, gift_type } = req.body || {};
+  const { email, name, gift_type, gift, scores, gender } = req.body || {};
+  const resolvedGift = gift_type || gift || ""; // quiz sends 'gift', legacy sends 'gift_type'
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: "Invalid email" });
   }
 
   const hash    = md5(email);
-  const giftKey = normGift(gift_type);
+  const giftKey = normGift(resolvedGift);
   const tags    = ["gifted-quiz-complete"];
   if (giftKey) tags.push(GIFT_TAG_MAP[giftKey]);
+  if (gender === "Female") tags.push("gifted-gender-female");
+  if (gender === "Male")   tags.push("gifted-gender-male");
 
   try {
     // Upsert subscriber
@@ -85,7 +88,7 @@ export default async function handler(req, res) {
     fetch("http://165.227.200.77:5678/webhook/gifted-quiz-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, name: name || "", gift_type: giftKey || gift_type, source: "quiz" }),
+      body: JSON.stringify({ email, name: name || "", gift_type: giftKey || resolvedGift, gender: gender || "", source: "quiz" }),
     }).catch(() => {});
 
     return res.status(200).json({ ok: true, gift: giftKey });
